@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://dywkfuk4q41q4"]
+
+[ext_resource type="PackedScene" uid="uid://dksqsb7ouxc4c" path="res://player/player.tscn" id="1_0wr34"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jsg4m"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_hncv2"]
+sky_material = SubResource("ProceduralSkyMaterial_jsg4m")
+
+[sub_resource type="Environment" id="Environment_omk13"]
+background_mode = 2
+sky = SubResource("Sky_hncv2")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0257o"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_m45s1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r5ldv"]
+albedo_color = Color(1, 0, 1, 1)
+
+[node name="DallasTestLevel" type="Node3D" unique_id=1958121822]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1639732714]
+environment = SubResource("Environment_omk13")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1184963571]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Ground" type="CSGBox3D" parent="." unique_id=1093195727]
+material_override = SubResource("StandardMaterial3D_0257o")
+size = Vector3(500, 1, 500)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=947810332]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=225319536]
+shape = SubResource("WorldBoundaryShape3D_m45s1")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=2031397833]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9334178, 2.0251741, 5.712931)
+material_override = SubResource("StandardMaterial3D_r5ldv")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=1238305809]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.849878, 2.0473294, 0)
+material_override = SubResource("StandardMaterial3D_r5ldv")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=1031771207]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1549397, 3.0959358, 0)
+material_override = SubResource("StandardMaterial3D_r5ldv")
+
+[node name="Player" parent="." unique_id=461061772 instance=ExtResource("1_0wr34")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1338792, 0)
