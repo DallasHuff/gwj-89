@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://dywkfuk4q41q4"]
 
 [ext_resource type="PackedScene" uid="uid://dksqsb7ouxc4c" path="res://entities/player/player.tscn" id="1_0wr34"]
+[ext_resource type="PackedScene" uid="uid://gdv62oa7bqy0" path="res://entities/spawner/spawner.tscn" id="2_jsg4m"]
+[ext_resource type="PackedScene" uid="uid://bxedjpgetpoay" path="res://entities/trash/trash.tscn" id="3_hncv2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jsg4m"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -16,6 +18,7 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0257o"]
+albedo_color = Color(0.04262498, 0.33, 0.016500005, 1)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_m45s1"]
 
@@ -54,3 +57,7 @@ material_override = SubResource("StandardMaterial3D_r5ldv")
 
 [node name="Player" parent="." unique_id=461061772 instance=ExtResource("1_0wr34")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1338792, 0)
+
+[node name="Spawner" parent="." unique_id=359273142 instance=ExtResource("2_jsg4m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0919256, 5.5436907, -7.6753654)
+trash_scene = ExtResource("3_hncv2")
