@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://dksqsb7ouxc4c"]
+
+[ext_resource type="Script" uid="uid://b5ni1gsunoqou" path="res://entities/player/player.gd" id="1_oul6g"]
+[ext_resource type="Script" uid="uid://b4iy4v2v82grv" path="res://entities/components/state_machine/state_machine.gd" id="2_sglur"]
+[ext_resource type="Script" uid="uid://c4tmbb57xecu8" path="res://entities/components/state_machine/states/idle.gd" id="3_bls4j"]
+[ext_resource type="Script" uid="uid://b2avbdpdqfic5" path="res://entities/components/state_machine/states/interact.gd" id="4_bls4j"]
+[ext_resource type="Script" uid="uid://h5au57bu7aot" path="res://entities/components/state_machine/states/run.gd" id="5_fkugw"]
+[ext_resource type="Script" uid="uid://kc77v1b4gg6r" path="res://entities/components/movement_component.gd" id="6_8fjmc"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqu6x"]
+
+[sub_resource type="Animation" id="Animation_8fjmc"]
+resource_name = "idle"
+
+[sub_resource type="Animation" id="Animation_qiwj3"]
+resource_name = "interact"
+
+[sub_resource type="Animation" id="Animation_26q78"]
+resource_name = "run"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bectd"]
+_data = {
+&"idle": SubResource("Animation_8fjmc"),
+&"interact": SubResource("Animation_qiwj3"),
+&"run": SubResource("Animation_26q78")
+}
+
+[node name="Player" type="CharacterBody3D" unique_id=461061772]
+script = ExtResource("1_oul6g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2113718125]
+shape = SubResource("CapsuleShape3D_kqu6x")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=829177861]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=874655286]
+transform = Transform3D(0.99999183, 0.0021172431, -0.00345151, 0, 0.852403, 0.5228855, 0.004049153, -0.52288115, 0.852396, 0, 3.5916574, 3.7157292)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1628525913]
+libraries/ = SubResource("AnimationLibrary_bectd")
+
+[node name="MovementComponent" type="Node" parent="." unique_id=512620162 node_paths=PackedStringArray("character")]
+script = ExtResource("6_8fjmc")
+character = NodePath("..")
+speed = 10.0
+metadata/_custom_type_script = "uid://kc77v1b4gg6r"
+
+[node name="StateMachine" type="Node" parent="." unique_id=690554229 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_sglur")
+initial_state = NodePath("Idle")
+metadata/_custom_type_script = "uid://b4iy4v2v82grv"
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=1361308190 node_paths=PackedStringArray("animation_player")]
+script = ExtResource("3_bls4j")
+animation_player = NodePath("../../AnimationPlayer")
+metadata/_custom_type_script = "uid://c4tmbb57xecu8"
+
+[node name="Interact" type="Node" parent="StateMachine" unique_id=339015851 node_paths=PackedStringArray("animation_player")]
+script = ExtResource("4_bls4j")
+animation_player = NodePath("../../AnimationPlayer")
+metadata/_custom_type_script = "uid://b2avbdpdqfic5"
+
+[node name="Run" type="Node" parent="StateMachine" unique_id=938482072 node_paths=PackedStringArray("character", "anim_player", "movement_component")]
+script = ExtResource("5_fkugw")
+character = NodePath("../..")
+anim_player = NodePath("../../AnimationPlayer")
+movement_component = NodePath("../../MovementComponent")
+metadata/_custom_type_script = "uid://h5au57bu7aot"
