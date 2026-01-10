@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://0y1s4ra8pfw"]
+
+[ext_resource type="Script" uid="uid://d3o2cfsr551di" path="res://entities/conveyor/straight_conveyor.gd" id="1_7eqht"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n54wd"]
+albedo_color = Color(1, 0.78300005, 0.06999999, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n54wd"]
+size = Vector3(1, 0.1, 0.91503906)
+
+[node name="StraightConveyor" type="StaticBody3D" unique_id=263868903]
+script = ExtResource("1_7eqht")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1448096115]
+size = Vector3(1, 0.1, 1)
+material = SubResource("StandardMaterial3D_n54wd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=354356967]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.09692383)
+shape = SubResource("BoxShape3D_n54wd")
+
+[node name="Arrow" type="CSGPolygon3D" parent="." unique_id=1167550922]
+transform = Transform3D(-4.371139e-08, -1, 4.371139e-08, 0, -4.371139e-08, -1, 1, -4.371139e-08, 1.9106855e-15, 0.5971172, -0.045252264, -0.67797714)
+polygon = PackedVector2Array(0.4, 0.4, 0.4, 0.8, 0.97884727, 0.5985436)
+depth = 0.12

@@ -8,7 +8,6 @@ func _process(_delta: float) -> void:
 		print("debug1")
 		spawn_trash()
 
-
 func spawn_trash() -> void:
 	var t : Trash = trash_scene.instantiate()
 	t.trash_type = Trash.METAL
