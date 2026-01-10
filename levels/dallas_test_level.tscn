@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dksqsb7ouxc4c" path="res://entities/player/player.tscn" id="1_0wr34"]
 [ext_resource type="PackedScene" uid="uid://gdv62oa7bqy0" path="res://entities/spawner/spawner.tscn" id="2_jsg4m"]
 [ext_resource type="PackedScene" uid="uid://bxedjpgetpoay" path="res://entities/trash/trash.tscn" id="3_hncv2"]
+[ext_resource type="PackedScene" uid="uid://0y1s4ra8pfw" path="res://entities/conveyor/straight_conveyor.tscn" id="4_omk13"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jsg4m"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -21,6 +22,7 @@ glow_enabled = true
 albedo_color = Color(0.04262498, 0.33, 0.016500005, 1)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_m45s1"]
+plane = Plane(0, 10, 0, 0)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r5ldv"]
 albedo_color = Color(1, 0, 1, 1)
@@ -36,7 +38,7 @@ shadow_enabled = true
 
 [node name="Ground" type="CSGBox3D" parent="." unique_id=1093195727]
 material_override = SubResource("StandardMaterial3D_0257o")
-size = Vector3(500, 1, 500)
+size = Vector3(500, 0, 500)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=947810332]
 
@@ -61,3 +63,33 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1338792, 0)
 [node name="Spawner" parent="." unique_id=359273142 instance=ExtResource("2_jsg4m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0919256, 5.5436907, -7.6753654)
 trash_scene = ExtResource("3_hncv2")
+
+[node name="StraightConveyor4" parent="." unique_id=974343639 instance=ExtResource("4_omk13")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.2336164, 0.98984605, -4.6525774)
+
+[node name="StraightConveyor5" parent="." unique_id=1992202870 instance=ExtResource("4_omk13")]
+transform = Transform3D(-4.2680696e-08, 0.21587726, -0.9764205, 9.436295e-09, 0.9764205, 0.21587726, 1, 0, -4.371139e-08, 1.2336164, 1.0765743, -4.6525774)
+
+[node name="StraightConveyor6" parent="." unique_id=1992293012 instance=ExtResource("4_omk13")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.23361635, 0.98984605, -4.6525774)
+
+[node name="StraightConveyor7" parent="." unique_id=1969052897 instance=ExtResource("4_omk13")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.23361635, 0.98984605, -5.6525774)
+
+[node name="StraightConveyor8" parent="." unique_id=1446609966 instance=ExtResource("4_omk13")]
+transform = Transform3D(-1, 0, 8.742278e-08, 1.8505917e-08, 0.9773384, 0.21168302, -8.5441634e-08, 0.21168302, -0.9773384, 0.23361635, 1.0896494, -6.6525774)
+
+[node name="StraightConveyor9" parent="." unique_id=1713566708 instance=ExtResource("4_omk13")]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 0.23361635, 0.98984605, -7.6525774)
+
+[node name="StraightConveyor10" parent="." unique_id=718362966 instance=ExtResource("4_omk13")]
+transform = Transform3D(1.2924278e-07, -0.16922909, 0.98557675, 2.2191713e-08, 0.98557675, 0.16922909, -1, 0, 1.3113416e-07, 1.2336164, 1.0669949, -7.6525774)
+
+[node name="StraightConveyor11" parent="." unique_id=263868903 instance=ExtResource("4_omk13")]
+transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, 2.2336164, 0.98984605, -7.6525774)
+
+[node name="StraightConveyor12" parent="." unique_id=360822248 instance=ExtResource("4_omk13")]
+transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, 2.2336164, 0.98984605, -6.6525774)
+
+[node name="StraightConveyor13" parent="." unique_id=2056955303 instance=ExtResource("4_omk13")]
+transform = Transform3D(1, 1.1910233e-14, -1.7484557e-07, 3.131082e-08, 0.98383504, 0.17907703, 1.7201918e-07, -0.17907703, 0.98383504, 2.2336164, 1.0783291, -5.6525774)

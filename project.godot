@@ -77,6 +77,10 @@ debug5={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_2="conveyors"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
