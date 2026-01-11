@@ -15,12 +15,6 @@ func _input(event: InputEvent) -> void:
 		putdown()
 
 
-func _process(_delta: float) -> void:
-	for i in range(trash.size()):
-		var t := trash[i]
-		t.global_position = hold_spot.global_position + (TRASH_GAP * i)
-
-
 func pickup() -> void:
 	var bodies := get_overlapping_bodies()
 	for i in range(bodies.size()):
@@ -29,9 +23,11 @@ func pickup() -> void:
 			trash.append(body)
 			body.global_position = hold_spot.global_position + (TRASH_GAP * trash.size())
 			body.freeze = true
+			body.reparent(self)
 
 
 func putdown() -> void:
 	for t in trash:
+		t.reparent(get_tree().root)
 		t.freeze = false
 	trash.clear()

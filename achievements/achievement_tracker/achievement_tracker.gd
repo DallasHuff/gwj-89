@@ -1,18 +1,11 @@
 extends Node
 
-enum AchName {
-	LOGGED_IN,
-	ATE_CHEESE,
-	KILLED_WES,
-	STOLE_THE_MOON,
-}
-
 const PATH := "res://achievements"
 
-@export var achievement_dic: Dictionary[AchName, Achievement] = {}
+@export var achievement_list: Array[Achievement] = []
 
-var already_achieved: Array[AchName] = []
-var achievement_queue: Array[AchName] = []
+var already_achieved: Array[String] = []
+var achievement_queue: Array[Achievement] = []
 var currently_achieving := false
 
 @onready var panel: PanelContainer = %AchievementPanel
@@ -22,7 +15,7 @@ var currently_achieving := false
 
 
 func _ready() -> void:
-	get_tree().create_timer(2).timeout.connect(func()->void: achieve(AchName.LOGGED_IN))
+	get_tree().create_timer(2).timeout.connect(func()->void: achieve("Logged In!"))
 
 
 func _process(_delta: float) -> void:
@@ -30,14 +23,19 @@ func _process(_delta: float) -> void:
 		_play_next_animation()
 
 
-func achieve(ach_name: AchName) -> void:
-	if ach_name in already_achieved:
+func achieve(achievement_name: String) -> void:
+	if achievement_name in already_achieved:
 		return
-	if not achievement_dic.has(ach_name):
-		push_warning("achievement not implemented ", ach_name)
+	var a: Achievement = null
+	for achievement in achievement_list:
+		if achievement.display_name == achievement_name:
+			a = achievement
+			break
+	if a == null:
+		push_warning("achievement not implemented ", achievement_name)
 		return
-	already_achieved.append(ach_name)
-	achievement_queue.append(ach_name)
+	already_achieved.append(achievement_name)
+	achievement_queue.append(a)
 
 
 func _play_next_animation() -> void:
@@ -45,14 +43,14 @@ func _play_next_animation() -> void:
 		push_warning("trying to play animation but no achievements in queue")
 		return
 	currently_achieving = true
-	var ach := achievement_dic[achievement_queue.pop_front()]
+	var ach: Achievement = achievement_queue.pop_front()
 	name_label.text = ach.display_name
 	desc_label.text = ach.description
 	icon.texture = ach.icon
 
 	var tween := create_tween()
-	tween.tween_property(panel, "anchor_top", 0, 0.5)
-	tween.parallel().tween_property(panel, "anchor_bottom", 0.2, 0.5)
-	tween.chain().tween_property(panel, "anchor_top", -0.2, 0.5).set_delay(4)
-	tween.parallel().tween_property(panel, "anchor_bottom", 0, 0.5).set_delay(4)
+	tween.tween_property(panel, "anchor_top", 0.03, 0.5)
+	tween.parallel().tween_property(panel, "anchor_bottom", 0.23, 0.5)
+	tween.chain().tween_property(panel, "anchor_top", -0.23, 0.5).set_delay(4)
+	tween.parallel().tween_property(panel, "anchor_bottom", -0.03, 0.5).set_delay(4)
 	tween.chain().tween_callback(func() -> void: currently_achieving = false).set_delay(1)

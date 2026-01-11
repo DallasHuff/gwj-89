@@ -11,7 +11,7 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqu6x"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8fjmc"]
-size = Vector3(1, 2, 1.2)
+size = Vector3(1, 2, 1.7)
 
 [sub_resource type="Animation" id="Animation_8fjmc"]
 resource_name = "idle"
@@ -38,14 +38,15 @@ shape = SubResource("CapsuleShape3D_kqu6x")
 [node name="Body" type="CSGCylinder3D" parent="." unique_id=829177861]
 
 [node name="Arm" type="CSGBox3D" parent="Body" unique_id=2036429401]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.88967705)
-size = Vector3(0.5, 0.5, 1.2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.1998088)
+size = Vector3(0.5, 0.5, 1.8202636)
 
 [node name="Interactor" type="Area3D" parent="." unique_id=2122147064]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.0473077)
 script = ExtResource("2_qiwj3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interactor" unique_id=1582366966]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.21687078)
 shape = SubResource("BoxShape3D_8fjmc")
 
 [node name="HoldSpotMarker" type="Marker3D" parent="Interactor" unique_id=909458360]

@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_qqn5l")
-display_name = "Logged In!!"
+display_name = "Logged In!"
 description = "You started the game :)"
 icon = ExtResource("1_4lpj1")
 metadata/_custom_type_script = "uid://ensdc4nbfc1e"
