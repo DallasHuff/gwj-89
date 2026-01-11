@@ -6,20 +6,63 @@
 albedo_color = Color(1, 0.78300005, 0.06999999, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n54wd"]
-size = Vector3(1, 0.1, 0.91503906)
+size = Vector3(1, 0.1, 1)
 
-[node name="StraightConveyor" type="StaticBody3D" unique_id=263868903]
+[sub_resource type="BoxShape3D" id="BoxShape3D_7eqht"]
+size = Vector3(0.1, 0.2, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n1slu"]
+size = Vector3(0.1, 0.2, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q1i14"]
+size = Vector3(1.2, 0.2, 0.1)
+
+[node name="StraightConveyor" type="Node3D" unique_id=606666062]
 script = ExtResource("1_7eqht")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1448096115]
 size = Vector3(1, 0.1, 1)
 material = SubResource("StandardMaterial3D_n54wd")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=354356967]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.09692383)
-shape = SubResource("BoxShape3D_n54wd")
-
 [node name="Arrow" type="CSGPolygon3D" parent="." unique_id=1167550922]
 transform = Transform3D(-4.371139e-08, -1, 4.371139e-08, 0, -4.371139e-08, -1, 1, -4.371139e-08, 1.9106855e-15, 0.5971172, -0.045252264, -0.67797714)
 polygon = PackedVector2Array(0.4, 0.4, 0.4, 0.8, 0.97884727, 0.5985436)
 depth = 0.12
+
+[node name="BeltMover" type="StaticBody3D" parent="." unique_id=2116407018]
+unique_name_in_owner = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BeltMover" unique_id=354356967]
+transform = Transform3D(1, 0, 0, 0, 0.9993908, 0.03489949, 0, -0.03489949, 0.9993908, 0, 0.01, 0)
+shape = SubResource("BoxShape3D_n54wd")
+
+[node name="BumperLeft" type="CSGBox3D" parent="." unique_id=218291954]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.55, 0, 0)
+size = Vector3(0.1, 0.2, 1)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="BumperLeft" unique_id=347671735]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BumperLeft/StaticBody3D" unique_id=769083467]
+shape = SubResource("BoxShape3D_7eqht")
+
+[node name="BumperRight" type="CSGBox3D" parent="." unique_id=989052050]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55, 0, 0)
+size = Vector3(0.1, 0.2, 1)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="BumperRight" unique_id=323769172]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BumperRight/StaticBody3D" unique_id=2032328365]
+shape = SubResource("BoxShape3D_n1slu")
+
+[node name="BumperRear" type="CSGBox3D" parent="." unique_id=254482814]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.55)
+visible = false
+size = Vector3(1.2, 0.2, 0.1)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="BumperRear" unique_id=2066356704]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BumperRear/StaticBody3D" unique_id=1595762718]
+shape = SubResource("BoxShape3D_q1i14")
