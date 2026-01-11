@@ -11,7 +11,7 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqu6x"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8fjmc"]
-size = Vector3(1, 2, 1.7)
+size = Vector3(1, 2.5, 1.7)
 
 [sub_resource type="Animation" id="Animation_8fjmc"]
 resource_name = "idle"
@@ -50,7 +50,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.21687078)
 shape = SubResource("BoxShape3D_8fjmc")
 
 [node name="HoldSpotMarker" type="Marker3D" parent="Interactor" unique_id=909458360]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6170827, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8913527, 1.0183897)
+
+[node name="DropSpotMarker" type="Marker3D" parent="Interactor" unique_id=694664943]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5927345, -0.07178545)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1628525913]
 libraries/ = SubResource("AnimationLibrary_bectd")
