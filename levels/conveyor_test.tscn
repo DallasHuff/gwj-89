@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://c11aewuhd8ifn"]
 
 [ext_resource type="PackedScene" uid="uid://dksqsb7ouxc4c" path="res://entities/player/player.tscn" id="1_mesa8"]
+[ext_resource type="Script" uid="uid://b2b65lfxuh6ri" path="res://levels/level.gd" id="1_sauko"]
 [ext_resource type="PackedScene" uid="uid://0y1s4ra8pfw" path="res://entities/conveyor/straight_conveyor.tscn" id="2_qxn8h"]
 [ext_resource type="PackedScene" uid="uid://gdv62oa7bqy0" path="res://entities/spawner/spawner.tscn" id="3_5kb2l"]
+[ext_resource type="Script" uid="uid://dw5i7nu67h2df" path="res://levels/components/ray_camera.gd" id="4_exgr7"]
 
 [sub_resource type="Environment" id="Environment_h8bs1"]
 
@@ -13,6 +15,7 @@ size = Vector3(100, 1, 100)
 albedo_color = Color(0.40199992, 0.75, 0.0975, 1)
 
 [node name="ConveyorTest" type="Node3D" unique_id=795892070]
+script = ExtResource("1_sauko")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=832076800]
 environment = SubResource("Environment_h8bs1")
@@ -31,6 +34,7 @@ size = Vector3(100, 1.05, 100)
 material = SubResource("StandardMaterial3D_qxn8h")
 
 [node name="Player" parent="." unique_id=461061772 instance=ExtResource("1_mesa8")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.349749, 1.6277466, 3.3788242)
 
 [node name="conveyors1" type="Node3D" parent="." unique_id=2085045680]
@@ -133,3 +137,8 @@ transform = Transform3D(1, 0, 0, 0, 0.9848077, 0.17364818, 0, -0.17364818, 0.984
 
 [node name="StraightConveyor12" parent="conveyors2" unique_id=1891158836 instance=ExtResource("2_qxn8h")]
 transform = Transform3D(1, 0, 0, 0, 0.9848077, 0.17364818, 0, -0.17364818, 0.9848077, -12, 1.1932387, 1.9614866)
+
+[node name="RayCamera" type="Camera3D" parent="." unique_id=2106342271]
+unique_name_in_owner = true
+script = ExtResource("4_exgr7")
+metadata/_custom_type_script = "uid://dw5i7nu67h2df"

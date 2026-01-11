@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://dywkfuk4q41q4"]
 
 [ext_resource type="PackedScene" uid="uid://dksqsb7ouxc4c" path="res://entities/player/player.tscn" id="1_0wr34"]
+[ext_resource type="Script" uid="uid://b2b65lfxuh6ri" path="res://levels/level.gd" id="1_omk13"]
 [ext_resource type="PackedScene" uid="uid://gdv62oa7bqy0" path="res://entities/spawner/spawner.tscn" id="2_jsg4m"]
-[ext_resource type="PackedScene" uid="uid://bxedjpgetpoay" path="res://entities/trash/trash.tscn" id="3_hncv2"]
+[ext_resource type="Script" uid="uid://dw5i7nu67h2df" path="res://levels/components/ray_camera.gd" id="3_0257o"]
 [ext_resource type="PackedScene" uid="uid://0y1s4ra8pfw" path="res://entities/conveyor/straight_conveyor.tscn" id="4_omk13"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jsg4m"]
@@ -28,6 +29,7 @@ plane = Plane(0, 10, 0, 0)
 albedo_color = Color(1, 0, 1, 1)
 
 [node name="DallasTestLevel" type="Node3D" unique_id=1958121822]
+script = ExtResource("1_omk13")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1639732714]
 environment = SubResource("Environment_omk13")
@@ -58,11 +60,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1549397, 3.0959358, 0)
 material_override = SubResource("StandardMaterial3D_r5ldv")
 
 [node name="Player" parent="." unique_id=461061772 instance=ExtResource("1_0wr34")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1338792, 0)
+
+[node name="RayCamera" type="Camera3D" parent="." unique_id=2023059185]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.64930207, 0.76053065, 0, -0.76053065, 0.64930207, 0, 9.055763, 4.30624)
+script = ExtResource("3_0257o")
+metadata/_custom_type_script = "uid://dw5i7nu67h2df"
 
 [node name="Spawner" parent="." unique_id=359273142 instance=ExtResource("2_jsg4m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0919256, 5.5436907, -7.6753654)
-trash_scene = ExtResource("3_hncv2")
 
 [node name="StraightConveyor4" parent="." unique_id=974343639 instance=ExtResource("4_omk13")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.2336164, 0.98984605, -4.6525774)
