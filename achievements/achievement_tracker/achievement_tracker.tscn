@@ -1,10 +1,14 @@
 [gd_scene format=3 uid="uid://cfbr318tkpgjm"]
 
 [ext_resource type="Script" uid="uid://1phjkj6y0ur3" path="res://achievements/achievement_tracker/achievement_tracker.gd" id="1_600lq"]
-[ext_resource type="Script" uid="uid://dtt3jiwkqubu6" path="res://achievements/achievement_tracker/achievement_panel.gd" id="2_g4ai5"]
+[ext_resource type="Script" uid="uid://ensdc4nbfc1e" path="res://achievements/achievement.gd" id="2_52sdh"]
+[ext_resource type="Resource" uid="uid://bfml58qfr3q63" path="res://achievements/logged_in.tres" id="3_eiejm"]
 
 [node name="AchievementTracker" type="CanvasLayer" unique_id=1725902245]
 script = ExtResource("1_600lq")
+achievement_dic = Dictionary[int, ExtResource("2_52sdh")]({
+0: ExtResource("3_eiejm")
+})
 
 [node name="AchievementPanel" type="PanelContainer" parent="." unique_id=64493941]
 unique_name_in_owner = true
@@ -16,7 +20,6 @@ grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = ExtResource("2_g4ai5")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="AchievementPanel" unique_id=1062874317]
 layout_mode = 2

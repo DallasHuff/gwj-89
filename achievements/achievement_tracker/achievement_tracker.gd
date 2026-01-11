@@ -9,7 +9,8 @@ enum AchName {
 
 const PATH := "res://achievements"
 
-var achievement_dic: Dictionary[AchName, Achievement] = {}
+@export var achievement_dic: Dictionary[AchName, Achievement] = {}
+
 var already_achieved: Array[AchName] = []
 
 @onready var panel: PanelContainer = %AchievementPanel
@@ -19,33 +20,14 @@ var already_achieved: Array[AchName] = []
 
 
 func _ready() -> void:
-	if Engine.is_editor_hint():
-		return
-	achievement_dic.clear()
-	var dir := DirAccess.open(PATH)
-	if dir == null:
-		push_error("Achievement directory not found: %s" % PATH)
-		return
-
-	dir.list_dir_begin()
-	for file_name in dir.get_files():
-		if file_name == "":
-			break
-
-		if file_name.ends_with(".tres") or file_name.ends_with(".res"):
-			var res := load(PATH + "/" + file_name)
-			if res and res is Achievement:
-				if res.achievement_name == null:
-					print("null ", file_name)
-					continue
-				achievement_dic[res.achievement_name] = res
-	dir.list_dir_end()
-
 	get_tree().create_timer(2).timeout.connect(func()->void: achieve(AchName.LOGGED_IN))
 
 
 func achieve(ach_name: AchName) -> void:
 	if ach_name in already_achieved:
+		return
+	if not achievement_dic.has(ach_name):
+		push_error("achievement not implemented ", ach_name)
 		return
 	already_achieved.append(ach_name)
 	var ach := achievement_dic[ach_name]
