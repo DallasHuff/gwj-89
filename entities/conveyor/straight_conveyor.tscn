@@ -57,12 +57,12 @@ size = Vector3(0.1, 0.2, 1)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BumperRight/StaticBody3D" unique_id=2032328365]
 shape = SubResource("BoxShape3D_n1slu")
 
-[node name="BumperRear" type="CSGBox3D" parent="." unique_id=244084465]
+[node name="BumperRear" type="CSGBox3D" parent="." unique_id=1740338729]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.55)
 size = Vector3(1, 0.2, 0.1)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="BumperRear" unique_id=1133859339]
+[node name="StaticBody3D" type="StaticBody3D" parent="BumperRear" unique_id=1619084412]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BumperRear/StaticBody3D" unique_id=222408424]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BumperRear/StaticBody3D" unique_id=676734221]
 shape = SubResource("BoxShape3D_q1i14")
