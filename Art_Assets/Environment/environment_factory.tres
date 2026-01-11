@@ -1,0 +1,17 @@
+[gd_resource type="Environment" format=3 uid="uid://qu2cn2xkt7i4"]
+
+[resource]
+background_mode = 1
+background_color = Color(0.05865992, 0.11575442, 0.13234377, 1)
+tonemap_exposure = 2.0
+ssao_radius = 2.0
+ssao_intensity = 10.0
+glow_intensity = 1.99
+fog_light_color = Color(0.10444965, 0.19217822, 0.2565622, 1)
+fog_light_energy = 2.92
+fog_density = 0.0
+fog_sky_affect = 0.0
+volumetric_fog_density = 0.02
+volumetric_fog_length = 32.0
+adjustment_contrast = 0.9
+adjustment_saturation = 1.5

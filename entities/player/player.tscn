@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dksqsb7ouxc4c"]
 
 [ext_resource type="Script" uid="uid://b5ni1gsunoqou" path="res://entities/player/player.gd" id="1_oul6g"]
+[ext_resource type="PackedScene" uid="uid://ch27suvq1016w" path="res://Art_Assets/Characters/Rat1/Rat1_rund.glb" id="2_26q78"]
 [ext_resource type="Script" uid="uid://dbgwigfu37cer" path="res://entities/components/interactor.gd" id="2_qiwj3"]
 [ext_resource type="Script" uid="uid://b4iy4v2v82grv" path="res://entities/components/state_machine/state_machine.gd" id="2_sglur"]
 [ext_resource type="Script" uid="uid://c4tmbb57xecu8" path="res://entities/components/state_machine/states/idle.gd" id="3_bls4j"]
@@ -13,29 +14,54 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_8fjmc"]
 size = Vector3(1, 2.5, 1.7)
 
-[sub_resource type="Animation" id="Animation_8fjmc"]
-resource_name = "idle"
-
-[sub_resource type="Animation" id="Animation_qiwj3"]
-resource_name = "interact"
-
-[sub_resource type="Animation" id="Animation_26q78"]
-resource_name = "run"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_bectd"]
-_data = {
-&"idle": SubResource("Animation_8fjmc"),
-&"interact": SubResource("Animation_qiwj3"),
-&"run": SubResource("Animation_26q78")
-}
-
 [node name="Player" type="CharacterBody3D" unique_id=461061772]
 script = ExtResource("1_oul6g")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2113718125]
 shape = SubResource("CapsuleShape3D_kqu6x")
 
+[node name="Rat1_rund" parent="." unique_id=174512231 instance=ExtResource("2_26q78")]
+transform = Transform3D(-1.5, 0, 2.2649371e-07, 0, 1.5, 0, -2.2649371e-07, 0, -1.5, 0, -0.8398146, 0.04616058)
+
+[node name="Skeleton3D" parent="Rat1_rund/Rat1_Run" parent_id_path=PackedInt32Array(174512231, 1387707695) index="0" unique_id=1251940532]
+bones/0/position = Vector3(-0.008744252, -0.014450192, -1.3634334)
+bones/0/rotation = Quaternion(-0.7060381, 0.05161911, -0.010558996, 0.7062111)
+bones/1/rotation = Quaternion(-0.0018803182, 0.007140844, -0.006498116, 0.99995166)
+bones/2/rotation = Quaternion(-0.00047394432, 0.0055799196, -0.014967213, 0.9998723)
+bones/3/rotation = Quaternion(-0.00045632693, 0.0053620017, -0.015032447, 0.99987257)
+bones/4/rotation = Quaternion(-0.022320716, -0.008959127, 0.0039884923, 0.99970275)
+bones/5/rotation = Quaternion(0.010668054, -0.039333437, 0.005687847, 0.9991531)
+bones/7/rotation = Quaternion(0.5758939, 0.4542621, -0.46537983, 0.49539256)
+bones/8/rotation = Quaternion(0.42764345, -0.016815174, -0.039355442, 0.9029338)
+bones/9/rotation = Quaternion(0.0022302868, -0.12089171, 0.24678533, 0.96149737)
+bones/10/rotation = Quaternion(-0.014435603, -0.1071364, -0.06282666, 0.99215233)
+bones/11/rotation = Quaternion(0.10047438, 0.15697105, 0.011532623, 0.9824113)
+bones/12/rotation = Quaternion(-0.010278585, 0.065236546, -0.05206753, 0.99645746)
+bones/13/rotation = Quaternion(-0.02438544, 0.03785384, 0.030727135, 0.99851304)
+bones/15/rotation = Quaternion(0.11166395, -0.0012660946, -0.015626905, 0.9936224)
+bones/16/rotation = Quaternion(0.0779752, -0.0028699944, -0.023386369, 0.9966769)
+bones/17/rotation = Quaternion(0.03903806, 0.0010220523, -0.059329018, 0.9974744)
+bones/19/rotation = Quaternion(0.6027718, -0.4233232, 0.4866371, 0.469732)
+bones/20/rotation = Quaternion(0.35536343, -0.12735309, -0.08724772, 0.9218926)
+bones/21/rotation = Quaternion(0.0030993286, 0.11921976, -0.24333127, 0.9625835)
+bones/22/rotation = Quaternion(-0.01391961, 0.2877709, 0.121202216, 0.949897)
+bones/23/rotation = Quaternion(0.07392265, -0.08478517, 0.014782656, 0.9935434)
+bones/24/rotation = Quaternion(0.019506318, -0.020658312, 0.0672788, 0.9973296)
+bones/25/rotation = Quaternion(-0.014666845, -0.009483395, -0.055788726, 0.9982899)
+bones/27/rotation = Quaternion(0.08762306, 0.0022480912, 0.0012482542, 0.99615043)
+bones/28/rotation = Quaternion(0.09570201, 0.0032719888, 0.023064774, 0.99513745)
+bones/29/rotation = Quaternion(0.04792873, -0.0012510319, 0.06637194, 0.9966425)
+bones/31/rotation = Quaternion(0.09729238, -0.011359175, -0.98577946, 0.13654329)
+bones/32/rotation = Quaternion(-0.40230578, -0.6150363, -0.10902219, 0.669324)
+bones/33/rotation = Quaternion(0.7710728, 0.43729922, -0.12311278, 0.44616073)
+bones/34/rotation = Quaternion(0.124508366, 0.011353385, 0.09029313, 0.98803645)
+bones/36/rotation = Quaternion(-0.032127623, 0.07535574, 0.9803656, 0.1793677)
+bones/37/rotation = Quaternion(-0.47234985, 0.48254555, 0.02008064, 0.7373143)
+bones/38/rotation = Quaternion(0.79811144, -0.3290672, 0.0615317, 0.5009458)
+bones/39/rotation = Quaternion(0.12571403, -0.011594645, -0.091108814, 0.9878061)
+
 [node name="Body" type="CSGCylinder3D" parent="." unique_id=829177861]
+visible = false
 
 [node name="Arm" type="CSGBox3D" parent="Body" unique_id=2036429401]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.1998088)
@@ -55,9 +81,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8913527, 1.0183897)
 [node name="DropSpotMarker" type="Marker3D" parent="Interactor" unique_id=694664943]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5927345, -0.07178545)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1628525913]
-libraries/ = SubResource("AnimationLibrary_bectd")
-
 [node name="MovementComponent" type="Node" parent="." unique_id=512620162 node_paths=PackedStringArray("character")]
 script = ExtResource("6_8fjmc")
 character = NodePath("..")
@@ -71,17 +94,19 @@ metadata/_custom_type_script = "uid://b4iy4v2v82grv"
 
 [node name="Idle" type="Node" parent="StateMachine" unique_id=1361308190 node_paths=PackedStringArray("animation_player")]
 script = ExtResource("3_bls4j")
-animation_player = NodePath("../../AnimationPlayer")
+animation_player = NodePath("../../Rat1_rund/AnimationPlayer")
 metadata/_custom_type_script = "uid://c4tmbb57xecu8"
 
 [node name="Interact" type="Node" parent="StateMachine" unique_id=339015851 node_paths=PackedStringArray("animation_player")]
 script = ExtResource("4_bls4j")
-animation_player = NodePath("../../AnimationPlayer")
+animation_player = NodePath("../../Rat1_rund/AnimationPlayer")
 metadata/_custom_type_script = "uid://b2avbdpdqfic5"
 
 [node name="Run" type="Node" parent="StateMachine" unique_id=938482072 node_paths=PackedStringArray("character", "anim_player", "movement_component")]
 script = ExtResource("5_fkugw")
 character = NodePath("../..")
-anim_player = NodePath("../../AnimationPlayer")
+anim_player = NodePath("../../Rat1_rund/AnimationPlayer")
 movement_component = NodePath("../../MovementComponent")
 metadata/_custom_type_script = "uid://h5au57bu7aot"
+
+[editable path="Rat1_rund"]
