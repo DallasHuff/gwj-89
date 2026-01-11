@@ -20,7 +20,7 @@ func _ready() -> void:
 func update_bumper() -> void:
 	var new_vel := global_transform.basis.z * conveyor_speed
 	belt_mover.set_constant_linear_velocity(new_vel)
-
+	
 	if not enable_left_bumper:
 		bumper_left.free()
 	

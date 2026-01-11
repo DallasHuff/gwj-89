@@ -31,7 +31,7 @@ collision_layer = 32769
 shape = SubResource("BoxShape3D_mesa8")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="ground" unique_id=34692764]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015206337, 0.02272439, -0.0025355816)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.016066551, 0.041111946, -0.011721373)
 size = Vector3(100, 1.05, 100)
 material = SubResource("StandardMaterial3D_qxn8h")
 
@@ -146,4 +146,4 @@ script = ExtResource("4_exgr7")
 metadata/_custom_type_script = "uid://dw5i7nu67h2df"
 
 [node name="Hopper" parent="." unique_id=1611280198 instance=ExtResource("6_e875t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0.7683053, 4)
+transform = Transform3D(0.9999945, -2.5778802e-06, 0.0033161186, 2.5759748e-06, 1, 5.8036954e-07, -0.0033161186, -5.71847e-07, 0.9999945, -12, 0.6850306, 4)

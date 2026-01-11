@@ -1,23 +1,54 @@
 class_name Spawner
 extends Node3D
 
-@export var trash_scene: PackedScene = preload("res://entities/trash/trash.tscn")
+@export var trash_paper_scene: PackedScene = preload("res://entities/trash/trash_paper.tscn")
+@export var trash_glass_scene: PackedScene = preload("res://entities/trash/trash_glass.tscn")
+
+@onready var trash_scenes := [trash_paper_scene, trash_glass_scene]
 
 var spawn_bounds_width := 0.3
+
+var spawn_timer : Timer
+@export var spawn_timer_range_min := 3.0
+@export var spawn_timer_range_max := 7.0
+@export var spawn_timer_start_delay := 1.0
+
+func _ready() -> void:
+	spawn_timer = Timer.new()
+	add_child(spawn_timer)
+	spawn_timer.wait_time = spawn_timer_start_delay
+	spawn_timer.one_shot = true
+	spawn_timer.timeout.connect(_on_spawn_timer_timeout)
+	spawn_timer.start()
+
+func _on_spawn_timer_timeout() -> void:
+	spawn_trash()
+
+	var rand_wait := randf_range(spawn_timer_range_min, spawn_timer_range_max)
+	# print("waiting: ", rand_wait)
+	spawn_timer.wait_time = true
+	spawn_timer.start()
+
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("debug1"):
 		print("debug1")
 		spawn_trash()
 
-func spawn_trash() -> void:
+func spawn_trash(selected: PackedScene = null) -> void:
+	var selected_scene := trash_glass_scene
+	if not selected == null:
+		selected_scene = selected
+	else:
+		var i := randi_range(0, len(trash_scenes)-1)
+		selected_scene = trash_scenes[i]
 
 	var random_pos_offset := Vector3.ZERO
 
 	random_pos_offset.x += randf_range(-spawn_bounds_width, spawn_bounds_width)
 	random_pos_offset.z += randf_range(-spawn_bounds_width, spawn_bounds_width)
 
-	var t : Trash = trash_scene.instantiate()
-	t.trash_type = Trash.METAL
+	var t : Trash = selected_scene.instantiate()
+	# t.trash_type = Trash.TrashType.METAL
 	get_tree().root.add_child(t)
 	t.global_position = global_position + random_pos_offset
