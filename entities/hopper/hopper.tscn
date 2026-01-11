@@ -10,8 +10,6 @@ albedo_color = Color(0.54, 0.35982, 0.04859999, 1)
 
 [node name="Hopper" type="Node3D" unique_id=1611280198]
 script = ExtResource("1_pbacs")
-processed_count = null
-target_count = null
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=905614192]
 use_collision = true
@@ -30,15 +28,30 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.19541916, 0)
 shape = SubResource("BoxShape3D_m4v2h")
 
 [node name="DisplayPart" type="Node3D" parent="." unique_id=2066332585]
+transform = Transform3D(1, 0, 0, 0, 0.7374188, 0.6754358, 0, -0.6754358, 0.7374188, -5.9604645e-08, -0.28463516, 0.4091789)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="DisplayPart" unique_id=963428546]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2602234, 0.5655551)
-size = Vector3(0.795, 0.351, 0.063)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24263707, 0.27351046, 0.5655551)
+size = Vector3(0.4784131, 0.3244258, 0.063)
+material = SubResource("StandardMaterial3D_pbacs")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="DisplayPart" unique_id=1149285809]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30959022, 0.32424924, 0.565555)
+size = Vector3(0.4101001, 0.25010353, 0.063)
 material = SubResource("StandardMaterial3D_pbacs")
 
 [node name="Display" type="Label3D" parent="DisplayPart" unique_id=1241748899]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.27389422, 0.5992248)
-text = "0"
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4097862, 0.27389425, 0.5992248)
+pixel_size = 0.006
+text = "000"
+horizontal_alignment = 0
+
+[node name="DamageDisplay" type="Label3D" parent="DisplayPart" unique_id=403044301]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4696286, 0.32712382, 0.6142598)
+pixel_size = 0.004
+text = "100%"
+horizontal_alignment = 2
 
 [connection signal="body_entered" from="Zone" to="." method="_on_zone_body_entered"]

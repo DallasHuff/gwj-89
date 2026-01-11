@@ -1,11 +1,11 @@
 class_name Trash
 extends RigidBody3D
 
-enum {
+enum TrashType {
 	METAL,
 	GLASS,
 	PLASTIC,
 	PAPER,
 }
 
-@export var trash_type := METAL
+@export var trash_type := TrashType.METAL

@@ -31,13 +31,13 @@ collision_layer = 32769
 shape = SubResource("BoxShape3D_mesa8")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="ground" unique_id=34692764]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015206337, 0.02272439, -0.0025355816)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.016066551, 0.041111946, -0.011721373)
 size = Vector3(100, 1.05, 100)
 material = SubResource("StandardMaterial3D_qxn8h")
 
 [node name="Player" parent="." unique_id=461061772 instance=ExtResource("1_mesa8")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.349749, 1.6277466, 3.3788242)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.349749, 1.6277466, 5.802015)
 
 [node name="conveyors1" type="Node3D" parent="." unique_id=2085045680]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -83,18 +83,8 @@ operation = 2
 polygon = PackedVector2Array(0.47348452, -0.03948313, -0.43611574, 1.0945103, 2.4037561, 1.0692099, 1.5429001, -0.045178056)
 depth = 1.8
 
-[node name="funnel2" type="CSGBox3D" parent="." unique_id=1278730879]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -9, 0.55762744, 2.1375775)
-use_collision = true
-size = Vector3(3, 2, 2)
-
-[node name="CSGPolygon3D" type="CSGPolygon3D" parent="funnel2" unique_id=1887070743]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1)
-operation = 2
-polygon = PackedVector2Array(0.47348452, -0.03948313, -0.43611574, 1.0945103, 2.4037561, 1.0692099, 1.5429001, -0.045178056)
-depth = 1.8
-
 [node name="conveyors2" type="Node3D" parent="." unique_id=1159933248]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8055723, 0)
 
 [node name="StraightConveyor" parent="conveyors2" unique_id=1795347004 instance=ExtResource("2_qxn8h")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -9, 0.6, 2)
@@ -126,19 +116,19 @@ enable_right_bumper = false
 enable_rear_bumper = true
 
 [node name="StraightConveyor13" parent="conveyors2" unique_id=1656638067 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 1.2680084, 2.949941)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0.85673165, 2.949941)
 
 [node name="StraightConveyor9" parent="conveyors2" unique_id=1462592821 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(1, 0, 0, 0, 0.9848077, 0.17364818, 0, -0.17364818, 0.9848077, -12, 0.6834104, -1)
+transform = Transform3D(1, 0, 0, 0, 0.9967635, 0.08039033, 0, -0.08039033, 0.9967635, -12, 0.61097336, -1.017396)
 
 [node name="StraightConveyor10" parent="conveyors2" unique_id=1869137344 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(1, 0, 0, 0, 0.9848077, 0.17364818, 0, -0.17364818, 0.9848077, -12, 0.8528113, -0.01265128)
+transform = Transform3D(1, 0, 0, 0, 0.9967635, 0.08039033, 0, -0.08039033, 0.9967635, -12, 0.68689656, -0.01850158)
 
 [node name="StraightConveyor11" parent="conveyors2" unique_id=178143881 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(1, 0, 0, 0, 0.9848077, 0.17364818, 0, -0.17364818, 0.9848077, -12, 1.0238378, 0.9741379)
+transform = Transform3D(1, 0, 0, 0, 0.9967635, 0.08039033, 0, -0.08039033, 0.9967635, -12, 0.7644906, 0.9799883)
 
 [node name="StraightConveyor12" parent="conveyors2" unique_id=1891158836 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(1, 0, 0, 0, 0.9848077, 0.17364818, 0, -0.17364818, 0.9848077, -12, 1.1932387, 1.9614866)
+transform = Transform3D(1, 0, 0, 0, 0.9967635, 0.08039033, 0, -0.08039033, 0.9967635, -12, 0.8404138, 1.9788826)
 
 [node name="RayCamera" type="Camera3D" parent="." unique_id=2106342271]
 unique_name_in_owner = true
@@ -146,4 +136,4 @@ script = ExtResource("4_exgr7")
 metadata/_custom_type_script = "uid://dw5i7nu67h2df"
 
 [node name="Hopper" parent="." unique_id=1611280198 instance=ExtResource("6_e875t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0.7683053, 4)
+transform = Transform3D(0.9999945, -2.5778802e-06, 0.0033161186, 2.5759748e-06, 1, 5.8036954e-07, -0.0033161186, -5.71847e-07, 0.9999945, -12, 1.1002333, 4)

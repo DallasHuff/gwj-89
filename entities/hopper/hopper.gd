@@ -3,21 +3,33 @@ extends Node3D
 
 @onready var zone := %Zone
 @onready var display := %Display
+@onready var damage_display := %DamageDisplay
 
 @export var processed_count := 0
 @export var target_count := 10
 
+@export var wanted_trash_type := Trash.TrashType.PAPER
+
+@export var damage_amount := 12
+@export var health := 100
+
 func _on_zone_body_entered(body: Node3D) -> void:
-    if not body is Trash:
-        return
-    
-    var t: Trash = body
-    t.queue_free()
+	if not body is Trash:
+		return
+	
+	var t: Trash = body
+	var got_trash_type := t.trash_type
+	t.queue_free()
 
-    processed_count += 1
+	if got_trash_type != wanted_trash_type:
+		health -= damage_amount
+		damage_display.text = str(health) + "%"
+		return
 
-    display.text = str(processed_count)
+	processed_count += 1
 
-    if processed_count >= target_count:
-        print("TARGET MET")
-        # AchievementTracker.achieve(AchievementTracker.AchName.TARGET_MET)
+	display.text = str(processed_count)
+
+	if processed_count >= target_count:
+		print("TARGET MET")
+		# AchievementTracker.achieve(AchievementTracker.AchName.TARGET_MET)
