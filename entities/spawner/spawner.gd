@@ -1,7 +1,7 @@
 class_name Spawner
 extends Node3D
 
-@export var trash_scene: PackedScene
+@export var trash_scene: PackedScene = preload("res://entities/trash/trash.tscn")
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("debug1"):
