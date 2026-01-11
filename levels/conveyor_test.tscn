@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://c11aewuhd8ifn"]
 
 [ext_resource type="PackedScene" uid="uid://dksqsb7ouxc4c" path="res://entities/player/player.tscn" id="1_mesa8"]
-[ext_resource type="Script" uid="uid://b2b65lfxuh6ri" path="res://levels/level.gd" id="1_sauko"]
+[ext_resource type="Script" path="res://levels/level.gd" id="1_sauko"]
 [ext_resource type="PackedScene" uid="uid://0y1s4ra8pfw" path="res://entities/conveyor/straight_conveyor.tscn" id="2_qxn8h"]
 [ext_resource type="PackedScene" uid="uid://gdv62oa7bqy0" path="res://entities/spawner/spawner.tscn" id="3_5kb2l"]
 [ext_resource type="Script" uid="uid://dw5i7nu67h2df" path="res://levels/components/ray_camera.gd" id="4_exgr7"]
+[ext_resource type="PackedScene" uid="uid://cr6hleb1ryg5e" path="res://entities/hopper/hopper.tscn" id="6_e875t"]
 
 [sub_resource type="Environment" id="Environment_h8bs1"]
 
@@ -143,3 +144,6 @@ transform = Transform3D(1, 0, 0, 0, 0.9848077, 0.17364818, 0, -0.17364818, 0.984
 unique_name_in_owner = true
 script = ExtResource("4_exgr7")
 metadata/_custom_type_script = "uid://dw5i7nu67h2df"
+
+[node name="Hopper" parent="." unique_id=1611280198 instance=ExtResource("6_e875t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0.7683053, 4)
