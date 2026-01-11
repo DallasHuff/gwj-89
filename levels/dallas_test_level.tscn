@@ -43,6 +43,7 @@ material_override = SubResource("StandardMaterial3D_0257o")
 size = Vector3(500, 0, 500)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=947810332]
+collision_layer = 32769
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=225319536]
 shape = SubResource("WorldBoundaryShape3D_m45s1")

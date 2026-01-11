@@ -20,7 +20,7 @@ func _physics_process(delta: float) -> void:
 	ray_cam.global_position = lerp(ray_cam.global_position, player.global_position + Vector3(0, 9, 4), 0.1)
 
 
-func look_at_smooth(target: Vector3, delta: float, speed := 8.0) -> void:
+func look_at_smooth(target: Vector3, delta: float, speed := 12.0) -> void:
 	var dir := target - player.global_position
 	dir.y = 0.0
 

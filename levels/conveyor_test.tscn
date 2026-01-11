@@ -24,6 +24,7 @@ environment = SubResource("Environment_h8bs1")
 transform = Transform3D(0.9075284, 0.31033212, -0.28299496, 0, 0.67381245, 0.7389024, 0.4199907, -0.6705749, 0.61150396, 0, 3.6488056, 0)
 
 [node name="ground" type="StaticBody3D" parent="." unique_id=1775703354]
+collision_layer = 32769
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ground" unique_id=1633012620]
 shape = SubResource("BoxShape3D_mesa8")

@@ -20,7 +20,7 @@ func shoot_ray() -> void:
 
 func find_mouse_position(space: PhysicsDirectSpaceState3D, to: Vector3, from: Vector3) -> void:
 	var ray_query := PhysicsRayQueryParameters3D.new()
-	ray_query.collision_mask = 1 << 0
+	ray_query.collision_mask = 1 << 15
 	ray_query.from = from
 	ray_query.to = to
 	var raycast_result := space.intersect_ray(ray_query)

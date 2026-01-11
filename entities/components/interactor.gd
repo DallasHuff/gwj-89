@@ -9,11 +9,10 @@ var trash: Array[Trash] = []
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact"):
-		if trash.size() < 1:
-			pickup()
-		else:
-			putdown()
+	if event.is_action_pressed("pickup"):
+		pickup()
+	elif event.is_action_pressed("putdown"):
+		putdown()
 
 
 func _process(_delta: float) -> void:
@@ -26,10 +25,9 @@ func pickup() -> void:
 	var bodies := get_overlapping_bodies()
 	for i in range(bodies.size()):
 		var body := bodies[i]
-		if body is Trash:
-			print("trash")
+		if body is Trash and body not in trash:
 			trash.append(body)
-			body.global_position = hold_spot.global_position + (TRASH_GAP * i)
+			body.global_position = hold_spot.global_position + (TRASH_GAP * trash.size())
 			body.freeze = true
 
 
