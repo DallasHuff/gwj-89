@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dksqsb7ouxc4c"]
 
 [ext_resource type="Script" uid="uid://b5ni1gsunoqou" path="res://entities/player/player.gd" id="1_oul6g"]
+[ext_resource type="Script" uid="uid://dbgwigfu37cer" path="res://entities/components/interactor.gd" id="2_qiwj3"]
 [ext_resource type="Script" uid="uid://b4iy4v2v82grv" path="res://entities/components/state_machine/state_machine.gd" id="2_sglur"]
 [ext_resource type="Script" uid="uid://c4tmbb57xecu8" path="res://entities/components/state_machine/states/idle.gd" id="3_bls4j"]
 [ext_resource type="Script" uid="uid://b2avbdpdqfic5" path="res://entities/components/state_machine/states/interact.gd" id="4_bls4j"]
@@ -8,6 +9,9 @@
 [ext_resource type="Script" uid="uid://kc77v1b4gg6r" path="res://entities/components/movement_component.gd" id="6_8fjmc"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqu6x"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8fjmc"]
+size = Vector3(1, 2, 1.2)
 
 [sub_resource type="Animation" id="Animation_8fjmc"]
 resource_name = "idle"
@@ -31,10 +35,21 @@ script = ExtResource("1_oul6g")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2113718125]
 shape = SubResource("CapsuleShape3D_kqu6x")
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=829177861]
+[node name="Body" type="CSGCylinder3D" parent="." unique_id=829177861]
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=874655286]
-transform = Transform3D(0.99999183, 0.0021172431, -0.00345151, 0, 0.852403, 0.5228855, 0.004049153, -0.52288115, 0.852396, 0, 3.5916574, 3.7157292)
+[node name="Arm" type="CSGBox3D" parent="Body" unique_id=2036429401]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.88967705)
+size = Vector3(0.5, 0.5, 1.2)
+
+[node name="Interactor" type="Area3D" parent="." unique_id=2122147064]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.0473077)
+script = ExtResource("2_qiwj3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactor" unique_id=1582366966]
+shape = SubResource("BoxShape3D_8fjmc")
+
+[node name="HoldSpotMarker" type="Marker3D" parent="Interactor" unique_id=909458360]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6170827, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1628525913]
 libraries/ = SubResource("AnimationLibrary_bectd")
