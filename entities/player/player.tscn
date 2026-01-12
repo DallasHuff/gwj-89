@@ -21,8 +21,13 @@ radius = 1.5
 script = ExtResource("1_oul6g")
 
 [node name="PlayerCamera" parent="." unique_id=290868861 instance=ExtResource("2_bectd")]
-transform = Transform3D(1, 0, 0, 0, 0.64278764, 0.76604444, 0, -0.76604444, 0.64278764, -8.553078, 8.946337, 9.445791)
+transform = Transform3D(1, 0, 0, 0, 0.54411197, 0.8390127, 0, -0.8390127, 0.54411197, 0, 0.3547716, 8.847067)
 top_level = true
+
+[node name="AudioListener3D" type="AudioListener3D" parent="PlayerCamera" unique_id=1557908067]
+transform = Transform3D(1, 0, 0, 0, 0.99780494, -0.066221744, 0, 0.066221744, 0.99780494, -8.553078, -3.5921152, 4.20516)
+doppler_tracking = 2
+current = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2113718125]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.20947266, 0)
@@ -75,11 +80,12 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.1998088)
 size = Vector3(0.5, 0.5, 1.8202636)
 
-[node name="Interactor" type="Node3D" parent="." unique_id=730510895 node_paths=PackedStringArray("player_camera")]
+[node name="Interactor" type="Node3D" parent="." unique_id=730510895 node_paths=PackedStringArray("player_camera", "character")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.0473077)
 script = ExtResource("2_qiwj3")
 inventory_size = 20
 player_camera = NodePath("../PlayerCamera")
+character = NodePath("..")
 
 [node name="HoldSpotMarker" type="Marker3D" parent="Interactor" unique_id=909458360]
 unique_name_in_owner = true
@@ -103,6 +109,22 @@ shape = SubResource("CylinderShape3D_bectd")
 [node name="CSGSphere3D" type="CSGSphere3D" parent="Interactor/GrabMarker/GrabArea" unique_id=810937921]
 visible = false
 radius = 0.25
+
+[node name="RayDisplay" type="Node3D" parent="Interactor/GrabMarker" unique_id=2080063647]
+unique_name_in_owner = true
+transform = Transform3D(1, 1.5942803e-13, 0, 8.348877e-14, 1, 0, 0, 5.684342e-14, 1, 0, -0.0039609373, 0)
+
+[node name="Label3D" type="Label3D" parent="Interactor/GrabMarker/RayDisplay" unique_id=823037465]
+transform = Transform3D(1, 1.5942803e-13, -1.5942803e-13, 1.5942803e-13, -4.371139e-08, 1, 1.5942803e-13, -1, -4.371139e-08, 0, 0.1, 0.174)
+modulate = Color(0, 0, 0, 0.1764706)
+outline_modulate = Color(0.35, 0.35, 0.35, 0.36078432)
+text = "⭕"
+font_size = 350
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Interactor/GrabMarker/RayDisplay" unique_id=1546180055]
+visible = false
+radius = 1.0
+height = 5.717
 
 [node name="MovementComponent" type="Node" parent="." unique_id=512620162 node_paths=PackedStringArray("character")]
 script = ExtResource("6_8fjmc")
@@ -133,9 +155,5 @@ character = NodePath("../..")
 anim_player = NodePath("../../Rat1_rund/AnimationPlayer")
 movement_component = NodePath("../../MovementComponent")
 metadata/_custom_type_script = "uid://h5au57bu7aot"
-
-[node name="AudioListener3D" type="AudioListener3D" parent="." unique_id=1557908067]
-doppler_tracking = 2
-current = true
 
 [editable path="Rat1_rund"]

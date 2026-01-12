@@ -12,7 +12,7 @@
 size = Vector3(100, 1, 100)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qxn8h"]
-albedo_color = Color(0.40199992, 0.75, 0.0975, 1)
+albedo_color = Color(0.35, 0.15207501, 0.0455, 1)
 
 [node name="ConveyorTest" type="Node3D" unique_id=795892070]
 script = ExtResource("1_sauko")

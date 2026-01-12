@@ -5,6 +5,9 @@ const TRASH_GAP := Vector3(0, 0.3, 0)
 
 @export var inventory_size: int
 @export var player_camera: PlayerCamera
+@export var character: Player
+@export var max_grab_dist := 2.7
+@export var ray_display_fade_timer := 0.1
 
 var trash: Array[Trash] = []
 
@@ -13,7 +16,17 @@ var trash: Array[Trash] = []
 @onready var drop_offset := Vector3(0.0, 0.5, 0.0)
 @onready var grab_marker: Marker3D = $GrabMarker
 @onready var grab_area: Area3D = $GrabMarker/GrabArea
+var grab_offset := Vector3(0.0, 0.0, 0.0)
+@onready var ray_display := %RayDisplay
+var display_timer : Timer
 
+
+func _ready() -> void:
+	display_timer = Timer.new()
+	add_child(display_timer)
+	display_timer.wait_time = ray_display_fade_timer
+	display_timer.one_shot = true
+	display_timer.timeout.connect(hide_ray_display)
 
 func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pickup"):
@@ -22,11 +35,22 @@ func _physics_process(_delta: float) -> void:
 		putdown()
 
 
+func show_ray_display() -> void:
+	ray_display.show()
+	display_timer.start()
+
+func hide_ray_display() -> void:
+	ray_display.hide()
+
 func pickup() -> void:
 
 	# move grab area
 	assert(is_instance_valid(player_camera))
-	grab_marker.global_position = player_camera.mouse_position + Vector3(0, 1.0, 0)
+	show_ray_display()
+	var targ_pos := player_camera.mouse_position + grab_offset
+	if targ_pos.distance_to(character.position) > max_grab_dist:
+		targ_pos = character.position.move_toward(targ_pos, max_grab_dist)
+	grab_marker.global_position = targ_pos 
 
 	var bodies := grab_area.get_overlapping_bodies()
 	var closest_trash: Trash = null
@@ -36,10 +60,9 @@ func pickup() -> void:
 			break
 		var body := bodies[i]
 		if body is Trash and body not in trash:
-
-			var dist_to_player := body.position.distance_to(grab_marker.position)
-			if min_dist > dist_to_player:
-				min_dist = dist_to_player
+			var dist_to_grab_spot := body.position.distance_to(grab_marker.position)
+			if min_dist > dist_to_grab_spot:
+				min_dist = dist_to_grab_spot
 				closest_trash = body as Trash
 
 	if closest_trash != null:
@@ -57,7 +80,13 @@ func putdown() -> void:
 
 	# move drop spot
 	assert(is_instance_valid(player_camera))
-	drop_spot.global_position = player_camera.mouse_position + drop_offset
+	show_ray_display()
+	var targ_pos := player_camera.mouse_position + grab_offset
+	if targ_pos.distance_to(character.position) > max_grab_dist:
+		targ_pos = character.position.move_toward(targ_pos, max_grab_dist)
+	drop_spot.global_position = targ_pos
+	# only doing this to update the ray display location
+	grab_marker.global_position = targ_pos
 
 	if trash.size() < 1:
 		return

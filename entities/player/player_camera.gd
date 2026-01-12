@@ -4,35 +4,13 @@ extends Camera3D
 @export var debug := false
 @export var ray_display_fade_timer := 0.1
 var mouse_position := Vector3.ZERO
-
-@onready var ray_display := %RayDisplay
 @onready var player: Player = get_parent()
-
-var display_timer : Timer
-
-func _ready() -> void:
-	display_timer = Timer.new()
-	add_child(display_timer)
-	display_timer.wait_time = ray_display_fade_timer
-	display_timer.one_shot = true
-	display_timer.timeout.connect(_hide_ray_display)
 
 func _process(_delta: float) -> void:
 	shoot_ray()
-	if Input.is_action_just_pressed("pickup"):
-		ray_display.global_position = mouse_position
-		ray_display.show()
-		display_timer.start()
-	if Input.is_action_just_pressed("putdown"):
-		ray_display.global_position = mouse_position
-		ray_display.show()
-		display_timer.start()
 
 func _physics_process(_delta: float) -> void:
 	global_position = lerp(global_position, player.global_position + Vector3(0, 9, 4), 0.1)
-
-func _hide_ray_display() -> void:
-	ray_display.hide()
 
 func shoot_ray() -> void:
 	var mouse_pos := get_viewport().get_mouse_position()
