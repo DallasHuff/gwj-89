@@ -115,16 +115,18 @@ unique_name_in_owner = true
 transform = Transform3D(1, 1.5942803e-13, 0, 8.348877e-14, 1, 0, 0, 5.684342e-14, 1, 0, -0.0039609373, 0)
 
 [node name="Label3D" type="Label3D" parent="Interactor/GrabMarker/RayDisplay" unique_id=823037465]
-transform = Transform3D(1, 1.5942803e-13, -1.5942803e-13, 1.5942803e-13, -4.371139e-08, 1, 1.5942803e-13, -1, -4.371139e-08, 0, 0.1, 0.174)
+transform = Transform3D(1, 1.5942803e-13, -1.5942803e-13, 1.5942803e-13, -4.371139e-08, 1, 1.5942803e-13, -1, -4.371139e-08, -2.7968637e-14, 0.27543113, 0.174)
+visible = false
 modulate = Color(0, 0, 0, 0.1764706)
 outline_modulate = Color(0.35, 0.35, 0.35, 0.36078432)
 text = "⭕"
 font_size = 350
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Interactor/GrabMarker/RayDisplay" unique_id=1546180055]
-visible = false
-radius = 1.0
-height = 5.717
+[node name="Label3D2" type="Label3D" parent="Interactor/GrabMarker/RayDisplay" unique_id=664404104]
+transform = Transform3D(1, 1.5942803e-13, -1.5942803e-13, 1.5942803e-13, -4.371139e-08, 1, 1.5942803e-13, -1, -4.371139e-08, -2.7968637e-14, 0.27543113, 0.174)
+modulate = Color(0, 0, 0, 1)
+text = "⭕"
+font_size = 350
 
 [node name="MovementComponent" type="Node" parent="." unique_id=512620162 node_paths=PackedStringArray("character")]
 script = ExtResource("6_8fjmc")
