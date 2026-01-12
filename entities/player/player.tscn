@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b5ni1gsunoqou" path="res://entities/player/player.gd" id="1_oul6g"]
 [ext_resource type="PackedScene" uid="uid://ch27suvq1016w" path="res://Art_Assets/Characters/Rat1/Rat1_rund.glb" id="2_26q78"]
+[ext_resource type="PackedScene" uid="uid://c2jvxee34q8qf" path="res://entities/player/player_camera.tscn" id="2_bectd"]
 [ext_resource type="Script" uid="uid://dbgwigfu37cer" path="res://entities/components/interactor.gd" id="2_qiwj3"]
 [ext_resource type="Script" uid="uid://b4iy4v2v82grv" path="res://entities/components/state_machine/state_machine.gd" id="2_sglur"]
 [ext_resource type="Script" uid="uid://c4tmbb57xecu8" path="res://entities/components/state_machine/states/idle.gd" id="3_bls4j"]
@@ -10,20 +11,32 @@
 [ext_resource type="Script" uid="uid://kc77v1b4gg6r" path="res://entities/components/movement_component.gd" id="6_8fjmc"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqu6x"]
+height = 1.5810547
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_8fjmc"]
-size = Vector3(1, 2.5, 1.7)
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_bectd"]
+height = 4.0
+radius = 1.5
 
 [node name="Player" type="CharacterBody3D" unique_id=461061772]
 script = ExtResource("1_oul6g")
 
+[node name="PlayerCamera" parent="." unique_id=290868861 instance=ExtResource("2_bectd")]
+transform = Transform3D(1, 0, 0, 0, 0.54411197, 0.8390127, 0, -0.8390127, 0.54411197, 0, 0.3547716, 8.847067)
+top_level = true
+
+[node name="AudioListener3D" type="AudioListener3D" parent="PlayerCamera" unique_id=1557908067]
+transform = Transform3D(1, 0, 0, 0, 0.99780494, -0.066221744, 0, 0.066221744, 0.99780494, -8.553078, -3.5921152, 4.20516)
+doppler_tracking = 2
+current = true
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2113718125]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.20947266, 0)
 shape = SubResource("CapsuleShape3D_kqu6x")
 
 [node name="Rat1_rund" parent="." unique_id=174512231 instance=ExtResource("2_26q78")]
 transform = Transform3D(-1.5, 0, 2.2649371e-07, 0, 1.5, 0, -2.2649371e-07, 0, -1.5, 0, -0.8398146, 0.04616058)
 
-[node name="Skeleton3D" parent="Rat1_rund/Rat1_Run" parent_id_path=PackedInt32Array(174512231, 194289935) index="0" unique_id=2082879793]
+[node name="Skeleton3D" parent="Rat1_rund/Rat1_Run" parent_id_path=PackedInt32Array(174512231, 1387707695) index="0" unique_id=1251940532]
 bones/0/position = Vector3(-0.008744252, -0.014450192, -1.3634334)
 bones/0/rotation = Quaternion(-0.7060381, 0.05161911, -0.010558996, 0.7062111)
 bones/1/rotation = Quaternion(-0.0018803182, 0.007140844, -0.006498116, 0.99995166)
@@ -67,20 +80,51 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.1998088)
 size = Vector3(0.5, 0.5, 1.8202636)
 
-[node name="Interactor" type="Area3D" parent="." unique_id=2122147064]
+[node name="Interactor" type="Node3D" parent="." unique_id=730510895 node_paths=PackedStringArray("player_camera", "character")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.0473077)
 script = ExtResource("2_qiwj3")
 inventory_size = 20
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactor" unique_id=1582366966]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.21687078)
-shape = SubResource("BoxShape3D_8fjmc")
+player_camera = NodePath("../PlayerCamera")
+character = NodePath("..")
 
 [node name="HoldSpotMarker" type="Marker3D" parent="Interactor" unique_id=909458360]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8913527, 1.0183897)
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9301007, 0.7667363)
 
 [node name="DropSpotMarker" type="Marker3D" parent="Interactor" unique_id=694664943]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1895902, -0.07178545)
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.0473077)
+top_level = true
+
+[node name="GrabMarker" type="Marker3D" parent="Interactor" unique_id=1241668466]
+unique_name_in_owner = true
+top_level = true
+
+[node name="GrabArea" type="Area3D" parent="Interactor/GrabMarker" unique_id=1083953350]
+unique_name_in_owner = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactor/GrabMarker/GrabArea" unique_id=432754600]
+shape = SubResource("CylinderShape3D_bectd")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Interactor/GrabMarker/GrabArea" unique_id=810937921]
+visible = false
+radius = 0.25
+
+[node name="RayDisplay" type="Node3D" parent="Interactor/GrabMarker" unique_id=2080063647]
+unique_name_in_owner = true
+transform = Transform3D(1, 1.5942803e-13, 0, 8.348877e-14, 1, 0, 0, 5.684342e-14, 1, 0, -0.0039609373, 0)
+
+[node name="Label3D" type="Label3D" parent="Interactor/GrabMarker/RayDisplay" unique_id=823037465]
+transform = Transform3D(1, 1.5942803e-13, -1.5942803e-13, 1.5942803e-13, -4.371139e-08, 1, 1.5942803e-13, -1, -4.371139e-08, 0, 0.1, 0.174)
+modulate = Color(0, 0, 0, 0.1764706)
+outline_modulate = Color(0.35, 0.35, 0.35, 0.36078432)
+text = "⭕"
+font_size = 350
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Interactor/GrabMarker/RayDisplay" unique_id=1546180055]
+visible = false
+radius = 1.0
+height = 5.717
 
 [node name="MovementComponent" type="Node" parent="." unique_id=512620162 node_paths=PackedStringArray("character")]
 script = ExtResource("6_8fjmc")
@@ -98,9 +142,11 @@ script = ExtResource("3_bls4j")
 animation_player = NodePath("../../Rat1_rund/AnimationPlayer")
 metadata/_custom_type_script = "uid://c4tmbb57xecu8"
 
-[node name="Interact" type="Node" parent="StateMachine" unique_id=339015851 node_paths=PackedStringArray("animation_player")]
+[node name="Interact" type="Node" parent="StateMachine" unique_id=339015851 node_paths=PackedStringArray("animation_player", "player_camera", "character")]
 script = ExtResource("4_bls4j")
 animation_player = NodePath("../../Rat1_rund/AnimationPlayer")
+player_camera = NodePath("../../PlayerCamera")
+character = NodePath("../..")
 metadata/_custom_type_script = "uid://b2avbdpdqfic5"
 
 [node name="Run" type="Node" parent="StateMachine" unique_id=938482072 node_paths=PackedStringArray("character", "anim_player", "movement_component")]
@@ -109,9 +155,5 @@ character = NodePath("../..")
 anim_player = NodePath("../../Rat1_rund/AnimationPlayer")
 movement_component = NodePath("../../MovementComponent")
 metadata/_custom_type_script = "uid://h5au57bu7aot"
-
-[node name="AudioListener3D" type="AudioListener3D" parent="." unique_id=1557908067]
-doppler_tracking = 2
-current = true
 
 [editable path="Rat1_rund"]

@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://b2b65lfxuh6ri" path="res://levels/level.gd" id="1_sauko"]
 [ext_resource type="PackedScene" uid="uid://0y1s4ra8pfw" path="res://entities/conveyor/straight_conveyor.tscn" id="2_qxn8h"]
 [ext_resource type="PackedScene" uid="uid://gdv62oa7bqy0" path="res://entities/spawner/spawner.tscn" id="3_5kb2l"]
-[ext_resource type="Script" uid="uid://dw5i7nu67h2df" path="res://levels/components/ray_camera.gd" id="4_exgr7"]
 [ext_resource type="PackedScene" uid="uid://cr6hleb1ryg5e" path="res://entities/hopper/hopper.tscn" id="6_e875t"]
 
 [sub_resource type="Environment" id="Environment_h8bs1"]
@@ -13,7 +12,7 @@
 size = Vector3(100, 1, 100)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qxn8h"]
-albedo_color = Color(0.40199992, 0.75, 0.0975, 1)
+albedo_color = Color(0.35, 0.15207501, 0.0455, 1)
 
 [node name="ConveyorTest" type="Node3D" unique_id=795892070]
 script = ExtResource("1_sauko")
@@ -37,7 +36,8 @@ material = SubResource("StandardMaterial3D_qxn8h")
 
 [node name="Player" parent="." unique_id=461061772 instance=ExtResource("1_mesa8")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.349749, 1.6277466, 5.802015)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.349749, 1.6277466, 5.8020144)
+top_level = true
 
 [node name="conveyors1" type="Node3D" parent="." unique_id=2085045680]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -130,10 +130,11 @@ transform = Transform3D(1, 0, 0, 0, 0.9967635, 0.08039033, 0, -0.08039033, 0.996
 [node name="StraightConveyor12" parent="conveyors2" unique_id=1891158836 instance=ExtResource("2_qxn8h")]
 transform = Transform3D(1, 0, 0, 0, 0.9967635, 0.08039033, 0, -0.08039033, 0.9967635, -12, 0.8404138, 1.9788826)
 
-[node name="RayCamera" type="Camera3D" parent="." unique_id=2106342271]
-unique_name_in_owner = true
-script = ExtResource("4_exgr7")
-metadata/_custom_type_script = "uid://dw5i7nu67h2df"
-
 [node name="Hopper" parent="." unique_id=1611280198 instance=ExtResource("6_e875t")]
 transform = Transform3D(0.9999945, -2.5778802e-06, 0.0033161186, 2.5759748e-06, 1, 5.8036954e-07, -0.0033161186, -5.71847e-07, 0.9999945, -12, 1.1002333, 4)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=798833694]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.202036, 0.9060054, 4.2592278)
+use_collision = true
+collision_layer = 32769
+size = Vector3(7.214966, 7.6254883, 5.6137695)

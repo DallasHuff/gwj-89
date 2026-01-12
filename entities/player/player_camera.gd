@@ -1,13 +1,16 @@
-class_name RayCamera
+class_name PlayerCamera
 extends Camera3D
 
 @export var debug := false
+@export var ray_display_fade_timer := 0.1
 var mouse_position := Vector3.ZERO
-
+@onready var player: Player = get_parent()
 
 func _process(_delta: float) -> void:
 	shoot_ray()
 
+func _physics_process(_delta: float) -> void:
+	global_position = lerp(global_position, player.global_position + Vector3(0, 9, 4), 0.1)
 
 func shoot_ray() -> void:
 	var mouse_pos := get_viewport().get_mouse_position()
