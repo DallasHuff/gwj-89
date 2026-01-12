@@ -14,8 +14,8 @@
 height = 1.5810547
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_bectd"]
-height = 3.0
-radius = 1.0
+height = 4.0
+radius = 1.5
 
 [node name="Player" type="CharacterBody3D" unique_id=461061772]
 script = ExtResource("1_oul6g")
@@ -81,20 +81,6 @@ script = ExtResource("2_qiwj3")
 inventory_size = 20
 player_camera = NodePath("../PlayerCamera")
 
-[node name="GrabArea" type="Area3D" parent="Interactor" unique_id=1407514681]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.0473077)
-top_level = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactor/GrabArea" unique_id=1582366966]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.21687078)
-shape = SubResource("CylinderShape3D_bectd")
-
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Interactor/GrabArea/CollisionShape3D" unique_id=557488186]
-visible = false
-radius = 1.0
-height = 3.0
-
 [node name="HoldSpotMarker" type="Marker3D" parent="Interactor" unique_id=909458360]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9301007, 0.7667363)
@@ -103,6 +89,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9301007, 0.7667363)
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.0473077)
 top_level = true
+
+[node name="GrabMarker" type="Marker3D" parent="Interactor" unique_id=1241668466]
+unique_name_in_owner = true
+top_level = true
+
+[node name="GrabArea" type="Area3D" parent="Interactor/GrabMarker" unique_id=1083953350]
+unique_name_in_owner = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactor/GrabMarker/GrabArea" unique_id=432754600]
+shape = SubResource("CylinderShape3D_bectd")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Interactor/GrabMarker/GrabArea" unique_id=810937921]
+visible = false
+radius = 0.25
 
 [node name="MovementComponent" type="Node" parent="." unique_id=512620162 node_paths=PackedStringArray("character")]
 script = ExtResource("6_8fjmc")
