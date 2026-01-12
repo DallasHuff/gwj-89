@@ -8,6 +8,7 @@ const TRASH_GAP := Vector3(0, 0.3, 0)
 @export var character: Player
 @export var max_grab_dist := 2.7
 @export var ray_display_fade_timer := 0.1
+@export var interact_delay_timer := 0.05
 
 var trash: Array[Trash] = []
 
@@ -19,7 +20,6 @@ var trash: Array[Trash] = []
 var grab_offset := Vector3(0.0, 0.0, 0.0)
 @onready var ray_display := %RayDisplay
 var display_timer : Timer
-
 
 func _ready() -> void:
 	display_timer = Timer.new()
@@ -51,6 +51,8 @@ func pickup() -> void:
 	if targ_pos.distance_to(character.position) > max_grab_dist:
 		targ_pos = character.position.move_toward(targ_pos, max_grab_dist)
 	grab_marker.global_position = targ_pos 
+
+	await get_tree().create_timer(interact_delay_timer).timeout
 
 	var bodies := grab_area.get_overlapping_bodies()
 	var closest_trash: Trash = null
@@ -87,6 +89,8 @@ func putdown() -> void:
 	drop_spot.global_position = targ_pos
 	# only doing this to update the ray display location
 	grab_marker.global_position = targ_pos
+
+	await get_tree().create_timer(interact_delay_timer).timeout
 
 	if trash.size() < 1:
 		return
