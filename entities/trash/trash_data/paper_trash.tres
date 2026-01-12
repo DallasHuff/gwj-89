@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TrashData" format=3 uid="uid://b3ultdjl6ldo0"]
+
+[ext_resource type="Script" uid="uid://uha8a6otv7d3" path="res://entities/trash/trash_data/trash_data.gd" id="1_c3ogc"]
+[ext_resource type="AudioStream" uid="uid://bdd5m8yuqjc34" path="res://sound/fx/paperdropsquished.wav" id="1_mb6jv"]
+[ext_resource type="AudioStream" uid="uid://diuyfqfgd7ii2" path="res://sound/fx/paperpickupsquished.wav" id="2_xn8od"]
+
+[resource]
+script = ExtResource("1_c3ogc")
+dropped_sfx = ExtResource("1_mb6jv")
+pickup_sfx = ExtResource("2_xn8od")
+metadata/_custom_type_script = "uid://uha8a6otv7d3"

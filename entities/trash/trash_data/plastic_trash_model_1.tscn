@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://dqla4iv4onheg"]
+
+[node name="PlasticTrashModel1" type="CSGBox3D" unique_id=717785785]
+size = Vector3(0.3, 0.3, 0.3)

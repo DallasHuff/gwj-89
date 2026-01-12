@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Achievement" format=3 uid="uid://73ki7nv8v1th"]
+
+[ext_resource type="Script" uid="uid://ensdc4nbfc1e" path="res://achievements/achievement.gd" id="1_b40ip"]
+
+[resource]
+script = ExtResource("1_b40ip")
+display_name = "Item Streak"
+description = "Get 100 items in the correct grinder in a row"
+metadata/_custom_type_script = "uid://ensdc4nbfc1e"

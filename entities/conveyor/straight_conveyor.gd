@@ -12,7 +12,6 @@ extends Node3D
 
 @onready var bumper_left := %BumperLeft
 @onready var bumper_right := %BumperRight
-@onready var bumper_rear := %BumperRear
 
 func _ready() -> void:
 	update_bumper()
@@ -27,7 +26,3 @@ func update_bumper() -> void:
 	if not enable_right_bumper:
 		bumper_right.free()
 	
-	if not enable_rear_bumper:
-		bumper_rear.free()
-	else:
-		bumper_rear.visible = true

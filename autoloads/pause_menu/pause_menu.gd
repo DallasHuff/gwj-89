@@ -5,6 +5,7 @@ var sfx_volume: float = 50
 
 @onready var music_slider: HSlider = %MusicVolumeSlider
 @onready var sfx_slider: HSlider = %SFXVolumeSlider
+@onready var exit_button: Button = %ExitButton
 
 
 func _ready() -> void:
@@ -14,6 +15,8 @@ func _ready() -> void:
 
 	music_slider.value_changed.connect(set_bus_volume.bind("Music"))
 	sfx_slider.value_changed.connect(set_bus_volume.bind("SFX"))
+
+	exit_button.pressed.connect(pause)
 
 
 func _physics_process(_delta: float) -> void:

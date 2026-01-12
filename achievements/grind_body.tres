@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Achievement" format=3 uid="uid://4l1o2qkvbqal"]
+
+[ext_resource type="Script" uid="uid://ensdc4nbfc1e" path="res://achievements/achievement.gd" id="1_hw5gx"]
+
+[resource]
+script = ExtResource("1_hw5gx")
+display_name = "Gross"
+description = "Grind up an ex-coworker"
+metadata/_custom_type_script = "uid://ensdc4nbfc1e"

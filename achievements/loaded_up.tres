@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Achievement" format=3 uid="uid://cda78c3tb4rps"]
+
+[ext_resource type="Script" uid="uid://ensdc4nbfc1e" path="res://achievements/achievement.gd" id="1_cwyhj"]
+
+[resource]
+script = ExtResource("1_cwyhj")
+display_name = "Loaded Up"
+description = "Carry as much as you can at one time"
+metadata/_custom_type_script = "uid://ensdc4nbfc1e"
