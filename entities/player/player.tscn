@@ -17,6 +17,10 @@ height = 1.5810547
 height = 4.0
 radius = 1.5
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bectd"]
+transparency = 1
+albedo_color = Color(0.15, 0.15, 0.15, 0.49019608)
+
 [node name="Player" type="CharacterBody3D" unique_id=461061772]
 script = ExtResource("1_oul6g")
 
@@ -114,19 +118,12 @@ radius = 0.25
 unique_name_in_owner = true
 transform = Transform3D(1, 1.5942803e-13, 0, 8.348877e-14, 1, 0, 0, 5.684342e-14, 1, 0, -0.0039609373, 0)
 
-[node name="Label3D" type="Label3D" parent="Interactor/GrabMarker/RayDisplay" unique_id=823037465]
-transform = Transform3D(1, 1.5942803e-13, -1.5942803e-13, 1.5942803e-13, -4.371139e-08, 1, 1.5942803e-13, -1, -4.371139e-08, -2.7968637e-14, 0.27543113, 0.174)
-visible = false
-modulate = Color(0, 0, 0, 0.1764706)
-outline_modulate = Color(0.35, 0.35, 0.35, 0.36078432)
-text = "⭕"
-font_size = 350
-
-[node name="Label3D2" type="Label3D" parent="Interactor/GrabMarker/RayDisplay" unique_id=664404104]
-transform = Transform3D(1, 1.5942803e-13, -1.5942803e-13, 1.5942803e-13, -4.371139e-08, 1, 1.5942803e-13, -1, -4.371139e-08, -2.7968637e-14, 0.27543113, 0.174)
-modulate = Color(0, 0, 0, 1)
-text = "⭕"
-font_size = 350
+[node name="CSGTorus3D" type="CSGTorus3D" parent="Interactor/GrabMarker/RayDisplay" unique_id=378542898]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.785126e-15, 0.061376452, -3.4888474e-15)
+inner_radius = 0.88
+outer_radius = 0.724
+sides = 16
+material = SubResource("StandardMaterial3D_bectd")
 
 [node name="MovementComponent" type="Node" parent="." unique_id=512620162 node_paths=PackedStringArray("character")]
 script = ExtResource("6_8fjmc")
