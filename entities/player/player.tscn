@@ -23,7 +23,7 @@ shape = SubResource("CapsuleShape3D_kqu6x")
 [node name="Rat1_rund" parent="." unique_id=174512231 instance=ExtResource("2_26q78")]
 transform = Transform3D(-1.5, 0, 2.2649371e-07, 0, 1.5, 0, -2.2649371e-07, 0, -1.5, 0, -0.8398146, 0.04616058)
 
-[node name="Skeleton3D" parent="Rat1_rund/Rat1_Run" parent_id_path=PackedInt32Array(174512231, 1387707695) index="0" unique_id=1251940532]
+[node name="Skeleton3D" parent="Rat1_rund/Rat1_Run" parent_id_path=PackedInt32Array(174512231, 194289935) index="0" unique_id=2082879793]
 bones/0/position = Vector3(-0.008744252, -0.014450192, -1.3634334)
 bones/0/rotation = Quaternion(-0.7060381, 0.05161911, -0.010558996, 0.7062111)
 bones/1/rotation = Quaternion(-0.0018803182, 0.007140844, -0.006498116, 0.99995166)
@@ -70,6 +70,7 @@ size = Vector3(0.5, 0.5, 1.8202636)
 [node name="Interactor" type="Area3D" parent="." unique_id=2122147064]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.0473077)
 script = ExtResource("2_qiwj3")
+inventory_size = 20
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interactor" unique_id=1582366966]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.21687078)
@@ -79,7 +80,7 @@ shape = SubResource("BoxShape3D_8fjmc")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8913527, 1.0183897)
 
 [node name="DropSpotMarker" type="Marker3D" parent="Interactor" unique_id=694664943]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5927345, -0.07178545)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1895902, -0.07178545)
 
 [node name="MovementComponent" type="Node" parent="." unique_id=512620162 node_paths=PackedStringArray("character")]
 script = ExtResource("6_8fjmc")
@@ -108,5 +109,9 @@ character = NodePath("../..")
 anim_player = NodePath("../../Rat1_rund/AnimationPlayer")
 movement_component = NodePath("../../MovementComponent")
 metadata/_custom_type_script = "uid://h5au57bu7aot"
+
+[node name="AudioListener3D" type="AudioListener3D" parent="." unique_id=1557908067]
+doppler_tracking = 2
+current = true
 
 [editable path="Rat1_rund"]

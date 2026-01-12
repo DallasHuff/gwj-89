@@ -1,17 +1,20 @@
 class_name Hopper
 extends Node3D
 
+@export_category("processing")
+@export var processed_count := 0
+@export var target_count := 10
+@export var wanted_trash_type := Trash.TrashType.PAPER
+@export_category("durability")
+@export var damage_amount := 12
+@export var health := 100
+
+var destroyed := false
+var goal_met := false
+
 @onready var zone := %Zone
 @onready var display := %Display
 @onready var damage_display := %DamageDisplay
-
-@export var processed_count := 0
-@export var target_count := 10
-
-@export var wanted_trash_type := Trash.TrashType.PAPER
-
-@export var damage_amount := 12
-@export var health := 100
 
 func _on_zone_body_entered(body: Node3D) -> void:
 	if not body is Trash:
@@ -21,15 +24,23 @@ func _on_zone_body_entered(body: Node3D) -> void:
 	var got_trash_type := t.trash_type
 	t.queue_free()
 
+	if destroyed:
+		return
+
 	if got_trash_type != wanted_trash_type:
 		health -= damage_amount
 		damage_display.text = str(health) + "%"
-		return
+	else:
+		processed_count += 1
 
-	processed_count += 1
+	EventsBus.trash_grinded.emit(got_trash_type, got_trash_type == wanted_trash_type)
+
+	if health <= 0:
+		destroyed = true
+		EventsBus.hopper_destroyed.emit()
 
 	display.text = str(processed_count)
 
-	if processed_count >= target_count:
-		print("TARGET MET")
-		# AchievementTracker.achieve(AchievementTracker.AchName.TARGET_MET)
+	if not goal_met and processed_count >= target_count:
+		goal_met = true
+		EventsBus.goal_met.emit(health)

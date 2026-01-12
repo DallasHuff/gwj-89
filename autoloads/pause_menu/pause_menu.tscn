@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bahfys0ax0vya"]
 
-[ext_resource type="Script" uid="uid://dy6c8exqww28j" path="res://menus/pause_menu/pause_menu.gd" id="1_5ndmu"]
+[ext_resource type="Script" uid="uid://dy6c8exqww28j" path="res://autoloads/pause_menu/pause_menu.gd" id="1_5ndmu"]
 
 [node name="PauseMenu" type="CanvasLayer" unique_id=1803427360]
 process_mode = 3
@@ -16,7 +16,8 @@ offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
 
-[node name="Button" type="Button" parent="PanelContainer" unique_id=212428168]
+[node name="ExitButton" type="Button" parent="PanelContainer" unique_id=212428168]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 0

@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://b6pgrrfecfoqx"]
+
+[ext_resource type="Script" uid="uid://mdqaoq60otue" path="res://entities/trash/trash.gd" id="1_qgiyn"]
+[ext_resource type="Script" uid="uid://uha8a6otv7d3" path="res://entities/trash/trash_data/trash_data.gd" id="2_yj28x"]
+[ext_resource type="Resource" uid="uid://mpgc4ka35rh1" path="res://entities/trash/trash_data/plastic_trash.tres" id="3_obehh"]
+[ext_resource type="Resource" uid="uid://bag3m85i43cgj" path="res://entities/trash/trash_data/metal_trash.tres" id="4_2jyrf"]
+[ext_resource type="Resource" uid="uid://dmvj50jf5se41" path="res://entities/trash/trash_data/glass_trash.tres" id="5_4gy3d"]
+[ext_resource type="Resource" uid="uid://b3ultdjl6ldo0" path="res://entities/trash/trash_data/paper_trash.tres" id="6_lidkd"]
+[ext_resource type="Resource" uid="uid://bkltl26fpfswp" path="res://entities/trash/trash_data/body_trash.tres" id="7_m1geh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yj28x"]
+size = Vector3(0.3, 0.3, 0.3)
+
+[node name="Trash" type="RigidBody3D" unique_id=1578541971 groups=["trash"]]
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_qgiyn")
+type_to_data = Dictionary[int, ExtResource("2_yj28x")]({
+0: ExtResource("4_2jyrf"),
+1: ExtResource("5_4gy3d"),
+2: ExtResource("3_obehh"),
+3: ExtResource("6_lidkd"),
+4: ExtResource("7_m1geh")
+})
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2092128419]
+shape = SubResource("BoxShape3D_yj28x")
+
+[node name="DroppedSFX" type="AudioStreamPlayer3D" parent="." unique_id=91373275]
+unique_name_in_owner = true
+attenuation_model = 1
+max_db = -1.0
+bus = &"SFX"
+
+[node name="PickupSFX" type="AudioStreamPlayer3D" parent="." unique_id=795899502]
+unique_name_in_owner = true
+attenuation_model = 1
+max_db = -1.0
+bus = &"SFX"

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://d3o2cfsr551di" path="res://entities/conveyor/straight_conveyor.gd" id="1_7eqht"]
 [ext_resource type="PackedScene" uid="uid://sml3hqkaxf8c" path="res://Art_Assets/Environment/conveyor/Conveyor.glb" id="2_q1i14"]
 [ext_resource type="Script" uid="uid://dwc5naqriy8sd" path="res://Art_Assets/Environment/conveyor/uv_anim.gd" id="3_kefyg"]
+[ext_resource type="AudioStream" uid="uid://cv3bk5ce2fpck" path="res://sound/fx/conveyorbeltloopsquished.wav" id="4_kefyg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n54wd"]
 albedo_color = Color(0.23, 0.18009001, 0.016099999, 1)
@@ -15,9 +16,6 @@ size = Vector3(0.1, 0.2, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n1slu"]
 size = Vector3(0.1, 0.2, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_q1i14"]
-size = Vector3(1, 0.2, 0.1)
 
 [node name="StraightConveyor" type="Node3D" unique_id=606666062]
 script = ExtResource("1_7eqht")
@@ -54,21 +52,16 @@ size = Vector3(0.1, 0.2, 1)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BumperRight/StaticBody3D" unique_id=2032328365]
 shape = SubResource("BoxShape3D_n1slu")
 
-[node name="BumperRear" type="CSGBox3D" parent="." unique_id=1740338729]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.55)
-visible = false
-size = Vector3(1, 0.2, 0.1)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="BumperRear" unique_id=1619084412]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BumperRear/StaticBody3D" unique_id=676734221]
-shape = SubResource("BoxShape3D_q1i14")
-
 [node name="Conveyor" parent="." unique_id=2021470475 instance=ExtResource("2_q1i14")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -0.051348552, 0)
 
-[node name="Cube" parent="Conveyor" index="0" unique_id=768765383]
+[node name="Cube" parent="Conveyor" index="0" unique_id=184548590]
 script = ExtResource("3_kefyg")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1356960959]
+stream = ExtResource("4_kefyg")
+max_db = -24.0
+autoplay = true
+bus = &"SFX"
 
 [editable path="Conveyor"]

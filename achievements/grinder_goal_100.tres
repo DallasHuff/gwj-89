@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Achievement" format=3 uid="uid://b2my71pckils0"]
+
+[ext_resource type="Script" uid="uid://ensdc4nbfc1e" path="res://achievements/achievement.gd" id="1_gxeo1"]
+
+[resource]
+script = ExtResource("1_gxeo1")
+display_name = "Perfect Grind"
+description = "Meet a grinder's goal while it's still at 100% durability"
+metadata/_custom_type_script = "uid://ensdc4nbfc1e"

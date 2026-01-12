@@ -3,6 +3,8 @@ extends Area3D
 
 const TRASH_GAP := Vector3(0, 0.3, 0)
 
+@export var inventory_size: int
+
 var trash: Array[Trash] = []
 
 @onready var hold_spot: Marker3D = $HoldSpotMarker
@@ -19,12 +21,18 @@ func _physics_process(_delta: float) -> void:
 func pickup() -> void:
 	var bodies := get_overlapping_bodies()
 	for i in range(bodies.size()):
+		if trash.size() >= inventory_size:
+			break
 		var body := bodies[i]
 		if body is Trash and body not in trash:
+			body = body as Trash
 			trash.append(body)
 			body.global_position = hold_spot.global_position + (TRASH_GAP * trash.size())
 			body.freeze = true
+			body.pickup_sfx.play()
 			body.reparent(self)
+	if trash.size() >= inventory_size:
+		AchievementTracker.achieve("Loaded Up")
 
 
 func putdown() -> void:

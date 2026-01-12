@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c11aewuhd8ifn"]
 
 [ext_resource type="PackedScene" uid="uid://dksqsb7ouxc4c" path="res://entities/player/player.tscn" id="1_mesa8"]
-[ext_resource type="Script" path="res://levels/level.gd" id="1_sauko"]
+[ext_resource type="Script" uid="uid://b2b65lfxuh6ri" path="res://levels/level.gd" id="1_sauko"]
 [ext_resource type="PackedScene" uid="uid://0y1s4ra8pfw" path="res://entities/conveyor/straight_conveyor.tscn" id="2_qxn8h"]
 [ext_resource type="PackedScene" uid="uid://gdv62oa7bqy0" path="res://entities/spawner/spawner.tscn" id="3_5kb2l"]
 [ext_resource type="Script" uid="uid://dw5i7nu67h2df" path="res://levels/components/ray_camera.gd" id="4_exgr7"]
