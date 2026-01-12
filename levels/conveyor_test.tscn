@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://b2b65lfxuh6ri" path="res://levels/level.gd" id="1_sauko"]
 [ext_resource type="PackedScene" uid="uid://0y1s4ra8pfw" path="res://entities/conveyor/straight_conveyor.tscn" id="2_qxn8h"]
 [ext_resource type="PackedScene" uid="uid://gdv62oa7bqy0" path="res://entities/spawner/spawner.tscn" id="3_5kb2l"]
-[ext_resource type="PackedScene" uid="uid://c2jvxee34q8qf" path="res://entities/player/player_camera.tscn" id="3_e875t"]
 [ext_resource type="PackedScene" uid="uid://cr6hleb1ryg5e" path="res://entities/hopper/hopper.tscn" id="6_e875t"]
 
 [sub_resource type="Environment" id="Environment_h8bs1"]
@@ -35,10 +34,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.016066551, 0.041111946, -0.
 size = Vector3(100, 1.05, 100)
 material = SubResource("StandardMaterial3D_qxn8h")
 
-[node name="PlayerCamera" parent="." unique_id=290868861 instance=ExtResource("3_e875t")]
-transform = Transform3D(1, 0, 0, 0, 0.645431, 0.7638186, 0, -0.7638186, 0.645431, -8.553078, 8.946337, 9.445791)
-
-[node name="Player" parent="PlayerCamera" unique_id=461061772 instance=ExtResource("1_mesa8")]
+[node name="Player" parent="." unique_id=461061772 instance=ExtResource("1_mesa8")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.349749, 1.6277466, 5.8020144)
 top_level = true

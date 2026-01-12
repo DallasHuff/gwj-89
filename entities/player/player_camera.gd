@@ -1,4 +1,4 @@
-class_name RayCamera
+class_name PlayerCamera
 extends Camera3D
 
 @export var debug := false
@@ -6,7 +6,7 @@ extends Camera3D
 var mouse_position := Vector3.ZERO
 
 @onready var ray_display := %RayDisplay
-@onready var player := %Player
+@onready var player: Player = get_parent()
 
 var display_timer : Timer
 
@@ -18,8 +18,8 @@ func _ready() -> void:
 	display_timer.timeout.connect(_hide_ray_display)
 
 func _process(_delta: float) -> void:
+	shoot_ray()
 	if Input.is_action_just_pressed("pickup"):
-		shoot_ray()
 		ray_display.global_position = mouse_position
 		ray_display.show()
 		display_timer.start()

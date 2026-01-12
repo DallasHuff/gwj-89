@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b5ni1gsunoqou" path="res://entities/player/player.gd" id="1_oul6g"]
 [ext_resource type="PackedScene" uid="uid://ch27suvq1016w" path="res://Art_Assets/Characters/Rat1/Rat1_rund.glb" id="2_26q78"]
+[ext_resource type="PackedScene" uid="uid://c2jvxee34q8qf" path="res://entities/player/player_camera.tscn" id="2_bectd"]
 [ext_resource type="Script" uid="uid://dbgwigfu37cer" path="res://entities/components/interactor.gd" id="2_qiwj3"]
 [ext_resource type="Script" uid="uid://b4iy4v2v82grv" path="res://entities/components/state_machine/state_machine.gd" id="2_sglur"]
 [ext_resource type="Script" uid="uid://c4tmbb57xecu8" path="res://entities/components/state_machine/states/idle.gd" id="3_bls4j"]
@@ -17,13 +18,17 @@ size = Vector3(1, 2.5, 1.7)
 [node name="Player" type="CharacterBody3D" unique_id=461061772]
 script = ExtResource("1_oul6g")
 
+[node name="PlayerCamera" parent="." unique_id=290868861 instance=ExtResource("2_bectd")]
+transform = Transform3D(1, 0, 0, 0, 0.64278764, 0.76604444, 0, -0.76604444, 0.64278764, -8.553078, 8.946337, 9.445791)
+top_level = true
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2113718125]
 shape = SubResource("CapsuleShape3D_kqu6x")
 
 [node name="Rat1_rund" parent="." unique_id=174512231 instance=ExtResource("2_26q78")]
 transform = Transform3D(-1.5, 0, 2.2649371e-07, 0, 1.5, 0, -2.2649371e-07, 0, -1.5, 0, -0.8398146, 0.04616058)
 
-[node name="Skeleton3D" parent="Rat1_rund/Rat1_Run" parent_id_path=PackedInt32Array(174512231, 194289935) index="0" unique_id=2082879793]
+[node name="Skeleton3D" parent="Rat1_rund/Rat1_Run" parent_id_path=PackedInt32Array(174512231, 1387707695) index="0" unique_id=1251940532]
 bones/0/position = Vector3(-0.008744252, -0.014450192, -1.3634334)
 bones/0/rotation = Quaternion(-0.7060381, 0.05161911, -0.010558996, 0.7062111)
 bones/1/rotation = Quaternion(-0.0018803182, 0.007140844, -0.006498116, 0.99995166)
@@ -98,9 +103,11 @@ script = ExtResource("3_bls4j")
 animation_player = NodePath("../../Rat1_rund/AnimationPlayer")
 metadata/_custom_type_script = "uid://c4tmbb57xecu8"
 
-[node name="Interact" type="Node" parent="StateMachine" unique_id=339015851 node_paths=PackedStringArray("animation_player")]
+[node name="Interact" type="Node" parent="StateMachine" unique_id=339015851 node_paths=PackedStringArray("animation_player", "player_camera", "character")]
 script = ExtResource("4_bls4j")
 animation_player = NodePath("../../Rat1_rund/AnimationPlayer")
+player_camera = NodePath("../../PlayerCamera")
+character = NodePath("../..")
 metadata/_custom_type_script = "uid://b2avbdpdqfic5"
 
 [node name="Run" type="Node" parent="StateMachine" unique_id=938482072 node_paths=PackedStringArray("character", "anim_player", "movement_component")]

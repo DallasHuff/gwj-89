@@ -1,7 +1,7 @@
 class_name Level
 extends Node3D
 
-# @onready var ray_cam: RayCamera = %RayCamera
+# @onready var ray_cam: PlayerCamera = %PlayerCamera
 @onready var player: Player = %Player
 
 # @onready var ray_display := %RayDisplay
