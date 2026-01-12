@@ -26,6 +26,7 @@ material = SubResource("StandardMaterial3D_n54wd")
 
 [node name="BeltMover" type="StaticBody3D" parent="." unique_id=2116407018]
 unique_name_in_owner = true
+collision_layer = 32769
 constant_linear_velocity = Vector3(0, 0, 1.5)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BeltMover" unique_id=354356967]
@@ -38,6 +39,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.55, 0, 0)
 size = Vector3(0.1, 0.2, 1)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="BumperLeft" unique_id=347671735]
+collision_layer = 32769
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BumperLeft/StaticBody3D" unique_id=769083467]
 shape = SubResource("BoxShape3D_7eqht")
@@ -48,6 +50,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55, 0, 0)
 size = Vector3(0.1, 0.2, 1)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="BumperRight" unique_id=323769172]
+collision_layer = 32769
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BumperRight/StaticBody3D" unique_id=2032328365]
 shape = SubResource("BoxShape3D_n1slu")
@@ -55,7 +58,7 @@ shape = SubResource("BoxShape3D_n1slu")
 [node name="Conveyor" parent="." unique_id=2021470475 instance=ExtResource("2_q1i14")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -0.051348552, 0)
 
-[node name="Cube" parent="Conveyor" index="0" unique_id=184548590]
+[node name="Cube" parent="Conveyor" index="0" unique_id=768765383]
 script = ExtResource("3_kefyg")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1356960959]

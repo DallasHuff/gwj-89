@@ -23,6 +23,10 @@ func _process(_delta: float) -> void:
 		ray_display.global_position = mouse_position
 		ray_display.show()
 		display_timer.start()
+	if Input.is_action_just_pressed("putdown"):
+		ray_display.global_position = mouse_position
+		ray_display.show()
+		display_timer.start()
 
 func _physics_process(_delta: float) -> void:
 	global_position = lerp(global_position, player.global_position + Vector3(0, 9, 4), 0.1)
@@ -41,8 +45,7 @@ func shoot_ray() -> void:
 
 func find_mouse_position(space: PhysicsDirectSpaceState3D, to: Vector3, from: Vector3) -> void:
 	var ray_query := PhysicsRayQueryParameters3D.new()
-	# ray_query.collision_mask = 1 << 15
-	ray_query.collision_mask = 1
+	ray_query.collision_mask = 1 << 15
 	ray_query.from = from
 	ray_query.to = to
 	var raycast_result := space.intersect_ray(ray_query)

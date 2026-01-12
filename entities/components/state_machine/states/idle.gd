@@ -19,7 +19,7 @@ func physics_update(_delta: float) -> void:
 		transition_requested.emit("run")
 	
 	# interact
-	if Input.is_action_just_pressed("pickup"):
+	if Input.is_action_just_pressed("pickup") or Input.is_action_just_pressed("putdown"):
 		transition_requested.emit("interact")
 		
 

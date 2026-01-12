@@ -27,6 +27,6 @@ func physics_update(delta: float) -> void:
 	character.rotation.y = lerp_angle(character.rotation.y, target_angle, rotation_speed * delta)
 
 	# interact
-	if Input.is_action_just_pressed("pickup"):
+	if Input.is_action_just_pressed("pickup") or Input.is_action_just_pressed("putdown"):
 		movement_component.direction = Vector3.ZERO
 		transition_requested.emit("interact")

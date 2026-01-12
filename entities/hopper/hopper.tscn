@@ -8,6 +8,9 @@ size = Vector3(1, 0.5, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pbacs"]
 albedo_color = Color(0.54, 0.35982, 0.04859999, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_pbacs"]
+size = Vector3(1, 1.0444336, 1)
+
 [node name="Hopper" type="Node3D" unique_id=1611280198]
 script = ExtResource("1_pbacs")
 
@@ -16,12 +19,13 @@ use_collision = true
 size = Vector3(1.1, 1, 1.1)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D" unique_id=1725255977]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.116229355, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.04155284, 0)
 operation = 2
-size = Vector3(1, 1.1014404, 1)
+size = Vector3(1, 0.9520874, 1)
 
 [node name="Zone" type="Area3D" parent="." unique_id=306718744]
 unique_name_in_owner = true
+collision_layer = 32769
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Zone" unique_id=424839931]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.19541916, 0)
@@ -53,5 +57,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4696286, 0.32712382, 0.6142
 pixel_size = 0.004
 text = "100%"
 horizontal_alignment = 2
+
+[node name="MouseRayCastBox" type="StaticBody3D" parent="." unique_id=2009955246]
+collision_layer = 32768
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MouseRayCastBox" unique_id=1365156305]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.022216797, 0)
+shape = SubResource("BoxShape3D_pbacs")
 
 [connection signal="body_entered" from="Zone" to="." method="_on_zone_body_entered"]

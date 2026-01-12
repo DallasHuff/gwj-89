@@ -1,14 +1,17 @@
 class_name Interactor
-extends Area3D
+extends Node3D
 
 const TRASH_GAP := Vector3(0, 0.3, 0)
 
 @export var inventory_size: int
+@export var player_camera: PlayerCamera
 
 var trash: Array[Trash] = []
 
 @onready var hold_spot: Marker3D = $HoldSpotMarker
 @onready var drop_spot: Marker3D = $DropSpotMarker
+@onready var drop_offset := Vector3(0.0, 0.5, 0.0)
+@onready var grab_area: Area3D = $GrabArea
 
 
 func _physics_process(_delta: float) -> void:
@@ -19,7 +22,12 @@ func _physics_process(_delta: float) -> void:
 
 
 func pickup() -> void:
-	var bodies := get_overlapping_bodies()
+
+	# move grab area
+	assert(is_instance_valid(player_camera))
+	grab_area.global_position = player_camera.mouse_position
+
+	var bodies := grab_area.get_overlapping_bodies()
 	for i in range(bodies.size()):
 		if trash.size() >= inventory_size:
 			break
@@ -36,6 +44,11 @@ func pickup() -> void:
 
 
 func putdown() -> void:
+
+	# move drop spot
+	assert(is_instance_valid(player_camera))
+	drop_spot.global_position = player_camera.mouse_position + drop_offset
+
 	if trash.size() < 1:
 		return
 	var t: Trash = trash.pop_front()

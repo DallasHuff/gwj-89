@@ -12,11 +12,7 @@ func enter() -> void:
 
 func physics_update(delta: float) -> void:
 	assert(is_instance_valid(player_camera))
-	# when I comment this out, movement works, but with this included it
-	# doesn't rotate properly anymore, seems to follow mouse but not 
-	# directly
 	look_at_smooth(player_camera.mouse_position, delta)
-
 
 func _on_anim_finished(anim_name: StringName) -> void:
 	if anim_name == "interact":
