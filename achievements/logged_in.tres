@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Achievement" format=3 uid="uid://bfml58qfr3q63"]
 
-[ext_resource type="Texture2D" uid="uid://btde7ctgqxbc7" path="res://achievements/big_steak.png" id="1_4lpj1"]
+[ext_resource type="Texture2D" uid="uid://c0i1oietp2tl1" path="res://Art_Assets/icons/login_icon.png" id="1_4lpj1"]
 [ext_resource type="Script" uid="uid://ensdc4nbfc1e" path="res://achievements/achievement.gd" id="1_qqn5l"]
 
 [resource]

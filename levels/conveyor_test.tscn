@@ -34,6 +34,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.016066551, 0.041111946, -0.
 size = Vector3(100, 1.05, 100)
 material = SubResource("StandardMaterial3D_qxn8h")
 
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="ground" unique_id=247690455]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23930836, 0)
+size = Vector3(300, 1, 300)
+
 [node name="Player" parent="." unique_id=461061772 instance=ExtResource("1_mesa8")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.349749, 1.6277466, 5.8020144)
