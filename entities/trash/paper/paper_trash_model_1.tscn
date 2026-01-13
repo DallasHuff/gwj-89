@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://nk3j6evx80pj"]
+
+[node name="PaperTrashModel1" type="Node3D" unique_id=2032543339]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1307957427]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.043860495, 0)
+size = Vector3(0.4, 0.05, 0.4)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=1539061716]
+transform = Transform3D(0.98383194, 0, 0.17909414, 0, 1, 0, -0.17909414, 0, 0.98383194, 0, 0.09183031, 0)
+size = Vector3(0.4, 0.05, 0.4)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=473154742]
+transform = Transform3D(0.9904783, 0, -0.1376693, 0, 1, 0, 0.1376693, 0, 0.9904783, 0, 0.14112863, 0)
+size = Vector3(0.4, 0.05, 0.4)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="." unique_id=728150837]
+transform = Transform3D(0.97912717, 0, 0.20324872, 0, 1, 0, -0.20324872, 0, 0.97912717, 0, 0.19368833, 0)
+size = Vector3(0.4, 0.05, 0.4)
