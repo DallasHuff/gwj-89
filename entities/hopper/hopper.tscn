@@ -40,48 +40,6 @@ colors = PackedColorArray(0.81960785, 0.4392157, 0.047058824, 1, 0.81960785, 0.4
 [sub_resource type="Gradient" id="Gradient_xk7wf"]
 colors = PackedColorArray(0, 0.45264262, 0.45031172, 1, 0, 0.36336336, 0.39409682, 1)
 
-[sub_resource type="Curve" id="Curve_xk7wf"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.8945147, 0.764045), -0.7608349, -0.7608349, 0, 0, Vector2(1, 0), -3.32865, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_xwfgo"]
-curve = SubResource("Curve_xk7wf")
-
-[sub_resource type="Curve" id="Curve_h1cyn"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.87763715, 0.7865169), 0.0, 0.0, 0, 0, Vector2(1, 0.011235952), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_ci03g"]
-curve = SubResource("Curve_h1cyn")
-
-[sub_resource type="Curve" id="Curve_pbacs"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.5062778, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_xk7wf"]
-curve = SubResource("Curve_pbacs")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pbacs"]
-particle_flag_align_y = true
-emission_shape = 3
-emission_box_extents = Vector3(0.3, 0.1, 0.3)
-direction = Vector3(0, 1, 0)
-spread = 60.0
-initial_velocity_min = 3.0
-initial_velocity_max = 4.0
-scale_curve = SubResource("CurveTexture_xk7wf")
-color = Color(0.5170074, 0.27887046, 9.62615e-08, 1)
-alpha_curve = SubResource("CurveTexture_xwfgo")
-emission_curve = SubResource("CurveTexture_ci03g")
-collision_mode = 1
-collision_friction = 0.2
-collision_bounce = 1.0
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_xk7wf"]
-top_radius = 0.005
-bottom_radius = 0.005
-height = 0.15
-
 [node name="Hopper" type="Node3D" unique_id=1611280198]
 script = ExtResource("1_pbacs")
 
@@ -161,7 +119,6 @@ color_initial_ramp = SubResource("Gradient_71rqh")
 [node name="SparkParticles" type="CPUParticles3D" parent="." unique_id=1389055007]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4123385, 0)
-visible = false
 material_override = SubResource("StandardMaterial3D_xk7wf")
 emitting = false
 amount = 48
@@ -190,17 +147,5 @@ spread = 180.0
 initial_velocity_min = 5.0
 initial_velocity_max = 5.0
 color_ramp = SubResource("Gradient_xk7wf")
-
-[node name="SparkParticles2" type="GPUParticles3D" parent="." unique_id=1096745348]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4123385, 0)
-material_override = SubResource("StandardMaterial3D_xk7wf")
-emitting = false
-amount = 64
-lifetime = 0.9
-one_shot = true
-explosiveness = 0.8
-process_material = SubResource("ParticleProcessMaterial_pbacs")
-draw_pass_1 = SubResource("CylinderMesh_xk7wf")
 
 [connection signal="body_entered" from="Zone" to="." method="_on_zone_body_entered"]
