@@ -62,7 +62,7 @@ func pickup() -> void:
 			break
 		var body := bodies[i]
 		if body is Trash and body not in trash:
-			var dist_to_grab_spot := body.position.distance_to(grab_marker.position)
+			var dist_to_grab_spot := body.position.distance_to(player_camera.mouse_position)
 			if min_dist > dist_to_grab_spot:
 				min_dist = dist_to_grab_spot
 				closest_trash = body as Trash
