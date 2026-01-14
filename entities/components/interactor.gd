@@ -11,6 +11,7 @@ const TRASH_GAP := Vector3(0, 0.3, 0)
 @export var interact_delay_timer := 0.05
 
 var trash: Array[Trash] = []
+var time_elapsed := 0.0
 
 @onready var hold_spot: Marker3D = $HoldSpotMarker
 @onready var drop_spot: Marker3D = $DropSpotMarker
@@ -28,12 +29,13 @@ func _ready() -> void:
 	display_timer.one_shot = true
 	display_timer.timeout.connect(hide_ray_display)
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
+	time_elapsed += delta
+	_sway_trash()
 	if Input.is_action_just_pressed("pickup"):
 		pickup()
 	elif Input.is_action_just_pressed("putdown"):
 		putdown()
-
 
 func show_ray_display() -> void:
 	ray_display.show()
@@ -73,6 +75,7 @@ func pickup() -> void:
 		closest_trash.freeze = true
 		closest_trash.pickup_sfx.play()
 		closest_trash.reparent(self)
+		closest_trash.top_level = true
 	if trash.size() >= inventory_size:
 		AchievementTracker.achieve("Loaded Up")
 
@@ -98,6 +101,18 @@ func putdown() -> void:
 	t.reparent(get_tree().root)
 	t.global_position = drop_spot.global_position
 	t.freeze = false
+	t.top_level = false
 
 	for i in range(trash.size()):
 		trash[i].global_position = hold_spot.global_position + (TRASH_GAP * i)
+
+func _sway_trash() -> void:
+	# These variables are inverted. Higher numbers means lower speed / size
+	var sway_speed := 1.5
+	var sway_size := 100.0
+	for i in range(trash.size()):
+		var random_sway := Vector3((cos(time_elapsed/sway_speed) * sin(time_elapsed/sway_speed))/sway_size, 0, (sin(time_elapsed/sway_speed) * sin(time_elapsed/sway_speed))/sway_size)
+		if i > 0:
+			trash[i].global_position = lerp(trash[i].global_position, trash[i-1].global_position + TRASH_GAP + random_sway, 0.8)
+		else:
+			trash[i].global_position = lerp(trash[i].global_position, hold_spot.global_position, 0.8)

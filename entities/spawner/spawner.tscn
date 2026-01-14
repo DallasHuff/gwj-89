@@ -5,7 +5,7 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g10r0"]
 albedo_color = Color(1, 0.07999998, 0.07999998, 1)
 
-[node name="Spawner" type="Node3D" unique_id=359273142]
+[node name="Spawner" type="Node3D" unique_id=359273142 groups=["spawner"]]
 script = ExtResource("1_g400x")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=366067067]
