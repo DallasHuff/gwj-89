@@ -1,5 +1,7 @@
 extends Node
 
+signal achieved(achievement: Achievement)
+
 const PATH := "res://achievements"
 
 @export var achievement_list: Array[Achievement] = []
@@ -15,10 +17,16 @@ var trash_streak: int = 0
 @onready var icon: TextureRect = %AchievementIcon
 @onready var name_label: RichTextLabel = %AchievementName
 @onready var desc_label: RichTextLabel = %AchievementDescription
+@onready var list_container: VBoxContainer = %AchievementListContainer
 @onready var sfx: AudioStreamPlayer = %SFX
+@onready var ach_list_item_scene := preload("uid://cmgtsj8ljqgmc")
 
 
 func _ready() -> void:
+	for achievement in achievement_list:
+		var list_item: AchievementListItem = ach_list_item_scene.instantiate()
+		list_container.add_child(list_item)
+		list_item.setup(achievement)
 	get_tree().create_timer(2).timeout.connect(achieve.bind("Logged In!"))
 	EventsBus.trash_grinded.connect(_on_trash_grinded)
 	EventsBus.hopper_destroyed.connect(_on_hopper_destroyed)
@@ -57,14 +65,20 @@ func _play_next_animation() -> void:
 	desc_label.text = ach.description
 	icon.texture = ach.icon
 
+	sfx.pitch_scale = randf_range(0.95, 1.05)
 	sfx.play()
+	achieved.emit(ach)
 
 	var tween := create_tween()
-	tween.tween_property(panel, "anchor_top", 0.03, 0.5)
-	tween.parallel().tween_property(panel, "anchor_bottom", 0.23, 0.5)
-	tween.chain().tween_property(panel, "anchor_top", -0.23, 0.5).set_delay(4)
-	tween.parallel().tween_property(panel, "anchor_bottom", -0.03, 0.5).set_delay(4)
-	tween.chain().tween_callback(func() -> void: currently_achieving = false).set_delay(1)
+	tween.tween_property(panel, "anchor_top", 0.77, 0.5)
+	tween.parallel().tween_property(panel, "anchor_bottom", 0.97, 0.5)
+	tween.chain().tween_property(panel, "anchor_top", 1.03, 0.5).set_delay(4)
+	tween.parallel().tween_property(panel, "anchor_bottom", 1.23, 0.5).set_delay(4)
+	tween.chain().tween_callback(_animation_finished).set_delay(1)
+
+
+func _animation_finished() -> void:
+	currently_achieving = false
 
 
 func _on_trash_grinded(type: Trash.TrashType, correct_type: bool) -> void:

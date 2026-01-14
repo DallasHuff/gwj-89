@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="Achievement" format=3 uid="uid://boj30t73m1kcf"]
-
-[ext_resource type="Script" uid="uid://ensdc4nbfc1e" path="res://achievements/achievement.gd" id="1_q3dnm"]
-
-[resource]
-script = ExtResource("1_q3dnm")
-display_name = "Grinder Down"
-description = "Destroy a grinder"
-metadata/_custom_type_script = "uid://ensdc4nbfc1e"
