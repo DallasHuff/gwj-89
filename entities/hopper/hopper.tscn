@@ -17,6 +17,10 @@ vertex_color_use_as_albedo = true
 
 [sub_resource type="SphereMesh" id="SphereMesh_1opn8"]
 
+[sub_resource type="Curve" id="Curve_pbacs"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.2818315, 0.0, 0, 0]
+point_count = 2
+
 [sub_resource type="Gradient" id="Gradient_axxpv"]
 offsets = PackedFloat32Array(0, 0.374502, 0.7370518, 0.84063745, 1)
 colors = PackedColorArray(0, 0, 0, 0.73333335, 0.09019608, 0.09019608, 0.09019608, 0.7764706, 0.23137255, 0.23137255, 0.23137255, 0.827451, 0.29803923, 0.29803923, 0.29803923, 0.8117647, 0.21950102, 0.21950102, 0.21950093, 0)
@@ -36,6 +40,12 @@ height = 0.1
 
 [sub_resource type="Gradient" id="Gradient_pbacs"]
 colors = PackedColorArray(0.81960785, 0.4392157, 0.047058824, 1, 0.81960785, 0.4392157, 0.047058824, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xwfgo"]
+vertex_color_use_as_albedo = true
+emission_enabled = true
+emission = Color(0.2126221, 0.79073036, 0.6816486, 1)
+emission_energy_multiplier = 0.8
 
 [sub_resource type="Gradient" id="Gradient_xk7wf"]
 colors = PackedColorArray(0, 0.45264262, 0.45031172, 1, 0, 0.36336336, 0.39409682, 1)
@@ -100,19 +110,20 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4485917, 0)
 material_override = SubResource("StandardMaterial3D_1opn8")
 emitting = false
-amount = 24
+amount = 48
 lifetime = 1.5
 randomness = 0.31
 lifetime_randomness = 0.28
 mesh = SubResource("SphereMesh_1opn8")
-emission_shape = 4
-emission_points = PackedVector3Array(0.5, 0, 0, -0.5, 0, 0, 0, 0, 0.5, 0, 0, -0.5)
+emission_shape = 3
+emission_box_extents = Vector3(0.5, 0.3, 0.5)
 direction = Vector3(0, 1, 0)
 gravity = Vector3(0, 2, 0)
 initial_velocity_min = 1.0
 initial_velocity_max = 1.5
-scale_amount_min = 0.5
+scale_amount_min = 0.1
 scale_amount_max = 0.5
+scale_amount_curve = SubResource("Curve_pbacs")
 color_ramp = SubResource("Gradient_axxpv")
 color_initial_ramp = SubResource("Gradient_71rqh")
 
@@ -135,7 +146,7 @@ color_ramp = SubResource("Gradient_pbacs")
 [node name="BlueSparkParticles" type="CPUParticles3D" parent="." unique_id=1194362466]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4123385, 0)
-material_override = SubResource("StandardMaterial3D_xk7wf")
+material_override = SubResource("StandardMaterial3D_xwfgo")
 emitting = false
 amount = 48
 one_shot = true

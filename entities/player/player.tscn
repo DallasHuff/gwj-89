@@ -29,7 +29,7 @@ transform = Transform3D(1, 0, 0, 0, 0.54411197, 0.8390127, 0, -0.8390127, 0.5441
 top_level = true
 
 [node name="AudioListener3D" type="AudioListener3D" parent="PlayerCamera" unique_id=1557908067]
-transform = Transform3D(1, 0, 0, 0, 0.99780494, -0.066221744, 0, 0.066221744, 0.99780494, -8.553078, -3.5921152, 4.20516)
+transform = Transform3D(1, 0, 0, 0, 0.997805, -0.066221714, 0, 0.066221714, 0.997805, 0, 7.5531034, -4.8982983)
 doppler_tracking = 2
 current = true
 
@@ -40,7 +40,7 @@ shape = SubResource("CapsuleShape3D_kqu6x")
 [node name="Rat1_rund" parent="." unique_id=174512231 instance=ExtResource("2_26q78")]
 transform = Transform3D(-1.5, 0, 2.2649371e-07, 0, 1.5, 0, -2.2649371e-07, 0, -1.5, 0, -0.8398146, 0.04616058)
 
-[node name="Skeleton3D" parent="Rat1_rund/Rat1_Run" parent_id_path=PackedInt32Array(174512231, 1387707695) index="0" unique_id=1251940532]
+[node name="Skeleton3D" parent="Rat1_rund/Rat1_Run" parent_id_path=PackedInt32Array(174512231, 194289935) index="0" unique_id=2082879793]
 bones/0/position = Vector3(-0.008744252, -0.014450192, -1.3634334)
 bones/0/rotation = Quaternion(-0.7060381, 0.05161911, -0.010558996, 0.7062111)
 bones/1/rotation = Quaternion(-0.0018803182, 0.007140844, -0.006498116, 0.99995166)

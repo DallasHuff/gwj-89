@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="Achievement" format=3 uid="uid://dhiung6kudwq"]
-
-[ext_resource type="Script" uid="uid://ensdc4nbfc1e" path="res://achievements/achievement.gd" id="1_mmx48"]
-
-[resource]
-script = ExtResource("1_mmx48")
-display_name = "Grinder Goal"
-description = "Meet a grinder's goal"
-metadata/_custom_type_script = "uid://ensdc4nbfc1e"
