@@ -24,7 +24,7 @@ func _on_spawn_timer_timeout() -> void:
 
 	var rand_wait := randf_range(spawn_timer_range_min, spawn_timer_range_max)
 	# print("waiting: ", rand_wait)
-	spawn_timer.wait_time = true
+	spawn_timer.wait_time = rand_wait
 	spawn_timer.start()
 
 

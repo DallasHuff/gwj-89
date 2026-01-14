@@ -24,6 +24,7 @@ type_to_data = Dictionary[int, ExtResource("2_yj28x")]({
 })
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2092128419]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14816336, 0)
 shape = SubResource("BoxShape3D_yj28x")
 
 [node name="DroppedSFX" type="AudioStreamPlayer3D" parent="." unique_id=91373275]
