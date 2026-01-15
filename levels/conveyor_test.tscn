@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://b2b65lfxuh6ri" path="res://levels/level.gd" id="1_sauko"]
 [ext_resource type="PackedScene" uid="uid://0y1s4ra8pfw" path="res://entities/conveyor/straight_conveyor.tscn" id="2_qxn8h"]
 [ext_resource type="PackedScene" uid="uid://gdv62oa7bqy0" path="res://entities/spawner/spawner.tscn" id="3_5kb2l"]
+[ext_resource type="PackedScene" uid="uid://c5v4jsdjsxx0v" path="res://entities/conveyor/portal_conveyor.tscn" id="4_e875t"]
 [ext_resource type="PackedScene" uid="uid://cr6hleb1ryg5e" path="res://entities/hopper/hopper.tscn" id="6_e875t"]
 
 [sub_resource type="Environment" id="Environment_h8bs1"]
@@ -55,19 +56,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.6, 0)
 [node name="StraightConveyor4" parent="conveyors1" unique_id=858196147 instance=ExtResource("2_qxn8h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.6, 1)
 
-[node name="StraightConveyor5" parent="conveyors1" unique_id=606666062 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5, 0.6, 2)
+[node name="StraightConveyor9" parent="conveyors1" unique_id=606666062 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.6, 9)
+
+[node name="StraightConveyor5" parent="conveyors1" unique_id=1599394013 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2, 0.6, 2)
 enable_left_bumper = false
 enable_rear_bumper = true
 
 [node name="StraightConveyor6" parent="conveyors1" unique_id=335280754 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6, 0.6, 2)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7, 0.6, 0)
 
 [node name="StraightConveyor7" parent="conveyors1" unique_id=1156780407 instance=ExtResource("2_qxn8h")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7, 0.6, 2)
 
 [node name="StraightConveyor8" parent="conveyors1" unique_id=2045166512 instance=ExtResource("2_qxn8h")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -8, 0.6, 2)
+
+[node name="PortalConveyor" parent="conveyors1" unique_id=843455411 instance=ExtResource("4_e875t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.48879385, 2)
 
 [node name="Spawner" parent="." unique_id=359273142 instance=ExtResource("3_5kb2l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 5, -2)

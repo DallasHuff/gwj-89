@@ -4,7 +4,7 @@ extends Node3D
 @export var trash_type := Trash.TrashType.PLASTIC
 @export var spawn_timer_range_min := 3.0
 @export var spawn_timer_range_max := 7.0
-@export var spawn_timer_start_delay := 1.0
+@export var spawn_timer_start_delay := 10.0
 
 var spawn_bounds_width := 0.3
 var spawn_timer: Timer
