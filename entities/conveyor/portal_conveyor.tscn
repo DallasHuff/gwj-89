@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://c5v4jsdjsxx0v"]
+
+[ext_resource type="PackedScene" uid="uid://0y1s4ra8pfw" path="res://entities/conveyor/straight_conveyor.tscn" id="1_7kvxu"]
+[ext_resource type="Script" uid="uid://li26rrvvpq1r" path="res://entities/conveyor/portal_conveyor.gd" id="1_rw07l"]
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_7kvxu"]
+albedo_color = Color(0.4, 0.23386669, 0.044000007, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7kvxu"]
+size = Vector3(1, 0.6696167, 0.51904297)
+
+[node name="PortalConveyor" type="Node3D" unique_id=843455411]
+script = ExtResource("1_rw07l")
+
+[node name="StraightConveyor" parent="." unique_id=606666062 instance=ExtResource("1_7kvxu")]
+transform = Transform3D(1, 0, 0, 0, 0.96780586, -0.25169778, 0, 0.25169778, 0.96780586, 0, 0.0033090115, -0.03595078)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor6" parent="." unique_id=263560188 instance=ExtResource("1_7kvxu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.14513028, 0.9655342)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor3" parent="." unique_id=1239422469 instance=ExtResource("1_7kvxu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12573111, 6)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor4" parent="." unique_id=1906228084 instance=ExtResource("1_7kvxu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12573111, 5)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1120549199]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4370185, 1)
+use_collision = true
+size = Vector3(1.2, 1.5, 2)
+material = SubResource("ORMMaterial3D_7kvxu")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D" unique_id=709982897]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, -0.11972046, 0.7618339, 1.1867378)
+operation = 2
+size = Vector3(1.8563843, 1, 1.3338623)
+material = SubResource("ORMMaterial3D_7kvxu")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D" unique_id=787997221]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.002885282, -0.28912455)
+operation = 2
+size = Vector3(1.05, 1.306833, 1.6942158)
+material = SubResource("ORMMaterial3D_7kvxu")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=101412452]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.4370185, 5)
+use_collision = true
+size = Vector3(1.2, 1.5, 2)
+material = SubResource("ORMMaterial3D_7kvxu")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D2" unique_id=1254590128]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, -0.11972046, 0.7618339, 1.1867378)
+operation = 2
+size = Vector3(1.8563843, 1, 1.3338623)
+material = SubResource("ORMMaterial3D_7kvxu")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D2" unique_id=446662316]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.002885282, -0.28912455)
+operation = 2
+size = Vector3(1.05, 1.306833, 1.6942158)
+material = SubResource("ORMMaterial3D_7kvxu")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=97044656]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=605263039]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.10551357, 1.3543506)
+shape = SubResource("BoxShape3D_7kvxu")
+
+[node name="ExitMarker" type="Marker3D" parent="." unique_id=1694158948]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45772052, 4.958474)
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
