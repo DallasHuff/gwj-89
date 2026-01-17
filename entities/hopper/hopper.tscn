@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cr6hleb1ryg5e"]
 
 [ext_resource type="Script" uid="uid://dyfxvfcirwqsy" path="res://entities/hopper/hopper.gd" id="1_pbacs"]
+[ext_resource type="PackedScene" uid="uid://c1rstasgu45gf" path="res://Art_Assets/Environment/Foreground/crushers.glb" id="2_xk7wf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m4v2h"]
 size = Vector3(2, 0.5, 2)
@@ -54,6 +55,7 @@ colors = PackedColorArray(0, 0.45264262, 0.45031172, 1, 0, 0.36336336, 0.3940968
 script = ExtResource("1_pbacs")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=905614192]
+visible = false
 use_collision = true
 size = Vector3(2.1, 1, 2.1)
 
@@ -159,4 +161,16 @@ initial_velocity_min = 5.0
 initial_velocity_max = 5.0
 color_ramp = SubResource("Gradient_xk7wf")
 
+[node name="crushers" parent="." unique_id=759935260 instance=ExtResource("2_xk7wf")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, -0.4910345, -0.0024186373)
+
+[node name="Skeleton3D" parent="crushers/Armature" parent_id_path=PackedInt32Array(759935260, 1136314380) index="0" unique_id=179317344]
+bones/1/rotation = Quaternion(-0.45691344, 0.45357174, 0.53605145, 0.5460326)
+bones/3/rotation = Quaternion(0.17149092, -0.1761587, 0.6843463, 0.6864613)
+
+[node name="AnimationPlayer" parent="crushers" index="2" unique_id=1112463518]
+autoplay = &"grindBabyGrind"
+
 [connection signal="body_entered" from="Zone" to="." method="_on_zone_body_entered"]
+
+[editable path="crushers"]

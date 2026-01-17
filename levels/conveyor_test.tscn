@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://gdv62oa7bqy0" path="res://entities/spawner/spawner.tscn" id="3_5kb2l"]
 [ext_resource type="PackedScene" uid="uid://c5v4jsdjsxx0v" path="res://entities/conveyor/portal_conveyor.tscn" id="4_e875t"]
 [ext_resource type="PackedScene" uid="uid://cr6hleb1ryg5e" path="res://entities/hopper/hopper.tscn" id="6_e875t"]
+[ext_resource type="PackedScene" uid="uid://d2d253m5isk4u" path="res://Art_Assets/Environment/Background/ceilingFan.glb" id="7_5tbfk"]
+[ext_resource type="Script" uid="uid://dixi2u2fh1n8n" path="res://Art_Assets/Environment/basic_rotate.gd" id="8_oenlk"]
+[ext_resource type="PackedScene" uid="uid://ccgg38pouevs5" path="res://Art_Assets/Environment/Background/ceilingOpenCircle.glb" id="9_av0o5"]
 
 [sub_resource type="Environment" id="Environment_h8bs1"]
 
@@ -23,6 +26,7 @@ environment = SubResource("Environment_h8bs1")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1630608022]
 transform = Transform3D(0.9075284, 0.31033212, -0.28299496, 0, 0.67381245, 0.7389024, 0.4199907, -0.6705749, 0.61150396, 0, 3.6488056, 0)
+visible = false
 
 [node name="ground" type="StaticBody3D" parent="." unique_id=1775703354]
 collision_layer = 32769
@@ -561,13 +565,13 @@ collision_layer = 32769
 size = Vector3(1, 18, 100)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="LevelWalls" unique_id=864218557]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 26.822926, -7.193241, 11.513163)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 26.822926, -7.193241, 14.132826)
 use_collision = true
 collision_layer = 32769
 size = Vector3(1, 18, 100)
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="LevelWalls" unique_id=621965722]
-transform = Transform3D(-0.5658452, 0, -0.8245115, 0, 1, 0, 0.8245115, 0, -0.5658452, -64.09696, -7.188661, -16.712633)
+transform = Transform3D(-0.5658452, 0, -0.8245115, 0, 1, 0, 0.8245115, 0, -0.5658452, -61.74891, -7.188661, -14.388498)
 use_collision = true
 collision_layer = 32769
 size = Vector3(1, 18, 100)
@@ -676,3 +680,153 @@ color = Color(0, 0, 0, 1)
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Riling up the rats"
+
+[node name="EnvArt" type="Node3D" parent="." unique_id=1465061547]
+
+[node name="Lighting" type="Node3D" parent="EnvArt" unique_id=739360064]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="EnvArt/Lighting" unique_id=1584576576]
+transform = Transform3D(0.6728963, 0.67106616, 0.31125665, 0, 0.42076674, -0.90716887, -0.7397368, 0.6104306, 0.2831324, -18.462824, 5.9125023, 18.58073)
+light_color = Color(4.813075e-07, 0.491062, 0.4930694, 1)
+light_energy = 0.1
+sky_mode = 1
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="EnvArt/Lighting" unique_id=804458188]
+transform = Transform3D(0.9518783, -0.16242121, 0.2598983, -7.1054274e-15, 0.84802026, 0.5299638, -0.30647615, -0.5044611, 0.8072122, -10.192253, 5.9125023, 19.957296)
+light_color = Color(4.813075e-07, 0.491062, 0.4930694, 1)
+light_energy = 0.2
+shadow_enabled = true
+sky_mode = 1
+
+[node name="SpotLight3D_wall" type="SpotLight3D" parent="EnvArt/Lighting" unique_id=1061075720]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -21.176449, 13.733848, -0.4174757)
+light_color = Color(1, 0.76862746, 0.4862745, 1)
+spot_range = 20.0
+spot_attenuation = 0.08
+spot_angle = 30.0
+
+[node name="SpotLight3D_wall2" type="SpotLight3D" parent="EnvArt/Lighting" unique_id=88235065]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -21.176449, 13.733848, -12.168685)
+light_color = Color(1, 0.76862746, 0.4862745, 1)
+spot_range = 20.0
+spot_attenuation = 0.08
+spot_angle = 30.0
+
+[node name="SpotLight3D_wall3" type="SpotLight3D" parent="EnvArt/Lighting" unique_id=676852629]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -21.176449, 13.733848, -21.932713)
+light_color = Color(1, 0.76862746, 0.4862745, 1)
+spot_range = 20.0
+spot_attenuation = 0.08
+spot_angle = 30.0
+
+[node name="SpotLight3D_wall4" type="SpotLight3D" parent="EnvArt/Lighting" unique_id=293274851]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2.4464216, 13.733848, -6.939431)
+light_color = Color(1, 0.76862746, 0.4862745, 1)
+spot_range = 20.0
+spot_attenuation = 0.08
+spot_angle = 30.0
+
+[node name="SpotLight3D_wall5" type="SpotLight3D" parent="EnvArt/Lighting" unique_id=337639001]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 1.5178475, 13.733848, -4.1847734)
+light_color = Color(1, 0.76862746, 0.4862745, 1)
+spot_range = 20.0
+spot_attenuation = 0.08
+spot_angle = 30.0
+
+[node name="SpotLight3D_wall6" type="SpotLight3D" parent="EnvArt/Lighting" unique_id=1034404775]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 6.647326, 13.733848, 5.37239)
+light_color = Color(1, 0.76862746, 0.4862745, 1)
+light_energy = 0.5
+spot_range = 20.0
+spot_attenuation = 0.08
+spot_angle = 20.0
+
+[node name="SpotLight3D_wall7" type="SpotLight3D" parent="EnvArt/Lighting" unique_id=111623598]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -8.948534, 13.733847, -22.628803)
+light_color = Color(1, 0.76862746, 0.4862745, 1)
+spot_range = 20.0
+spot_attenuation = 0.08
+spot_angle = 30.0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="EnvArt/Lighting" unique_id=1714187950]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6252055, 3.2020721, -17.1374)
+light_color = Color(0.3872613, 0.5852162, 0.6219172, 1)
+omni_range = 15.0
+omni_attenuation = 1.073
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="EnvArt/Lighting" unique_id=208914759]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6252055, 3.2020721, -2.9195185)
+light_color = Color(0.3872613, 0.5852162, 0.6219172, 1)
+omni_range = 15.0
+omni_attenuation = 1.073
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="EnvArt/Lighting" unique_id=407271633]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.948054, 3.2020721, 8.184056)
+light_color = Color(0.3872613, 0.5852162, 0.6219172, 1)
+omni_range = 15.0
+omni_attenuation = 1.073
+
+[node name="OmniLight3D8" type="OmniLight3D" parent="EnvArt/Lighting" unique_id=343346940]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.965224, 3.9587526, -17.059048)
+light_color = Color(0.3872613, 0.5852162, 0.6219172, 1)
+omni_range = 15.0
+omni_attenuation = 1.073
+
+[node name="OmniLight3D9" type="OmniLight3D" parent="EnvArt/Lighting" unique_id=1312900757]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.204136, 4.9769125, -14.995594)
+light_color = Color(0.3872613, 0.5852162, 0.6219172, 1)
+omni_range = 15.0
+omni_attenuation = 1.073
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="EnvArt/Lighting" unique_id=266847755]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9868331, 4.4517803, 8.207648)
+light_color = Color(0.3872613, 0.5852162, 0.6219172, 1)
+omni_range = 15.0
+omni_attenuation = 1.073
+
+[node name="OmniLight3D7" type="OmniLight3D" parent="EnvArt/Lighting" unique_id=1944249146]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.199736, 3.2020721, 5.574605)
+light_color = Color(0.3872613, 0.5852162, 0.6219172, 1)
+omni_range = 15.0
+omni_attenuation = 1.073
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="EnvArt/Lighting" unique_id=1566014686]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.17807, 3.2020721, 1.7782755)
+light_color = Color(0.3872613, 0.5852162, 0.6219172, 1)
+omni_range = 15.0
+omni_attenuation = 1.073
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="EnvArt/Lighting" unique_id=1351456236]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.502729, 3.2020721, -20.912518)
+light_color = Color(0.3872613, 0.5852162, 0.6219172, 1)
+omni_range = 15.0
+omni_attenuation = 1.073
+
+[node name="Ceiling" type="Node3D" parent="EnvArt" unique_id=1557806015]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.3325934, 0, 2.191537)
+
+[node name="ceilingFan" parent="EnvArt/Ceiling" unique_id=230782090 instance=ExtResource("7_5tbfk")]
+transform = Transform3D(0.33, 0, 0, 0, 0.33, 0, 0, 0, 0.33, -5.27304, -1.1683216, -4.7519712)
+script = ExtResource("8_oenlk")
+rotation_speed = 0.5
+
+[node name="Cube_043" parent="EnvArt/Ceiling/ceilingFan" index="0" unique_id=707820171]
+cast_shadow = 3
+
+[node name="ceilingOpenCircle" parent="EnvArt/Ceiling" unique_id=2060622937 instance=ExtResource("9_av0o5")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -5.321677, 14.989567, -4.692875)
+
+[node name="Cube_044" parent="EnvArt/Ceiling/ceilingOpenCircle" index="0" unique_id=982848548]
+cast_shadow = 3
+
+[node name="SpotLight3D" type="SpotLight3D" parent="EnvArt/Ceiling" unique_id=376534844]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -5.362074, 45.427876, -4.918556)
+light_color = Color(7.70092e-07, 0.814837, 0.82377577, 1)
+light_energy = 5.0
+shadow_enabled = true
+spot_range = 80.0
+spot_attenuation = 0.25
+spot_angle = 15.0
+
+[editable path="EnvArt/Ceiling/ceilingFan"]
+[editable path="EnvArt/Ceiling/ceilingOpenCircle"]
