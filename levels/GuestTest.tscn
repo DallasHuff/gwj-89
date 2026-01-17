@@ -3,6 +3,14 @@
 [ext_resource type="PackedScene" uid="uid://8y5sd5dgj0w1" path="res://Art_Assets/Characters/Racoon/Racoon.glb" id="1_4gswn"]
 [ext_resource type="PackedScene" uid="uid://dksqsb7ouxc4c" path="res://entities/player/player.tscn" id="2_togo8"]
 [ext_resource type="PackedScene" uid="uid://bqy7qx0apsd7e" path="res://entities/player/player_Racoon.tscn" id="3_2sxgn"]
+[ext_resource type="PackedScene" uid="uid://dixgx7pskrm7d" path="res://Art_Assets/Interactables/box.glb" id="4_x511v"]
+[ext_resource type="PackedScene" uid="uid://b3spnhtsoq41y" path="res://Art_Assets/Interactables/can.glb" id="5_pfs6q"]
+[ext_resource type="PackedScene" uid="uid://b1tpmk04utj16" path="res://Art_Assets/Interactables/jar.glb" id="6_llwik"]
+[ext_resource type="PackedScene" uid="uid://b6gf1isp3tum5" path="res://Art_Assets/Interactables/milk.glb" id="7_kiv3d"]
+[ext_resource type="PackedScene" uid="uid://cyhy4yf06wkpo" path="res://Art_Assets/Interactables/newspaper.glb" id="8_r31j4"]
+[ext_resource type="PackedScene" uid="uid://6jgg4u7ae6ed" path="res://Art_Assets/Interactables/oildrum.glb" id="9_87sjm"]
+[ext_resource type="PackedScene" uid="uid://dghomsvg0mdk8" path="res://Art_Assets/Interactables/soap.glb" id="10_4lpg5"]
+[ext_resource type="PackedScene" uid="uid://c8c3sejdt7xbe" path="res://Art_Assets/Interactables/winebottle.glb" id="11_s5ye2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2sxgn"]
 size = Vector3(100, 1, 100)
@@ -16,37 +24,6 @@ albedo_color = Color(0.35, 0.15207501, 0.0455, 1)
 
 [node name="Racoon" parent="." unique_id=2019771440 instance=ExtResource("1_4gswn")]
 visible = false
-
-[node name="Skeleton3D" parent="Racoon/Armature_Run_WeightsdDone" parent_id_path=PackedInt32Array(2019771440, 408136104) index="0" unique_id=167545158]
-bones/0/position = Vector3(0.024232257, -0.10027815, -2.0959487)
-bones/0/rotation = Quaternion(-0.6176883, -0.12016251, 0.099225484, 0.77082855)
-bones/1/rotation = Quaternion(0.15777366, 0.09629344, -0.019788977, 0.9825698)
-bones/2/rotation = Quaternion(0.0078115086, 0.026764696, -0.001600468, 0.99960995)
-bones/3/rotation = Quaternion(0.007874883, 0.026689535, -0.0017562637, 0.99961126)
-bones/4/rotation = Quaternion(-0.120142475, -0.0020459204, -0.004636133, 0.9927438)
-bones/5/rotation = Quaternion(-0.22903065, 0.0027518366, -0.017179383, 0.97326374)
-bones/7/rotation = Quaternion(0.56790894, 0.43431345, -0.6333228, 0.29623234)
-bones/8/rotation = Quaternion(0.37582326, 0.2559671, 0.0058399215, 0.89061975)
-bones/9/rotation = Quaternion(-0.025046846, 0.064994276, 0.4591939, 0.88560116)
-bones/10/rotation = Quaternion(0.08287734, 0.22485796, -0.004030531, 0.9708522)
-bones/11/rotation = Quaternion(0.5868378, 0.01118768, 0.007140112, 0.80959576)
-bones/12/rotation = Quaternion(0.6827022, 0.016959634, -0.05706969, 0.72826725)
-bones/13/rotation = Quaternion(0.5727816, 0.007039911, -0.0016205079, 0.81967616)
-bones/15/rotation = Quaternion(0.648639, -0.34894532, 0.5660118, 0.3703178)
-bones/16/rotation = Quaternion(0.30927837, -0.23594193, -0.37234914, 0.8426354)
-bones/17/rotation = Quaternion(-0.03142969, -0.0817534, -0.5760896, 0.81268036)
-bones/18/rotation = Quaternion(-0.19694856, 0.019710617, -0.1369137, 0.97060674)
-bones/19/rotation = Quaternion(0.6344441, -0.030814571, -0.026922477, 0.771885)
-bones/20/rotation = Quaternion(0.8032332, -0.00062190107, 0.027205205, 0.59504277)
-bones/21/rotation = Quaternion(0.7394637, 0.03785334, -0.01150598, 0.6720329)
-bones/23/rotation = Quaternion(0.10175405, 0.41976646, 0.9010162, -0.040151935)
-bones/24/rotation = Quaternion(-0.9223593, 0.026547944, -0.080193445, 0.37698495)
-bones/25/rotation = Quaternion(0.78848076, -0.08054035, -0.06016957, 0.6067875)
-bones/26/rotation = Quaternion(0.17488125, -0.0025968687, -0.011800469, 0.9845154)
-bones/28/rotation = Quaternion(-0.06075641, -0.013308518, 0.99770725, 0.026681054)
-bones/29/rotation = Quaternion(-0.23953393, -0.07755359, 0.040922053, 0.96692)
-bones/30/rotation = Quaternion(0.7286786, -0.017081976, -0.01034807, 0.68456465)
-bones/31/rotation = Quaternion(0.33123437, -0.0014309345, 0.008765978, 0.9435068)
 
 [node name="Player" parent="." unique_id=461061772 instance=ExtResource("2_togo8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1241431, 0, 0.08095741)
@@ -70,5 +47,29 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1
 spot_range = 32.307
 spot_attenuation = -0.62
 spot_angle = 30.0
+
+[node name="box2" parent="." unique_id=1695195035 instance=ExtResource("4_x511v")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.034683943, 1.503527, -0.4399834)
+
+[node name="can2" parent="." unique_id=1201758206 instance=ExtResource("5_pfs6q")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 2.1264725, -0.674497, -1.0707445)
+
+[node name="jar2" parent="." unique_id=229434326 instance=ExtResource("6_llwik")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0.034350157, 1.2877648, -0.37500286)
+
+[node name="milk" parent="." unique_id=1727398323 instance=ExtResource("7_kiv3d")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0.034350157, 1.2877648, -0.37500286)
+
+[node name="newspaper" parent="." unique_id=1535982854 instance=ExtResource("8_r31j4")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0.034350157, 1.2877648, -0.37500286)
+
+[node name="oildrum" parent="." unique_id=1623592365 instance=ExtResource("9_87sjm")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 3.888312, -1.0295771, -1.0080012)
+
+[node name="soap" parent="." unique_id=1101907073 instance=ExtResource("10_4lpg5")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0.034350157, 1.2877648, -0.37500286)
+
+[node name="winebottle2" parent="." unique_id=1419497994 instance=ExtResource("11_s5ye2")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0.034350157, 1.2877648, -0.37500286)
 
 [editable path="Racoon"]
