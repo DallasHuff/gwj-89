@@ -17,9 +17,10 @@ func _ready() -> void:
 	await get_tree().process_frame
 
 	_hopper_particle_toggle(false)
-	_start_spawners()
 
 	await get_tree().create_timer(4).timeout
+	_start_spawners()
+
 	canvas.hide()
 
 func look_at_smooth(target: Vector3, delta: float, speed := 12.0) -> void:
