@@ -1,5 +1,5 @@
 class_name AchievementListItem
-extends HBoxContainer
+extends Control
 
 var achievement: Achievement
 

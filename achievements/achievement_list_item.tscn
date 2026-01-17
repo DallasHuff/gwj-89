@@ -2,17 +2,28 @@
 
 [ext_resource type="Script" uid="uid://c32t5konlsvcr" path="res://achievements/achievement_list_item.gd" id="1_aaye5"]
 
-[node name="AchievementListItem" type="HBoxContainer" unique_id=1190906904]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aaye5"]
+bg_color = Color(0.20784314, 0.24313726, 0.23137255, 0.8)
+
+[node name="AchievementListItem" type="PanelContainer" unique_id=1559080680]
+offset_right = 250.0
+offset_bottom = 46.0
 size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_aaye5")
 script = ExtResource("1_aaye5")
 
-[node name="CheckBox" type="CheckBox" parent="." unique_id=392833685]
+[node name="AchievementListItem" type="HBoxContainer" parent="." unique_id=1190906904]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CheckBox" type="CheckBox" parent="AchievementListItem" unique_id=392833685]
 unique_name_in_owner = true
 layout_mode = 2
 icon_alignment = 1
 expand_icon = true
 
-[node name="Label" type="Label" parent="." unique_id=2057873047]
+[node name="Label" type="Label" parent="AchievementListItem" unique_id=2057873047]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3

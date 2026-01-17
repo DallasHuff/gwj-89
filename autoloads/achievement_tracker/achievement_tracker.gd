@@ -18,7 +18,9 @@ var trash_streak: int = 0
 @onready var name_label: RichTextLabel = %AchievementName
 @onready var desc_label: RichTextLabel = %AchievementDescription
 @onready var list_container: VBoxContainer = %AchievementListContainer
-@onready var sfx: AudioStreamPlayer = %SFX
+@onready var tooltip: Control = %Tooltip
+@onready var tooltip_label: RichTextLabel = %TooltipLabel
+@onready var achieved_sfx: AudioStreamPlayer = %AchievedSFX
 @onready var ach_list_item_scene := preload("uid://cmgtsj8ljqgmc")
 
 
@@ -27,10 +29,13 @@ func _ready() -> void:
 		var list_item: AchievementListItem = ach_list_item_scene.instantiate()
 		list_container.add_child(list_item)
 		list_item.setup(achievement)
+		list_item.mouse_entered.connect(_on_item_mouse_entered.bind(achievement).bind(list_item))
+		list_item.mouse_exited.connect(_on_item_mouse_exited.bind(list_item))
 	get_tree().create_timer(2).timeout.connect(achieve.bind("Logged In!"))
 	EventsBus.trash_grinded.connect(_on_trash_grinded)
 	EventsBus.hopper_destroyed.connect(_on_hopper_destroyed)
 	EventsBus.goal_met.connect(_on_goal_met)
+	tooltip.hide()
 
 
 func _process(_delta: float) -> void:
@@ -65,8 +70,8 @@ func _play_next_animation() -> void:
 	desc_label.text = ach.description
 	icon.texture = ach.icon
 
-	sfx.pitch_scale = randf_range(0.95, 1.05)
-	sfx.play()
+	achieved_sfx.pitch_scale = randf_range(0.95, 1.05)
+	achieved_sfx.play()
 	achieved.emit(ach)
 
 	var tween := create_tween()
@@ -102,3 +107,14 @@ func _on_goal_met(durability: int) -> void:
 	achieve("grinder goal")
 	if durability == 100:
 		achieve("perfect grind")
+
+
+func _on_item_mouse_entered(list_item: AchievementListItem, a: Achievement) -> void:
+	list_item.modulate = Color.OLIVE
+	tooltip.show()
+	tooltip_label.text = a.description
+
+
+func _on_item_mouse_exited(list_item: AchievementListItem) -> void:
+	list_item.modulate = Color.WHITE
+	tooltip.hide()
