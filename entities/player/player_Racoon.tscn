@@ -1,0 +1,162 @@
+[gd_scene format=3 uid="uid://bqy7qx0apsd7e"]
+
+[ext_resource type="Script" uid="uid://b5ni1gsunoqou" path="res://entities/player/player.gd" id="1_7pfgu"]
+[ext_resource type="PackedScene" uid="uid://c2jvxee34q8qf" path="res://entities/player/player_camera.tscn" id="2_v6awv"]
+[ext_resource type="PackedScene" uid="uid://ch27suvq1016w" path="res://Art_Assets/Characters/Rat1/Rat1_rund.glb" id="3_b7ku1"]
+[ext_resource type="Script" uid="uid://dbgwigfu37cer" path="res://entities/components/interactor.gd" id="4_dqd4g"]
+[ext_resource type="Script" uid="uid://kc77v1b4gg6r" path="res://entities/components/movement_component.gd" id="5_2j5pf"]
+[ext_resource type="Script" uid="uid://b4iy4v2v82grv" path="res://entities/components/state_machine/state_machine.gd" id="6_b4nav"]
+[ext_resource type="Script" uid="uid://c4tmbb57xecu8" path="res://entities/components/state_machine/states/idle.gd" id="7_j83xn"]
+[ext_resource type="Script" uid="uid://b2avbdpdqfic5" path="res://entities/components/state_machine/states/interact.gd" id="8_og0dj"]
+[ext_resource type="Script" uid="uid://h5au57bu7aot" path="res://entities/components/state_machine/states/run.gd" id="9_cekqi"]
+[ext_resource type="PackedScene" uid="uid://8y5sd5dgj0w1" path="res://Art_Assets/Characters/Racoon/Racoon.glb" id="10_byn6u"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqu6x"]
+height = 1.5810547
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_bectd"]
+height = 4.0
+radius = 1.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bectd"]
+transparency = 1
+albedo_color = Color(0.15, 0.15, 0.15, 0.49019608)
+
+[node name="Player" type="CharacterBody3D" unique_id=461061772]
+script = ExtResource("1_7pfgu")
+
+[node name="PlayerCamera" parent="." unique_id=290868861 instance=ExtResource("2_v6awv")]
+transform = Transform3D(1, 0, 0, 0, 0.54411197, 0.8390127, 0, -0.8390127, 0.54411197, 0, 0.3547716, 8.847067)
+top_level = true
+
+[node name="AudioListener3D" type="AudioListener3D" parent="PlayerCamera" unique_id=1557908067]
+transform = Transform3D(1, 0, 0, 0, 0.997805, -0.066221714, 0, 0.066221714, 0.997805, 0, 7.5531034, -4.8982983)
+doppler_tracking = 2
+current = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2113718125]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.20947266, 0)
+shape = SubResource("CapsuleShape3D_kqu6x")
+
+[node name="Rat1_rund" parent="." unique_id=174512231 instance=ExtResource("3_b7ku1")]
+transform = Transform3D(-1.5, 0, 2.2649371e-07, 0, 1.5, 0, -2.2649371e-07, 0, -1.5, 0, -0.8398146, 0.04616058)
+
+[node name="Skeleton3D" parent="Rat1_rund/Rat1_Run" parent_id_path=PackedInt32Array(174512231, 1530053393) index="0" unique_id=995607365]
+bones/0/position = Vector3(0.0011050726, 1.2477219, -0.9910904)
+bones/0/rotation = Quaternion(-0.7321541, -0.0068301708, 0.013684517, 0.6809673)
+bones/1/rotation = Quaternion(0.02600747, 0.015613419, -0.02000035, 0.9993397)
+bones/2/rotation = Quaternion(0.0061929584, 0.004629841, -0.0022295965, 0.99996763)
+bones/3/rotation = Quaternion(0.006186636, 0.0045976792, -0.0022651646, 0.99996775)
+bones/4/rotation = Quaternion(0.026805693, -0.0067412658, 0.0011881448, 0.9996172)
+bones/5/rotation = Quaternion(0.16394302, -0.06371466, -0.0051230323, 0.9843967)
+bones/7/rotation = Quaternion(0.59903944, 0.41814524, -0.53349763, 0.42624718)
+bones/8/rotation = Quaternion(0.31499487, -0.022327678, 0.10650078, 0.9428347)
+bones/9/rotation = Quaternion(0.002871035, -0.055895373, 0.14958875, 0.987163)
+bones/10/rotation = Quaternion(0.10306399, 0.08691635, 0.16127898, 0.97765666)
+bones/11/rotation = Quaternion(0.04612662, 0.070506826, 0.29401946, 0.95207864)
+bones/12/rotation = Quaternion(-0.07655877, 0.10351602, -0.20857261, 0.9694951)
+bones/13/rotation = Quaternion(-0.10954761, -0.0028917626, -0.044090193, 0.9929991)
+bones/15/rotation = Quaternion(0.3041262, -0.036424294, -0.048576366, 0.950695)
+bones/16/rotation = Quaternion(0.14585784, -0.005363987, -0.04170682, 0.98841155)
+bones/17/rotation = Quaternion(0.025703909, 0.0030459107, -0.01531024, 0.9995477)
+bones/19/rotation = Quaternion(0.5883646, -0.41694516, 0.56285185, 0.40395766)
+bones/20/rotation = Quaternion(0.34107617, -0.015718902, -0.08777632, 0.9357967)
+bones/21/rotation = Quaternion(0.001661371, 0.040430117, -0.09249435, 0.99489075)
+bones/22/rotation = Quaternion(0.070176736, 0.012367609, -0.1665799, 0.9834498)
+bones/23/rotation = Quaternion(0.044191543, -0.029848946, -0.30392897, 0.9512011)
+bones/24/rotation = Quaternion(-0.033461735, -0.08878142, 0.27897313, 0.9556005)
+bones/25/rotation = Quaternion(-0.16802981, 0.031442728, 0.124579154, 0.97737277)
+bones/27/rotation = Quaternion(0.24126227, 0.04565277, 0.03709587, 0.96867555)
+bones/28/rotation = Quaternion(0.19578438, 0.0065351594, 0.03562283, 0.979978)
+bones/29/rotation = Quaternion(0.06215118, -0.005654094, 0.014930283, 0.99793905)
+bones/31/rotation = Quaternion(0.020786874, 0.07855187, -0.81846064, 0.56878793)
+bones/32/rotation = Quaternion(-0.35964334, -0.66487974, -0.15964563, 0.63490546)
+bones/33/rotation = Quaternion(0.5236157, 0.34006098, -0.41813534, 0.65980905)
+bones/34/rotation = Quaternion(0.117695, 0.014232053, 0.086859174, 0.9891415)
+bones/36/rotation = Quaternion(-0.08245288, 0.06675358, 0.8120503, 0.57386404)
+bones/37/rotation = Quaternion(-0.41626355, 0.49277398, 0.10157862, 0.7573508)
+bones/38/rotation = Quaternion(0.57641244, -0.27174926, 0.34096646, 0.69111717)
+bones/39/rotation = Quaternion(0.13606761, -0.007176662, -0.09674309, 0.9859386)
+
+[node name="Body" type="CSGCylinder3D" parent="." unique_id=829177861]
+visible = false
+
+[node name="Arm" type="CSGBox3D" parent="Body" unique_id=2036429401]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.1998088)
+size = Vector3(0.5, 0.5, 1.8202636)
+
+[node name="Interactor" type="Node3D" parent="." unique_id=730510895 node_paths=PackedStringArray("player_camera", "character")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.0473077)
+script = ExtResource("4_dqd4g")
+inventory_size = 20
+player_camera = NodePath("../PlayerCamera")
+character = NodePath("..")
+
+[node name="HoldSpotMarker" type="Marker3D" parent="Interactor" unique_id=909458360]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9301007, 0.7667363)
+
+[node name="DropSpotMarker" type="Marker3D" parent="Interactor" unique_id=694664943]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.0473077)
+top_level = true
+
+[node name="GrabMarker" type="Marker3D" parent="Interactor" unique_id=1241668466]
+unique_name_in_owner = true
+top_level = true
+
+[node name="GrabArea" type="Area3D" parent="Interactor/GrabMarker" unique_id=1083953350]
+unique_name_in_owner = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactor/GrabMarker/GrabArea" unique_id=432754600]
+shape = SubResource("CylinderShape3D_bectd")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Interactor/GrabMarker/GrabArea" unique_id=810937921]
+visible = false
+radius = 0.25
+
+[node name="RayDisplay" type="Node3D" parent="Interactor/GrabMarker" unique_id=2080063647]
+unique_name_in_owner = true
+transform = Transform3D(1, 1.5942803e-13, 0, 8.348877e-14, 1, 0, 0, 5.684342e-14, 1, 0, -0.0039609373, 0)
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="Interactor/GrabMarker/RayDisplay" unique_id=378542898]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.785126e-15, 0.061376452, -3.4888474e-15)
+inner_radius = 0.88
+outer_radius = 0.724
+sides = 16
+material = SubResource("StandardMaterial3D_bectd")
+
+[node name="MovementComponent" type="Node" parent="." unique_id=512620162 node_paths=PackedStringArray("character")]
+script = ExtResource("5_2j5pf")
+character = NodePath("..")
+speed = 10.0
+metadata/_custom_type_script = "uid://kc77v1b4gg6r"
+
+[node name="StateMachine" type="Node" parent="." unique_id=690554229 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("6_b4nav")
+initial_state = NodePath("Idle")
+metadata/_custom_type_script = "uid://b4iy4v2v82grv"
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=1361308190 node_paths=PackedStringArray("animation_player")]
+script = ExtResource("7_j83xn")
+animation_player = NodePath("../../Rat1_rund/AnimationPlayer")
+metadata/_custom_type_script = "uid://c4tmbb57xecu8"
+
+[node name="Interact" type="Node" parent="StateMachine" unique_id=339015851 node_paths=PackedStringArray("animation_player", "player_camera", "character")]
+script = ExtResource("8_og0dj")
+animation_player = NodePath("../../Rat1_rund/AnimationPlayer")
+player_camera = NodePath("../../PlayerCamera")
+character = NodePath("../..")
+metadata/_custom_type_script = "uid://b2avbdpdqfic5"
+
+[node name="Run" type="Node" parent="StateMachine" unique_id=938482072 node_paths=PackedStringArray("character", "anim_player", "movement_component")]
+script = ExtResource("9_cekqi")
+character = NodePath("../..")
+anim_player = NodePath("../../Rat1_rund/AnimationPlayer")
+movement_component = NodePath("../../MovementComponent")
+metadata/_custom_type_script = "uid://h5au57bu7aot"
+
+[node name="Racoon" parent="." unique_id=1424276734 instance=ExtResource("10_byn6u")]
+transform = Transform3D(-0.39901733, 0, 0.028020933, 0, 0.4, 0, -0.028020933, 0, -0.39901733, 0.013773978, -0.80081546, -0.28038448)
+
+[editable path="Rat1_rund"]
