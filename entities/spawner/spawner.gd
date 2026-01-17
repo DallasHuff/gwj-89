@@ -16,23 +16,43 @@ extends Node3D
 @export_range(0, 1) var glass_chance := 0.0
 @export_range(0, 1) var plastic_chance := 0.0
 @export_range(0, 1) var paper_chance := 0.0
+# be careful setting this number too high, because before the delay is hit
+# it will just not spawn any trash if it chooses body
 @export_range(0, 1) var body_chance := 0.0 
-var all_chances := [metal_chance, glass_chance, plastic_chance, paper_chance, body_chance]
+# delays spawning of the body for this amount of time,
+# then uses the body_chance above
+@export var body_spawn_delay_sec := 0.0
+var body_spawn_delay_reached := false
 
 var spawn_bounds_width := 0.3
 var spawn_timer: Timer
+var body_spawn_delay_timer: Timer
 
 var warning_pushed := false
 
 @onready var trash_scene := preload("uid://b6pgrrfecfoqx")
 
 func _ready() -> void:
+	# timer between trash
 	spawn_timer = Timer.new()
 	add_child(spawn_timer)
 	spawn_timer.wait_time = spawn_timer_start_delay
 	spawn_timer.one_shot = true
 	spawn_timer.timeout.connect(_on_spawn_timer_timeout)
 	spawn_timer.start()
+
+	# timer to spawn delay
+	if not is_equal_approx(0, body_spawn_delay_sec):
+		body_spawn_delay_timer = Timer.new()
+		add_child(body_spawn_delay_timer)
+		body_spawn_delay_timer.wait_time = body_spawn_delay_sec
+		body_spawn_delay_timer.one_shot = true
+		body_spawn_delay_timer.timeout.connect(_on_body_spawn_delay_timeout)
+		body_spawn_delay_timer.start()
+
+func _on_body_spawn_delay_timeout() -> void:
+	print("spawn delay timer timed out")
+	body_spawn_delay_reached = true
 
 func _on_spawn_timer_timeout() -> void:
 	spawn_trash()
@@ -65,6 +85,8 @@ func spawn_trash() -> void:
 
 	if choice > sum_chances - body_chance:
 		# print("choosing body")
+		if not body_spawn_delay_reached:
+			return
 		trash_type = Trash.TrashType.BODY
 	elif choice > sum_chances - body_chance - paper_chance:
 		# print("choosing paper")

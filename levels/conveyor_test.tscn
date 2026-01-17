@@ -210,11 +210,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8055723, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9481583, 4.1944275, -21.854704)
 spawn_timer_range_min = 1.0
 spawn_timer_range_max = 2.0
-metal_chance = 0.69
+metal_chance = 0.065
 glass_chance = 0.058
 plastic_chance = 0.07
 paper_chance = 0.105
-body_chance = 0.146
+body_chance = 0.941
+body_spawn_delay_sec = 30.0
 
 [node name="PortalConveyor2" parent="conveyors2" unique_id=88265979 instance=ExtResource("4_e875t")]
 transform = Transform3D(-3.1786513e-08, 0, -1, 0, 1, 0, 1, 0, -3.1786513e-08, -14, 0.6832216, -4)
