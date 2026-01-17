@@ -32,8 +32,8 @@ var warning_pushed := false
 
 @onready var trash_scene := preload("uid://b6pgrrfecfoqx")
 
-func _ready() -> void:
-	# timer between trash
+func start() -> void:
+	# Timer between trash
 	spawn_timer = Timer.new()
 	add_child(spawn_timer)
 	spawn_timer.wait_time = spawn_timer_start_delay

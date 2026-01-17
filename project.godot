@@ -39,6 +39,7 @@ window/size/viewport_height=1080
 
 trash=""
 spawner=""
+hopper=""
 
 [gui]
 

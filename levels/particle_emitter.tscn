@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://c1wjklidlseef"]
+
+[ext_resource type="PackedScene" uid="uid://cr6hleb1ryg5e" path="res://entities/hopper/hopper.tscn" id="1_tsk1r"]
+
+[sub_resource type="GDScript" id="GDScript_tsk1r"]
+script/source = "extends Node3D
+
+@onready var hopper: Hopper = %Hopper
+@onready var level := preload(\"uid://c11aewuhd8ifn\")
+
+func _ready() -> void:
+	await get_tree().process_frame
+	var l := level.instantiate()
+	get_tree().root.add_child(l)
+	hopper.reparent(l)
+	hopper.visible = false
+	hopper.smoke.emitting = true
+	hopper.sparks.emitting = true
+	hopper.blue_sparks.emitting = true
+	await get_tree().process_frame
+	get_tree().create_timer(3).timeout.connect(_on_timeout)
+
+
+func _on_timeout() -> void:
+	queue_free()
+"
+
+[node name="ParticleEmitter" type="Node3D" unique_id=596579222]
+script = SubResource("GDScript_tsk1r")
+
+[node name="Hopper" parent="." unique_id=1611280198 instance=ExtResource("1_tsk1r")]
+unique_name_in_owner = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1258722328]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=211294552]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1744054248]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Riling up the rats"

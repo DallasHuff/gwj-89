@@ -50,7 +50,7 @@ emission_energy_multiplier = 0.8
 [sub_resource type="Gradient" id="Gradient_xk7wf"]
 colors = PackedColorArray(0, 0.45264262, 0.45031172, 1, 0, 0.36336336, 0.39409682, 1)
 
-[node name="Hopper" type="Node3D" unique_id=1611280198]
+[node name="Hopper" type="Node3D" unique_id=1611280198 groups=["hopper"]]
 script = ExtResource("1_pbacs")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=905614192]

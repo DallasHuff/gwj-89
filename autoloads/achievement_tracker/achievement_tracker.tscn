@@ -4,6 +4,24 @@
 [ext_resource type="Script" uid="uid://ensdc4nbfc1e" path="res://achievements/achievement.gd" id="2_52sdh"]
 [ext_resource type="Shader" uid="uid://bbrreauqpd2by" path="res://shaders/subtle_noise.gdshader" id="4_eiejm"]
 
+[sub_resource type="Resource" id="Resource_s5fcu"]
+script = ExtResource("2_52sdh")
+display_name = "Hover Over Me!"
+description = "Hover your mouse over a tooltip"
+metadata/_custom_type_script = "uid://ensdc4nbfc1e"
+
+[sub_resource type="Resource" id="Resource_8u842"]
+script = ExtResource("2_52sdh")
+display_name = "Left Click to Grab"
+description = "Picked up an item"
+metadata/_custom_type_script = "uid://ensdc4nbfc1e"
+
+[sub_resource type="Resource" id="Resource_ufhoc"]
+script = ExtResource("2_52sdh")
+display_name = "Right Click to Drop"
+description = "Dropped an item"
+metadata/_custom_type_script = "uid://ensdc4nbfc1e"
+
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_s5fcu"]
 load_path = "res://.godot/imported/login_icon.png-e39de78c2b5a7b29e23aa3356ff4e8ac.ctex"
 
@@ -78,7 +96,7 @@ shader_parameter/noise_strength = 0.20000000298023
 
 [node name="AchievementTracker" type="CanvasLayer" unique_id=1725902245]
 script = ExtResource("1_600lq")
-achievement_list = Array[ExtResource("2_52sdh")]([SubResource("Resource_56a88"), SubResource("Resource_g5vmu"), SubResource("Resource_nghes"), SubResource("Resource_linxn"), SubResource("Resource_5j4n1"), SubResource("Resource_ogs1t"), SubResource("Resource_gkebk"), SubResource("Resource_676jm")])
+achievement_list = Array[ExtResource("2_52sdh")]([SubResource("Resource_s5fcu"), SubResource("Resource_8u842"), SubResource("Resource_ufhoc"), SubResource("Resource_56a88"), SubResource("Resource_g5vmu"), SubResource("Resource_nghes"), SubResource("Resource_linxn"), SubResource("Resource_5j4n1"), SubResource("Resource_ogs1t"), SubResource("Resource_gkebk"), SubResource("Resource_676jm")])
 
 [node name="AchievedSFX" type="AudioStreamPlayer" parent="." unique_id=480742394]
 unique_name_in_owner = true
