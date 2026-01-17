@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c1rnspc87xfkh"]
+
+[ext_resource type="PackedScene" uid="uid://c8c3sejdt7xbe" path="res://Art_Assets/Interactables/winebottle.glb" id="1_xowmb"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o7ct4"]
+radius = 0.15
+height = 0.7
+
+[node name="WineModel" type="CollisionShape3D" unique_id=1797901794]
+shape = SubResource("CapsuleShape3D_o7ct4")
+
+[node name="winebottle2" parent="." unique_id=999091689 instance=ExtResource("1_xowmb")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, -0.45273256, 0)
+visible = false

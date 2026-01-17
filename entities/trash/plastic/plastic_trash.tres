@@ -2,8 +2,8 @@
 
 [ext_resource type="AudioStream" uid="uid://gr4day8apuy4" path="res://sound/fx/jugdropsquished.wav" id="1_pp2hc"]
 [ext_resource type="Script" uid="uid://uha8a6otv7d3" path="res://entities/trash/trash_data.gd" id="1_tyyy2"]
-[ext_resource type="PackedScene" uid="uid://b6gf1isp3tum5" path="res://Art_Assets/Interactables/milk.glb" id="2_skenl"]
-[ext_resource type="PackedScene" uid="uid://dghomsvg0mdk8" path="res://Art_Assets/Interactables/soap.glb" id="3_687sh"]
+[ext_resource type="PackedScene" uid="uid://6ov0b2k73lyi" path="res://entities/trash/plastic/jug_model_1.tscn" id="2_skenl"]
+[ext_resource type="PackedScene" uid="uid://ed25sxfgtkjd" path="res://entities/trash/plastic/jug_model_2.tscn" id="3_687sh"]
 [ext_resource type="AudioStream" uid="uid://b41wt2xa5ntou" path="res://sound/fx/jugpickupsquished.wav" id="3_uh0io"]
 
 [resource]

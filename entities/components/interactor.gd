@@ -103,7 +103,7 @@ func putdown() -> void:
 	AchievementTracker.achieve("Right Click to Drop")
 	var t: Trash = trash.pop_front()
 	t.reparent(get_tree().root)
-	t.global_position = drop_spot.global_position
+	t.global_position = drop_spot.global_position + Vector3(0, 0.5, 0)
 	t.freeze = false
 	t.top_level = false
 

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://6ov0b2k73lyi"]
+
+[ext_resource type="PackedScene" uid="uid://b6gf1isp3tum5" path="res://Art_Assets/Interactables/milk.glb" id="1_ejhu2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ejhu2"]
+size = Vector3(0.6, 1, 0.7)
+
+[node name="JugModel1" type="CollisionShape3D" unique_id=2083901972]
+shape = SubResource("BoxShape3D_ejhu2")
+
+[node name="milk" parent="." unique_id=1102361438 instance=ExtResource("1_ejhu2")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, -0.33835447, 0)
