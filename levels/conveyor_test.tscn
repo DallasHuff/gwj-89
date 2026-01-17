@@ -20,7 +20,7 @@ size = Vector3(100, 1, 56)
 size = Vector3(6.801758, 1, 3.9556274)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mi62i"]
-size = Vector3(6.953842, 2.745758, 4.6128197)
+size = Vector3(9.491634, 2.745758, 4.6128197)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_s061b"]
 size = Vector3(5.410576, 2.745758, 4.1839867)
@@ -1174,7 +1174,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.114132, 0.54813635, -12.5
 wanted_trash_type = 4
 
 [node name="CollisionShape3D" parent="ZoneHopper/Zone" parent_id_path=PackedInt32Array(388761586, 1914070735) index="0" unique_id=141696884]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4397964, 0.6156616, 0.011152267)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17090034, 0.6156616, 0.011152267)
 shape = SubResource("BoxShape3D_mi62i")
 
 [node name="DisplayPanel" parent="ZoneHopper" index="1" unique_id=1777669022]
