@@ -1,20 +1,20 @@
 extends CanvasLayer
 
-var music_volume: float = 50
-var sfx_volume: float = 50
-
+@onready var master_slider: HSlider = %MasterVolumeSlider
+@onready var master_label: Label = %MasterPercent
 @onready var music_slider: HSlider = %MusicVolumeSlider
+@onready var music_label: Label = %MusicPercent
 @onready var sfx_slider: HSlider = %SFXVolumeSlider
+@onready var sfx_label: Label = %SFXPercent
 @onready var exit_button: Button = %ExitButton
 
 
 func _ready() -> void:
 	hide()
-	music_slider.value = music_volume
-	sfx_slider.value = sfx_volume
 
-	music_slider.value_changed.connect(set_bus_volume.bind("Music"))
-	sfx_slider.value_changed.connect(set_bus_volume.bind("SFX"))
+	master_slider.value_changed.connect(set_bus_volume.bind("Master").bind(master_label))
+	music_slider.value_changed.connect(set_bus_volume.bind("Music").bind(music_label))
+	sfx_slider.value_changed.connect(set_bus_volume.bind("SFX").bind(sfx_label))
 
 	exit_button.pressed.connect(pause)
 
@@ -33,7 +33,8 @@ func pause() -> void:
 		show()
 
 
-func set_bus_volume(percent: float, bus: String) -> void:
+func set_bus_volume(percent: float, label: Label, bus: String) -> void:
+	label.text = str(int(percent))
 	var bus_index: int = AudioServer.get_bus_index(bus)
 	var db := convert_percentage_to_decibels(percent)
 	AudioServer.set_bus_volume_db(bus_index, db)
