@@ -3,7 +3,7 @@ extends State
 
 @export var animation_player: AnimationPlayer
 
-var idle_anims: Array[String] = ["idle", "drunk"];
+var idle_anims: Array[String] = ["idle_1", "idle_2"];
 var idle: String = idle_anims[0];
 
 func enter() -> void:

@@ -1,14 +1,23 @@
 [gd_scene format=3 uid="uid://cb07hwdkywmut"]
 
 [ext_resource type="PackedScene" uid="uid://8y5sd5dgj0w1" path="res://Art_Assets/Characters/Racoon/Racoon.glb" id="1_4gswn"]
+[ext_resource type="PackedScene" uid="uid://dksqsb7ouxc4c" path="res://entities/player/player.tscn" id="2_togo8"]
+[ext_resource type="PackedScene" uid="uid://bqy7qx0apsd7e" path="res://entities/player/player_Racoon.tscn" id="3_2sxgn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2sxgn"]
+size = Vector3(100, 1, 100)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_87iqh"]
+albedo_color = Color(0.35, 0.15207501, 0.0455, 1)
 
 [node name="GuestTest" type="Node3D" unique_id=923827733]
 
 [node name="Node3D" type="Node3D" parent="." unique_id=1092467008]
 
-[node name="Racoon" parent="." unique_id=1424276734 instance=ExtResource("1_4gswn")]
+[node name="Racoon" parent="." unique_id=2019771440 instance=ExtResource("1_4gswn")]
+visible = false
 
-[node name="Skeleton3D" parent="Racoon/Armature_Run_WeightsdDone" parent_id_path=PackedInt32Array(1424276734, 1917490969) index="0" unique_id=889807713]
+[node name="Skeleton3D" parent="Racoon/Armature_Run_WeightsdDone" parent_id_path=PackedInt32Array(2019771440, 408136104) index="0" unique_id=167545158]
 bones/0/position = Vector3(0.024232257, -0.10027815, -2.0959487)
 bones/0/rotation = Quaternion(-0.6176883, -0.12016251, 0.099225484, 0.77082855)
 bones/1/rotation = Quaternion(0.15777366, 0.09629344, -0.019788977, 0.9825698)
@@ -38,5 +47,28 @@ bones/28/rotation = Quaternion(-0.06075641, -0.013308518, 0.99770725, 0.02668105
 bones/29/rotation = Quaternion(-0.23953393, -0.07755359, 0.040922053, 0.96692)
 bones/30/rotation = Quaternion(0.7286786, -0.017081976, -0.01034807, 0.68456465)
 bones/31/rotation = Quaternion(0.33123437, -0.0014309345, 0.008765978, 0.9435068)
+
+[node name="Player" parent="." unique_id=461061772 instance=ExtResource("2_togo8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1241431, 0, 0.08095741)
+
+[node name="Player2" parent="." unique_id=413688981 instance=ExtResource("3_2sxgn")]
+
+[node name="ground" type="StaticBody3D" parent="." unique_id=412758497]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.3781633, 0)
+collision_layer = 32769
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground" unique_id=304449507]
+shape = SubResource("BoxShape3D_2sxgn")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="ground" unique_id=107639326]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.006999135, 0.056949615, -0.022662878)
+size = Vector3(100, 1.05, 100)
+material = SubResource("StandardMaterial3D_87iqh")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1260582999]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 18.014647, 0)
+spot_range = 32.307
+spot_attenuation = -0.62
+spot_angle = 30.0
 
 [editable path="Racoon"]
