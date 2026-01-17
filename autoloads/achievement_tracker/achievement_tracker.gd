@@ -31,7 +31,7 @@ func _ready() -> void:
 		list_item.setup(achievement)
 		list_item.mouse_entered.connect(_on_item_mouse_entered.bind(achievement).bind(list_item))
 		list_item.mouse_exited.connect(_on_item_mouse_exited.bind(list_item))
-	get_tree().create_timer(2).timeout.connect(achieve.bind("Logged In!"))
+	get_tree().create_timer(4).timeout.connect(achieve.bind("Logged In!"))
 	EventsBus.trash_grinded.connect(_on_trash_grinded)
 	EventsBus.hopper_destroyed.connect(_on_hopper_destroyed)
 	EventsBus.goal_met.connect(_on_goal_met)
@@ -110,6 +110,7 @@ func _on_goal_met(durability: int) -> void:
 
 
 func _on_item_mouse_entered(list_item: AchievementListItem, a: Achievement) -> void:
+	achieve("Hover Over Me!")
 	list_item.modulate = Color.OLIVE
 	tooltip.show()
 	tooltip_label.text = a.description

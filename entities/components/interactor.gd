@@ -70,6 +70,7 @@ func pickup() -> void:
 				closest_trash = body as Trash
 
 	if closest_trash != null:
+		AchievementTracker.achieve("Left Click to Grab")
 		trash.append(closest_trash)
 		closest_trash.global_position = hold_spot.global_position + (TRASH_GAP * trash.size())
 		closest_trash.freeze = true
@@ -97,6 +98,7 @@ func putdown() -> void:
 
 	if trash.size() < 1:
 		return
+	AchievementTracker.achieve("Right Click to Drop")
 	var t: Trash = trash.pop_front()
 	t.reparent(get_tree().root)
 	t.global_position = drop_spot.global_position
