@@ -21,6 +21,10 @@ radius = 1.5
 transparency = 1
 albedo_color = Color(0.15, 0.15, 0.15, 0.49019608)
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_wvtmh"]
+height = 10.0
+radius = 0.1
+
 [node name="Player" type="CharacterBody3D" unique_id=461061772]
 script = ExtResource("1_oul6g")
 
@@ -40,7 +44,7 @@ shape = SubResource("CapsuleShape3D_kqu6x")
 [node name="Rat1_rund" parent="." unique_id=174512231 instance=ExtResource("2_26q78")]
 transform = Transform3D(-1.5, 0, 2.2649371e-07, 0, 1.5, 0, -2.2649371e-07, 0, -1.5, 0, -0.8398146, 0.04616058)
 
-[node name="Skeleton3D" parent="Rat1_rund/Rat1_Run" parent_id_path=PackedInt32Array(174512231, 194289935) index="0" unique_id=2082879793]
+[node name="Skeleton3D" parent="Rat1_rund/Rat1_Run" parent_id_path=PackedInt32Array(174512231, 2126369293) index="0" unique_id=2044203533]
 bones/0/position = Vector3(-0.008744252, -0.014450192, -1.3634334)
 bones/0/rotation = Quaternion(-0.7060381, 0.05161911, -0.010558996, 0.7062111)
 bones/1/rotation = Quaternion(-0.0018803182, 0.007140844, -0.006498116, 0.99995166)
@@ -125,6 +129,14 @@ outer_radius = 0.724
 sides = 16
 material = SubResource("StandardMaterial3D_bectd")
 
+[node name="HeadCollider" type="Area3D" parent="Interactor" unique_id=2126407716]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4168313, 1.0473077)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactor/HeadCollider" unique_id=1633913777]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.467224, 0)
+shape = SubResource("CylinderShape3D_wvtmh")
+
 [node name="MovementComponent" type="Node" parent="." unique_id=512620162 node_paths=PackedStringArray("character")]
 script = ExtResource("6_8fjmc")
 character = NodePath("..")
@@ -154,5 +166,7 @@ character = NodePath("../..")
 anim_player = NodePath("../../Rat1_rund/AnimationPlayer")
 movement_component = NodePath("../../MovementComponent")
 metadata/_custom_type_script = "uid://h5au57bu7aot"
+
+[connection signal="body_entered" from="Interactor/HeadCollider" to="Interactor" method="_on_head_collider_body_entered"]
 
 [editable path="Rat1_rund"]
