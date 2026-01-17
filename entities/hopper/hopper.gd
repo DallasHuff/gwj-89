@@ -45,7 +45,8 @@ func _on_zone_body_entered(body: Node3D) -> void:
 		smoke.emitting = true
 		EventsBus.hopper_destroyed.emit()
 
-	display.text = str(processed_count)
+	# display.text = str(processed_count)
+	display.text = "%03d" % processed_count
 
 	if not goal_met and processed_count >= target_count:
 		goal_met = true
