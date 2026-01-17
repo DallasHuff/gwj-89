@@ -26,6 +26,8 @@ height = 10.0
 radius = 0.1
 
 [node name="Player" type="CharacterBody3D" unique_id=461061772]
+slide_on_ceiling = false
+platform_on_leave = 2
 script = ExtResource("1_oul6g")
 
 [node name="PlayerCamera" parent="." unique_id=290868861 instance=ExtResource("2_bectd")]
@@ -44,7 +46,7 @@ shape = SubResource("CapsuleShape3D_kqu6x")
 [node name="Rat1_rund" parent="." unique_id=174512231 instance=ExtResource("2_26q78")]
 transform = Transform3D(-1.5, 0, 2.2649371e-07, 0, 1.5, 0, -2.2649371e-07, 0, -1.5, 0, -0.8398146, 0.04616058)
 
-[node name="Skeleton3D" parent="Rat1_rund/Rat1_Run" parent_id_path=PackedInt32Array(174512231, 2126369293) index="0" unique_id=2044203533]
+[node name="Skeleton3D" parent="Rat1_rund/Rat1_Run" parent_id_path=PackedInt32Array(174512231, 627330108) index="0" unique_id=892467883]
 bones/0/position = Vector3(-0.008744252, -0.014450192, -1.3634334)
 bones/0/rotation = Quaternion(-0.7060381, 0.05161911, -0.010558996, 0.7062111)
 bones/1/rotation = Quaternion(-0.0018803182, 0.007140844, -0.006498116, 0.99995166)

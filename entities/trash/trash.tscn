@@ -8,10 +8,8 @@
 [ext_resource type="Resource" uid="uid://b3ultdjl6ldo0" path="res://entities/trash/paper/paper_trash.tres" id="6_lidkd"]
 [ext_resource type="Resource" uid="uid://bkltl26fpfswp" path="res://entities/trash/body/body_trash.tres" id="7_m1geh"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_yj28x"]
-size = Vector3(0.3, 0.3, 0.3)
-
 [node name="Trash" type="RigidBody3D" unique_id=1578541971 groups=["trash"]]
+collision_layer = 32769
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_qgiyn")
@@ -22,10 +20,6 @@ type_to_data = Dictionary[int, ExtResource("2_yj28x")]({
 3: ExtResource("6_lidkd"),
 4: ExtResource("7_m1geh")
 })
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2092128419]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14816336, 0)
-shape = SubResource("BoxShape3D_yj28x")
 
 [node name="DroppedSFX" type="AudioStreamPlayer3D" parent="." unique_id=91373275]
 unique_name_in_owner = true
