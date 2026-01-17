@@ -9,13 +9,10 @@
 
 [sub_resource type="Environment" id="Environment_h8bs1"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_mesa8"]
-size = Vector3(100, 1, 56)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qxn8h"]
 albedo_color = Color(0.35, 0.15207501, 0.0455, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_e875t"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_mesa8"]
 size = Vector3(100, 1, 56)
 
 [node name="ConveyorTest" type="Node3D" unique_id=795892070]
@@ -30,22 +27,71 @@ transform = Transform3D(0.9075284, 0.31033212, -0.28299496, 0, 0.67381245, 0.738
 [node name="ground" type="StaticBody3D" parent="." unique_id=1775703354]
 collision_layer = 32769
 
+[node name="CSGBox3D" type="CSGBox3D" parent="ground" unique_id=34692764]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.009, 0.06, 21.985)
+use_collision = true
+collision_layer = 32769
+size = Vector3(100, 1.05, 56)
+material = SubResource("StandardMaterial3D_qxn8h")
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ground" unique_id=1633012620]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 22)
 shape = SubResource("BoxShape3D_mesa8")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="ground" unique_id=34692764]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.008575559, 0.06301546, 21.98451)
-size = Vector3(100, 1.05, 56)
+[node name="CSGBox3D2" type="CSGBox3D" parent="ground" unique_id=1162829102]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.491, 0.06, -16.515)
+use_collision = true
+collision_layer = 32769
+size = Vector3(11, 1.05, 21)
 material = SubResource("StandardMaterial3D_qxn8h")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="ground" unique_id=1783390959]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, -34)
-shape = SubResource("BoxShape3D_e875t")
+[node name="CSGBox3D3" type="CSGBox3D" parent="ground" unique_id=319958337]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0085754, -1.9369845, -18.515488)
+use_collision = true
+collision_layer = 32769
+size = Vector3(12, 1.05, 17)
+material = SubResource("StandardMaterial3D_qxn8h")
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="ground" unique_id=1162829102]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.008575, 0.06301546, -34.015488)
-size = Vector3(100, 1.05, 56)
+[node name="CSGBox3D5" type="CSGBox3D" parent="ground" unique_id=334185431]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -0.68487304, -8.015)
+use_collision = true
+collision_layer = 32769
+size = Vector3(12, 2.510254, 4)
+material = SubResource("StandardMaterial3D_qxn8h")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="ground" unique_id=1834693349]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.26774234, -10.212754)
+use_collision = true
+collision_layer = 32769
+size = Vector3(5, 2.510254, 0.3955078)
+material = SubResource("StandardMaterial3D_qxn8h")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="ground" unique_id=845852382]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 9, -0.68487304, -18.515)
+use_collision = true
+collision_layer = 32769
+size = Vector3(17, 2.510254, 4)
+material = SubResource("StandardMaterial3D_qxn8h")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="ground" unique_id=2099017076]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 1.7457275, -0.68487304, -25.515)
+use_collision = true
+collision_layer = 32769
+size = Vector3(10.491455, 2.510254, 4)
+material = SubResource("StandardMaterial3D_qxn8h")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="ground" unique_id=949355703]
+transform = Transform3D(-4.371139e-08, 0, -1, 0.25881904, 0.9659258, -1.131334e-08, 0.9659258, -0.25881904, -4.222196e-08, 4.2690325, -2.006509, -14.757171)
+use_collision = true
+collision_layer = 32769
+size = Vector3(10.491455, 2.510254, 4)
+material = SubResource("StandardMaterial3D_qxn8h")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="ground" unique_id=1156703435]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4914246, -1.4619845, -16.515488)
+use_collision = true
+collision_layer = 32769
+size = Vector3(1, 2, 21)
 material = SubResource("StandardMaterial3D_qxn8h")
 
 [node name="Player" parent="." unique_id=461061772 instance=ExtResource("1_mesa8")]
@@ -60,6 +106,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.948158, 4, -21.854704)
 spawn_timer_range_min = 1.0
 spawn_timer_range_max = 2.0
+metal_chance = 0.83
+glass_chance = 0.047
+plastic_chance = 0.023
+paper_chance = 0.041
 
 [node name="funnel" type="CSGBox3D" parent="conveyors1" unique_id=561248060]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0.60661936, -21.862423)
@@ -223,10 +273,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8055723, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9481583, 4.1944275, -21.854704)
 spawn_timer_range_min = 1.0
 spawn_timer_range_max = 2.0
-metal_chance = 0.825
-glass_chance = 0.128
-plastic_chance = 0.164
-paper_chance = 0.169
+metal_chance = 0.085
+glass_chance = 0.894
+plastic_chance = 0.076
+paper_chance = 0.099
 body_chance = 0.05
 body_spawn_delay_sec = 30.0
 
@@ -435,9 +485,20 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -13,
 transform = Transform3D(0.9999945, -2.5778802e-06, 0.0033161186, 2.5759748e-06, 1, 5.8036954e-07, -0.0033161186, -5.71847e-07, 0.9999945, -21, 1.1002333, 2)
 wanted_trash_type = 1
 
+[node name="Label3D" type="Label3D" parent="Hopper" unique_id=411126337]
+transform = Transform3D(1, 1.5987212e-14, 0, -5.995204e-14, 1, 0, 0, 0, 1, -1.9900246, 0.78827727, -0.006598711)
+pixel_size = 0.03
+text = "glass"
+
 [node name="Hopper2" parent="." unique_id=1948075750 instance=ExtResource("6_e875t")]
 transform = Transform3D(0.9999945, -2.5778802e-06, 0.0033161186, 2.5759748e-06, 1, 5.8036954e-07, -0.0033161186, -5.71847e-07, 0.9999945, -1, 1.1002333, 0)
 wanted_trash_type = 0
+
+[node name="Label3D2" type="Label3D" parent="Hopper2" unique_id=343603701]
+transform = Transform3D(1, 1.5987212e-14, 0, -5.995204e-14, 1, 0, 0, 0, 1, 1.5718615, 2.1057982, 0.66212416)
+pixel_size = 0.03
+text = "metal
+"
 
 [node name="funnel2" type="CSGBox3D" parent="." unique_id=719957564]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7, 1.5134432, -4.0042686)
@@ -504,6 +565,15 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -13,
 use_collision = true
 collision_layer = 32769
 size = Vector3(1, 18, 100)
+
+[node name="Spawner2" parent="." unique_id=1849545920 instance=ExtResource("3_5kb2l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.634807, 4.410562, 6.0658407)
+spawn_timer_range_min = 1.0
+spawn_timer_range_max = 2.0
+metal_chance = 0.076
+glass_chance = 0.88
+plastic_chance = 0.023
+paper_chance = 0.041
 
 [node name="MiscPlatform" type="Node3D" parent="." unique_id=2032758175]
 
