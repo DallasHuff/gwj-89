@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://ba6ot0tr62wly"]
+
+[ext_resource type="PackedScene" uid="uid://doipr5sybfbjb" path="res://Art_Assets/Environment/conveyor/Conveyor_Elevetor.glb" id="1_31em2"]
+
+[node name="Conveyor_Elevetor" unique_id=586319572 instance=ExtResource("1_31em2")]
+
+[node name="Cube_002" parent="." index="0" unique_id=598603897]
+transform = Transform3D(-0.3424091, 9.17939e-09, 0, -2.5923912e-08, -0.09093265, -0.53947484, -1.4967178e-08, -0.05249999, 0.9343978, 0.002756312, 0.5632336, -0.04566171)
