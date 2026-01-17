@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://ds2y6yj6xw3cj"]
+
+[ext_resource type="PackedScene" uid="uid://b1tpmk04utj16" path="res://Art_Assets/Interactables/jar.glb" id="1_0chf1"]
+[ext_resource type="Material" uid="uid://gk7v03okn87p" path="res://entities/trash/glass/jar_mat.tres" id="2_l787h"]
+
+[node name="EditedJar" type="Node3D" unique_id=49642748]
+
+[node name="jar2" parent="." unique_id=1590272217 instance=ExtResource("1_0chf1")]
+
+[node name="jar" parent="jar2" index="0" unique_id=1018522619]
+surface_material_override/0 = ExtResource("2_l787h")
+
+[editable path="jar2"]

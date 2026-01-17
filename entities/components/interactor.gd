@@ -1,7 +1,7 @@
 class_name Interactor
 extends Node3D
 
-const TRASH_GAP := Vector3(0, 0.3, 0)
+const TRASH_GAP := Vector3(0, 0.4, 0)
 
 @export var inventory_size: int
 @export var player_camera: PlayerCamera
