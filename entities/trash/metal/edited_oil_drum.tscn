@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://by0pxv2ajsuqj"]
+
+[ext_resource type="PackedScene" uid="uid://6jgg4u7ae6ed" path="res://Art_Assets/Interactables/oildrum.glb" id="1_q2tnf"]
+
+[node name="EditedOilDrum" type="Node3D" unique_id=1847924800]
+
+[node name="oildrum" parent="." unique_id=1874788753 instance=ExtResource("1_q2tnf")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
