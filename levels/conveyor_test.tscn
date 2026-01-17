@@ -210,11 +210,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8055723, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9481583, 4.1944275, -21.854704)
 spawn_timer_range_min = 1.0
 spawn_timer_range_max = 2.0
-metal_chance = 0.065
-glass_chance = 0.058
-plastic_chance = 0.07
-paper_chance = 0.105
-body_chance = 0.941
+metal_chance = 0.825
+glass_chance = 0.128
+plastic_chance = 0.164
+paper_chance = 0.169
+body_chance = 0.05
 body_spawn_delay_sec = 30.0
 
 [node name="PortalConveyor2" parent="conveyors2" unique_id=88265979 instance=ExtResource("4_e875t")]
@@ -332,9 +332,11 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -13,
 
 [node name="Hopper" parent="." unique_id=1611280198 instance=ExtResource("6_e875t")]
 transform = Transform3D(0.9999945, -2.5778802e-06, 0.0033161186, 2.5759748e-06, 1, 5.8036954e-07, -0.0033161186, -5.71847e-07, 0.9999945, -21, 1.1002333, 2)
+wanted_trash_type = 1
 
 [node name="Hopper2" parent="." unique_id=1948075750 instance=ExtResource("6_e875t")]
 transform = Transform3D(0.9999945, -2.5778802e-06, 0.0033161186, 2.5759748e-06, 1, 5.8036954e-07, -0.0033161186, -5.71847e-07, 0.9999945, -1, 1.1002333, 0)
+wanted_trash_type = 0
 
 [node name="LevelWalls" type="Node3D" parent="." unique_id=1311678710]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0)

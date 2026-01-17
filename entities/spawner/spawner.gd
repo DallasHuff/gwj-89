@@ -16,8 +16,8 @@ extends Node3D
 @export_range(0, 1) var glass_chance := 0.0
 @export_range(0, 1) var plastic_chance := 0.0
 @export_range(0, 1) var paper_chance := 0.0
-# be careful setting this number too high, because before the delay is hit
-# it will just not spawn any trash if it chooses body
+## be careful setting this number too high, because before the delay is hit
+## it will just not spawn any trash if it chooses body
 @export_range(0, 1) var body_chance := 0.0 
 # delays spawning of the body for this amount of time,
 # then uses the body_chance above
@@ -61,7 +61,6 @@ func _on_spawn_timer_timeout() -> void:
 	# print("waiting: ", rand_wait)
 	spawn_timer.wait_time = rand_wait
 	spawn_timer.start()
-
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("debug1"):
