@@ -43,99 +43,317 @@ top_level = true
 [node name="conveyors1" type="Node3D" parent="." unique_id=2085045680]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="StraightConveyor" parent="conveyors1" unique_id=263868903 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.6, -2)
-enable_rear_bumper = true
-
-[node name="StraightConveyor2" parent="conveyors1" unique_id=502503931 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.6, -1)
-
-[node name="StraightConveyor3" parent="conveyors1" unique_id=1717024611 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.6, 0)
-
-[node name="StraightConveyor4" parent="conveyors1" unique_id=858196147 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.6, 1)
-
-[node name="StraightConveyor5" parent="conveyors1" unique_id=1599394013 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5, 0.6, 2)
-enable_left_bumper = false
-enable_rear_bumper = true
-
-[node name="StraightConveyor6" parent="conveyors1" unique_id=335280754 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6, 0.6, 2)
-
-[node name="PortalConveyor" parent="conveyors1" unique_id=843455411 instance=ExtResource("4_e875t")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7, 0.48879385, 2)
-
-[node name="Spawner" parent="." unique_id=359273142 instance=ExtResource("3_5kb2l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 5, -2)
+[node name="Spawner" parent="conveyors1" unique_id=359273142 instance=ExtResource("3_5kb2l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.948158, 4, -21.854704)
 trash_type = 1
 spawn_timer_range_min = 1.0
 spawn_timer_range_max = 2.0
 
-[node name="funnel" type="CSGBox3D" parent="." unique_id=561248060]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1.6066194, -1.8624226)
+[node name="funnel" type="CSGBox3D" parent="conveyors1" unique_id=561248060]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0.60661936, -21.862423)
 use_collision = true
 size = Vector3(3, 2, 2)
 
-[node name="CSGPolygon3D" type="CSGPolygon3D" parent="funnel" unique_id=424858995]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1)
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="conveyors1/funnel" unique_id=424858995]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1.1324959)
 operation = 2
 polygon = PackedVector2Array(0.47348452, -0.03948313, -0.43611574, 1.0945103, 2.4037561, 1.0692099, 1.5429001, -0.045178056)
 depth = 1.8
 
+[node name="StraightConveyor" parent="conveyors1" unique_id=263868903 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0.6, -22)
+enable_rear_bumper = true
+
+[node name="StraightConveyor2" parent="conveyors1" unique_id=502503931 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0.6, -21)
+
+[node name="StraightConveyor3" parent="conveyors1" unique_id=1717024611 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0.6, -20)
+
+[node name="StraightConveyor4" parent="conveyors1" unique_id=858196147 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0.6, -19)
+
+[node name="StraightConveyor5" parent="conveyors1" unique_id=606666062 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0.6, -18)
+enable_rear_bumper = true
+
+[node name="StraightConveyor6" parent="conveyors1" unique_id=378807280 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0.6, -17)
+
+[node name="StraightConveyor7" parent="conveyors1" unique_id=836740170 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0.6, -16)
+
+[node name="StraightConveyor8" parent="conveyors1" unique_id=1385387746 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0.6, -15)
+
+[node name="StraightConveyor9" parent="conveyors1" unique_id=260503259 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0.6, -14)
+enable_rear_bumper = true
+
+[node name="StraightConveyor10" parent="conveyors1" unique_id=255522630 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0.6, -13)
+
+[node name="StraightConveyor11" parent="conveyors1" unique_id=1471874539 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0.6, -12)
+
+[node name="StraightConveyor12" parent="conveyors1" unique_id=1285161695 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0.6, -11)
+
+[node name="StraightConveyor13" parent="conveyors1" unique_id=882145373 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0.6, -10)
+enable_rear_bumper = true
+
+[node name="StraightConveyor14" parent="conveyors1" unique_id=294144844 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0.6, -9)
+
+[node name="StraightConveyor15" parent="conveyors1" unique_id=497699592 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0.6, -8)
+
+[node name="StraightConveyor16" parent="conveyors1" unique_id=1729107300 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -12, 0.6, -7)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor18" parent="conveyors1" unique_id=1586380758 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11, 0.6, -7)
+
+[node name="StraightConveyor19" parent="conveyors1" unique_id=764176814 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3, 0.6, -7)
+
+[node name="StraightConveyor20" parent="conveyors1" unique_id=286630994 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2, 0.6, -7)
+
+[node name="StraightConveyor26" parent="conveyors1" unique_id=1005475450 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2, 0.6, 2)
+enable_right_bumper = false
+
+[node name="StraightConveyor27" parent="conveyors1" unique_id=1810774734 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3, 0.6, 2)
+
+[node name="StraightConveyor28" parent="conveyors1" unique_id=792452910 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4, 0.6, 2)
+
+[node name="StraightConveyor29" parent="conveyors1" unique_id=1414729906 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5, 0.6, 2)
+
+[node name="StraightConveyor30" parent="conveyors1" unique_id=627712276 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 6, 0.6, 2)
+enable_right_bumper = false
+
+[node name="StraightConveyor31" parent="conveyors1" unique_id=1718734105 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 6, 0.6, 1)
+
+[node name="StraightConveyor32" parent="conveyors1" unique_id=1721174612 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-1, 0, -2.6226832e-07, 0, 1, 0, 2.6226832e-07, 0, -1, 6, 0.6, 0)
+
+[node name="StraightConveyor33" parent="conveyors1" unique_id=949950555 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 6, 0.6, -1)
+
+[node name="StraightConveyor34" parent="conveyors1" unique_id=1211319554 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1.3113417e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113417e-07, 6, 0.6, -2)
+enable_right_bumper = false
+
+[node name="StraightConveyor35" parent="conveyors1" unique_id=343228068 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1.3113417e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113417e-07, 5, 0.6, -2)
+
+[node name="StraightConveyor36" parent="conveyors1" unique_id=769156026 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1.3113417e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113417e-07, 4, 0.6, -2)
+
+[node name="StraightConveyor37" parent="conveyors1" unique_id=322600309 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(3.059797e-07, 0, -1, 0, 1, 0, 1, 0, 3.059797e-07, 3, 0.6, -2)
+
+[node name="StraightConveyor38" parent="conveyors1" unique_id=729089657 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1.3113417e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113417e-07, 2, 0.6, -2)
+
+[node name="StraightConveyor39" parent="conveyors1" unique_id=1708940720 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(3.059797e-07, 0, -1, 0, 1, 0, 1, 0, 3.059797e-07, 1, 0.6, -2)
+
+[node name="StraightConveyor40" parent="conveyors1" unique_id=188388694 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(3.059797e-07, 0, -1, 0, 1, 0, 1, 0, 3.059797e-07, 0, 0.6, -2)
+
+[node name="StraightConveyor41" parent="conveyors1" unique_id=902229960 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1, 0, 3.496911e-07, 0, 1, 0, -3.496911e-07, 0, 1, -1, 0.6, -2)
+enable_right_bumper = false
+
+[node name="StraightConveyor42" parent="conveyors1" unique_id=2013587785 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1, 0, 1.7484557e-07, 0, 1, 0, -1.7484557e-07, 0, 1, -1, 0.6, -1)
+
+[node name="StraightConveyor21" parent="conveyors1" unique_id=837661828 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1, 0.6, -7)
+
+[node name="StraightConveyor22" parent="conveyors1" unique_id=877099829 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.6, -7)
+
+[node name="StraightConveyor23" parent="conveyors1" unique_id=452972956 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1, 0.6, -7)
+
+[node name="StraightConveyor24" parent="conveyors1" unique_id=1148908991 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.6, -7)
+enable_left_bumper = false
+
+[node name="StraightConveyor25" parent="conveyors1" unique_id=1413941226 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.6, -6)
+
+[node name="StraightConveyor17" parent="conveyors1" unique_id=178233195 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -12, 0.6, -7)
+enable_right_bumper = false
+
+[node name="PortalConveyor" parent="conveyors1" unique_id=843455411 instance=ExtResource("4_e875t")]
+transform = Transform3D(1.1920929e-07, 0, 1, 0, 1, 0, -1, 0, 1.1920929e-07, -10, 0.48879385, -7)
+
+[node name="PortalConveyor2" parent="conveyors1" unique_id=1935087199 instance=ExtResource("4_e875t")]
+transform = Transform3D(1, 0, -1.6292068e-07, 0, 1, 0, 1.6292068e-07, 0, 1, 2, 0.48879385, -5)
+
 [node name="conveyors2" type="Node3D" parent="." unique_id=1159933248]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8055723, 0)
 
-[node name="StraightConveyor" parent="conveyors2" unique_id=1795347004 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -14, 0.6, 2)
+[node name="Spawner2" parent="conveyors2" unique_id=1927183234 instance=ExtResource("3_5kb2l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9481583, 4.1944275, -21.854704)
+trash_type = 1
+spawn_timer_range_min = 1.0
+spawn_timer_range_max = 2.0
+
+[node name="PortalConveyor2" parent="conveyors2" unique_id=88265979 instance=ExtResource("4_e875t")]
+transform = Transform3D(-3.1786513e-08, 0, -1, 0, 1, 0, 1, 0, -3.1786513e-08, -14, 0.6832216, -4)
+
+[node name="funnel2" type="CSGBox3D" parent="conveyors2" unique_id=717284396]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.8010471, -21.862423)
+use_collision = true
+size = Vector3(3, 2, 2)
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="conveyors2/funnel2" unique_id=1522988899]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1.1324959)
+operation = 2
+polygon = PackedVector2Array(0.47348452, -0.03948313, -0.43611574, 1.0945103, 2.4037561, 1.0692099, 1.5429001, -0.045178056)
+depth = 1.8
+
+[node name="StraightConveyor18" parent="conveyors2" unique_id=603503256 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.79442775, -22)
 enable_rear_bumper = true
 
-[node name="StraightConveyor2" parent="conveyors2" unique_id=1273113868 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -14, 0.6, 1)
+[node name="StraightConveyor19" parent="conveyors2" unique_id=310360948 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.79442775, -21)
 
-[node name="StraightConveyor3" parent="conveyors2" unique_id=839110969 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -14, 0.6, 0)
+[node name="StraightConveyor20" parent="conveyors2" unique_id=1749136239 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.79442775, -20)
 
-[node name="StraightConveyor4" parent="conveyors2" unique_id=1001598390 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -14, 0.6, -1)
+[node name="StraightConveyor21" parent="conveyors2" unique_id=1500320916 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.79442775, -19)
 
-[node name="StraightConveyor5" parent="conveyors2" unique_id=1714125498 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -14, 0.6, -2)
+[node name="StraightConveyor22" parent="conveyors2" unique_id=1883853942 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.79442775, -18)
+enable_rear_bumper = true
+
+[node name="StraightConveyor23" parent="conveyors2" unique_id=1880138578 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.79442775, -17)
+
+[node name="StraightConveyor24" parent="conveyors2" unique_id=795369087 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.79442775, -16)
+
+[node name="StraightConveyor25" parent="conveyors2" unique_id=946974156 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.79442775, -15)
+
+[node name="StraightConveyor26" parent="conveyors2" unique_id=1796257886 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.79442775, -14)
+enable_rear_bumper = true
+
+[node name="StraightConveyor27" parent="conveyors2" unique_id=913111241 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.79442775, -13)
+
+[node name="StraightConveyor28" parent="conveyors2" unique_id=220064271 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.79442775, -12)
+
+[node name="StraightConveyor29" parent="conveyors2" unique_id=914560009 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.79442775, -11)
+
+[node name="StraightConveyor30" parent="conveyors2" unique_id=340323592 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.79442775, -10)
+enable_rear_bumper = true
+
+[node name="StraightConveyor31" parent="conveyors2" unique_id=1215057668 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.79442775, -9)
+
+[node name="StraightConveyor32" parent="conveyors2" unique_id=1533792089 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.79442775, -8)
+
+[node name="StraightConveyor33" parent="conveyors2" unique_id=720629191 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.79442775, -7)
+
+[node name="StraightConveyor34" parent="conveyors2" unique_id=1886749735 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.79442775, -6)
+
+[node name="StraightConveyor35" parent="conveyors2" unique_id=780266073 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.79442775, -5)
+
+[node name="StraightConveyor36" parent="conveyors2" unique_id=2084488417 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7, 0.79442775, -4)
+enable_left_bumper = false
+
+[node name="StraightConveyor37" parent="conveyors2" unique_id=785087909 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -8, 0.79442775, -4)
+
+[node name="StraightConveyor38" parent="conveyors2" unique_id=1295887027 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -9, 0.79442775, -4)
+
+[node name="StraightConveyor39" parent="conveyors2" unique_id=2070164560 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -10, 0.79442775, -4)
+
+[node name="StraightConveyor40" parent="conveyors2" unique_id=608511697 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371138e-08, 0, -1, 0, 1, 0, 1, 0, -4.371138e-08, -11, 0.79442775, -4)
+
+[node name="StraightConveyor41" parent="conveyors2" unique_id=160797673 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -12, 0.79442775, -4)
+
+[node name="StraightConveyor43" parent="conveyors2" unique_id=1810288290 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 0.79442775, -4)
 enable_right_bumper = false
-enable_rear_bumper = true
 
-[node name="StraightConveyor6" parent="conveyors2" unique_id=1141368456 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -15, 0.6, -2)
+[node name="StraightConveyor44" parent="conveyors2" unique_id=1843381245 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -21, 0.79442775, -3)
 
-[node name="StraightConveyor7" parent="conveyors2" unique_id=1591531657 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -16, 0.6, -2)
+[node name="StraightConveyor45" parent="conveyors2" unique_id=1804658519 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -21, 0.79442775, -2)
 
-[node name="StraightConveyor8" parent="conveyors2" unique_id=1305494244 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 0.6, -2)
-enable_right_bumper = false
-enable_rear_bumper = true
+[node name="StraightConveyor46" parent="conveyors2" unique_id=823684239 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, -21, 0.79442775, -1)
 
-[node name="StraightConveyor13" parent="conveyors2" unique_id=1656638067 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 0.85673165, 2.949941)
+[node name="StraightConveyor47" parent="conveyors2" unique_id=409453991 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -21, 0.79442775, 0)
 
-[node name="StraightConveyor9" parent="conveyors2" unique_id=1462592821 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(1, 0, 0, 0, 0.9967635, 0.08039033, 0, -0.08039033, 0.9967635, -17, 0.61097336, -1.017396)
+[node name="StraightConveyor48" parent="conveyors2" unique_id=1283198783 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -21, 0.79442775, 1)
 
-[node name="StraightConveyor10" parent="conveyors2" unique_id=1869137344 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(1, 0, 0, 0, 0.9967635, 0.08039033, 0, -0.08039033, 0.9967635, -17, 0.68689656, -0.01850158)
-
-[node name="StraightConveyor11" parent="conveyors2" unique_id=178143881 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(1, 0, 0, 0, 0.9967635, 0.08039033, 0, -0.08039033, 0.9967635, -17, 0.7644906, 0.9799883)
-
-[node name="StraightConveyor12" parent="conveyors2" unique_id=1891158836 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(1, 0, 0, 0, 0.9967635, 0.08039033, 0, -0.08039033, 0.9967635, -17, 0.8404138, 1.9788826)
+[node name="StraightConveyor42" parent="conveyors2" unique_id=1673714037 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -13, 0.79442775, -4)
 
 [node name="Hopper" parent="." unique_id=1611280198 instance=ExtResource("6_e875t")]
-transform = Transform3D(0.9999945, -2.5778802e-06, 0.0033161186, 2.5759748e-06, 1, 5.8036954e-07, -0.0033161186, -5.71847e-07, 0.9999945, -17, 1.1002333, 4)
+transform = Transform3D(0.9999945, -2.5778802e-06, 0.0033161186, 2.5759748e-06, 1, 5.8036954e-07, -0.0033161186, -5.71847e-07, 0.9999945, -21, 1.1002333, 2)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=798833694]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.202036, 0.9060054, 4.2592278)
+[node name="Hopper2" parent="." unique_id=1948075750 instance=ExtResource("6_e875t")]
+transform = Transform3D(0.9999945, -2.5778802e-06, 0.0033161186, 2.5759748e-06, 1, 5.8036954e-07, -0.0033161186, -5.71847e-07, 0.9999945, -1, 1.1002333, 0)
+
+[node name="LevelWalls" type="Node3D" parent="." unique_id=1311678710]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="LevelWalls" unique_id=798833694]
 use_collision = true
 collision_layer = 32769
-size = Vector3(7.214966, 7.6254883, 5.6137695)
+size = Vector3(1, 10, 100)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="LevelWalls" unique_id=1022930952]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 0, 0)
+use_collision = true
+collision_layer = 32769
+size = Vector3(1, 10, 100)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="LevelWalls" unique_id=562166810]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -13, 0, -26)
+use_collision = true
+collision_layer = 32769
+size = Vector3(1, 10, 100)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="LevelWalls" unique_id=864218557]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -13, 0, 26)
+use_collision = true
+collision_layer = 32769
+size = Vector3(1, 10, 100)
