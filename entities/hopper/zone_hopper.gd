@@ -8,6 +8,7 @@ extends Node3D
 
 @onready var zone := %Zone
 @onready var display := %Display
+@onready var body_sound_player := %AudioStreamPlayer3D
 
 func _on_zone_body_entered(body: Node3D) -> void:
     if not body is Trash:
@@ -20,6 +21,9 @@ func _on_zone_body_entered(body: Node3D) -> void:
         processed_count += 1
 
     display.text = "%03d" % processed_count
+
+    if got_trash_type == Trash.TrashType.BODY:
+        body_sound_player.play()
 
 func _on_zone_body_exited(body: Node3D) -> void:
     if not body is Trash:
