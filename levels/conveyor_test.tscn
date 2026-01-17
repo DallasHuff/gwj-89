@@ -561,7 +561,13 @@ collision_layer = 32769
 size = Vector3(1, 18, 100)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="LevelWalls" unique_id=864218557]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -13, 4, 26)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 26.822926, -7.193241, 11.513163)
+use_collision = true
+collision_layer = 32769
+size = Vector3(1, 18, 100)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="LevelWalls" unique_id=621965722]
+transform = Transform3D(-0.5658452, 0, -0.8245115, 0, 1, 0, 0.8245115, 0, -0.5658452, -64.09696, -7.188661, -16.712633)
 use_collision = true
 collision_layer = 32769
 size = Vector3(1, 18, 100)
@@ -580,6 +586,7 @@ paper_chance = 0.041
 [node name="CSGBox3D" type="CSGBox3D" parent="MiscPlatform" unique_id=1080830516]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, -3.178955, -16)
 use_collision = true
+collision_layer = 32769
 size = Vector3(20, 9.35791, 20)
 
 [node name="sub" type="CSGBox3D" parent="MiscPlatform/CSGBox3D" unique_id=532986375]
@@ -597,6 +604,7 @@ size = Vector3(13.289368, 1.9100342, 4.784851)
 [node name="CSGBox3D9" type="CSGBox3D" parent="MiscPlatform" unique_id=843412034]
 transform = Transform3D(1.0417707, 0, 0, 0, 0.72576636, 0, 0, 0, 1.0581642, -25.239704, 1.2864306, -12.373749)
 use_collision = true
+collision_layer = 32769
 size = Vector3(12.985168, 1.9100342, 4.784851)
 
 [node name="sub" type="CSGBox3D" parent="MiscPlatform/CSGBox3D9" unique_id=1913013556]
@@ -608,6 +616,7 @@ size = Vector3(13.206146, 1.9100342, 4.784851)
 [node name="CSGBox3D10" type="CSGBox3D" parent="MiscPlatform" unique_id=1900447282]
 transform = Transform3D(1.0417707, 0, 0, 0, 0.72576636, 0, 0, 0, 1.0581642, -25.239704, 1.2864306, -21.364452)
 use_collision = true
+collision_layer = 32769
 size = Vector3(12.985168, 1.9100342, 4.784851)
 
 [node name="sub" type="CSGBox3D" parent="MiscPlatform/CSGBox3D10" unique_id=1231138080]
@@ -619,31 +628,37 @@ size = Vector3(13.206146, 1.9100342, 4.784851)
 [node name="CSGBox3D2" type="CSGBox3D" parent="MiscPlatform" unique_id=1761613705]
 transform = Transform3D(1, 0, 0, 0, 0.9659258, -0.25881904, 0, 0.25881904, 0.9659258, -17.078766, 0.5415752, -4.363054)
 use_collision = true
+collision_layer = 32769
 size = Vector3(1.7183228, 1, 3.6582031)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="MiscPlatform" unique_id=406387573]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.250381, 1.1345215, -6.0203137)
 use_collision = true
+collision_layer = 32769
 size = Vector3(6.626007, 1.269043, 0.21875)
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="MiscPlatform" unique_id=522722224]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.150625, 1.1345215, -6.0203137)
 use_collision = true
+collision_layer = 32769
 size = Vector3(2.1180763, 1.269043, 0.21875)
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="MiscPlatform" unique_id=1429210555]
 transform = Transform3D(-4.371139e-08, 0, -1, -0.26749068, 0.96356046, 1.16923875e-08, 0.96356046, 0.26749068, -4.211856e-08, -16.087038, 0.8651172, -5.0747786)
 use_collision = true
+collision_layer = 32769
 size = Vector3(2.1180763, 1.269043, 0.21875)
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="MiscPlatform" unique_id=1102137518]
 transform = Transform3D(-4.371139e-08, 0, -1, -0.26749068, 0.96356046, 1.16923875e-08, 0.96356046, 0.26749068, -4.211856e-08, -18.061863, 0.8651172, -5.0747786)
 use_collision = true
+collision_layer = 32769
 size = Vector3(2.1180763, 1.269043, 0.21875)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="MiscPlatform" unique_id=361645022]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -13.980946, 1.1345215, -14.977637)
 use_collision = true
+collision_layer = 32769
 size = Vector3(18.132387, 1.269043, 0.21875)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=996196366]
