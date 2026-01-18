@@ -54,7 +54,6 @@ func start() -> void:
 		body_spawn_delay_timer.start()
 
 func _on_body_spawn_delay_timeout() -> void:
-	print("spawn delay timer timed out")
 	body_spawn_delay_reached = true
 
 func _on_spawn_timer_timeout() -> void:
@@ -116,3 +115,14 @@ func spawn_trash() -> void:
 func reset() -> void:
 	spawn_timer.wait_time = spawn_timer_start_delay
 	spawn_timer.start()
+
+func spawn_specific(type: Trash.TrashType) -> void:
+	var random_pos_offset := Vector3.ZERO
+
+	random_pos_offset.x += randf_range(-spawn_bounds_width, spawn_bounds_width)
+	random_pos_offset.z += randf_range(-spawn_bounds_width, spawn_bounds_width)
+	var t: Trash = trash_scene.instantiate()
+	get_tree().root.add_child(t)
+	t.trash_type = type
+	t.global_position = global_position + random_pos_offset
+	print("spawning specifically ", type)

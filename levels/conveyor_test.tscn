@@ -1013,7 +1013,7 @@ depth = 1.8
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="LevelWalls" unique_id=798833694]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1356812, 4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1354771, 4.0187597, -0.012870789)
 use_collision = true
 collision_layer = 32769
 size = Vector3(3.2713623, 18, 100)

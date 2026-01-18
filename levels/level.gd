@@ -3,19 +3,29 @@ extends Node3D
 
 @onready var player: Player = %Player
 @onready var canvas: CanvasLayer = %LoadingScreen
+@onready var warmup_spawner: Spawner = $WarmupSpawner
+@onready var music: AudioStreamPlayer = $Music
 var player_init_position: Vector3
 
 func _ready() -> void:
 	add_to_group("level")
 	add_to_group("reset")
+	get_tree().create_timer(45).timeout.connect(_force_spawn_body)
 	player_init_position = player.global_position
 	# If running from editor, skip preloading particles
 	if OS.has_feature("editor"):
 		canvas.hide()
 		_start_spawners()
+		music.play()
 		return
 
+	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), true)
+
 	_hopper_particle_toggle(true)
+
+	await get_tree().process_frame
+
+	_warmup_trash()
 
 	await get_tree().process_frame
 	await get_tree().process_frame
@@ -23,6 +33,12 @@ func _ready() -> void:
 	_hopper_particle_toggle(false)
 
 	await get_tree().create_timer(4).timeout
+	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), false)
+
+	for t in get_tree().get_nodes_in_group("trash"):
+		t.global_position = Vector3(1000, 0, 0)
+
+	music.play()
 	_start_spawners()
 
 	canvas.hide()
@@ -59,3 +75,14 @@ func _hopper_particle_toggle(emitting: bool) -> void:
 
 func reset() -> void:
 	player.position = player_init_position
+
+func _force_spawn_body() -> void:
+	var spawner: Spawner = get_tree().get_nodes_in_group("spawner").pick_random()
+	spawner.spawn_specific(Trash.TrashType.BODY)
+
+func _warmup_trash() -> void:
+	var types: Array[Trash.TrashType] = [Trash.TrashType.BODY, Trash.TrashType.PAPER, Trash.TrashType.PLASTIC, Trash.TrashType.METAL, Trash.TrashType.GLASS]
+	for spawner in get_tree().get_nodes_in_group("spawner"):
+		for t in types:
+			spawner.spawn_specific(t)
+			warmup_spawner.spawn_specific(t)
