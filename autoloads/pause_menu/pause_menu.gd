@@ -7,6 +7,7 @@ extends CanvasLayer
 @onready var sfx_slider: HSlider = %SFXVolumeSlider
 @onready var sfx_label: Label = %SFXPercent
 @onready var exit_button: Button = %ExitButton
+@onready var reset_button: Button = %ResetButton
 
 
 func _ready() -> void:
@@ -17,6 +18,7 @@ func _ready() -> void:
 	sfx_slider.value_changed.connect(set_bus_volume.bind("SFX").bind(sfx_label))
 
 	exit_button.pressed.connect(pause)
+	reset_button.pressed.connect(reset)
 
 
 func _physics_process(_delta: float) -> void:
@@ -44,3 +46,8 @@ func convert_percentage_to_decibels(percent: float) -> float:
 	const _scale: float = 20.0
 	const _divisor: float = 50.0
 	return _scale * log(percent / _divisor) / log(10)
+
+
+func reset() -> void:
+	get_tree().call_group("reset", "reset")
+	get_tree().call_group("trash", "queue_free")

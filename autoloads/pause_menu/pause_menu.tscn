@@ -117,3 +117,11 @@ size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 30
 text = "PAUSED"
+
+[node name="ResetButton" type="Button" parent="PanelContainer/MarginContainer" unique_id=1600724577]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Reset Level"

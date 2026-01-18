@@ -3,8 +3,12 @@ extends Node3D
 
 @onready var player: Player = %Player
 @onready var canvas: CanvasLayer = %CanvasLayer
+var player_init_position: Vector3
 
 func _ready() -> void:
+	add_to_group("level")
+	add_to_group("reset")
+	player_init_position = player.global_position
 	# If running from editor, skip preloading particles
 	if OS.has_feature("editor"):
 		canvas.hide()
@@ -52,3 +56,6 @@ func _hopper_particle_toggle(emitting: bool) -> void:
 		h.sparks.emitting = emitting
 		h.smoke.emitting = emitting
 		h.blue_sparks.emitting = emitting
+
+func reset() -> void:
+	player.position = player_init_position
