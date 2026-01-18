@@ -4,7 +4,7 @@
 [ext_resource type="Material" uid="uid://gk7v03okn87p" path="res://entities/trash/glass/jar_mat.tres" id="2_l787h"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_vyfwh"]
-points = PackedVector3Array(0.08, -0.25, 0.1, 0.16, -0.25, 0, 0.08, -0.25, -0.1, -0.15, -0.25, 0, -0.15, -0.25, 0, -0.08, -0.25, 0.1, 0.08, 0.35, 0.1, 0.16, 0.35, 0, 0.08, 0.35, -0.1, -0.15, 0.35, 0, -0.08, 0.35, 0.1, -0.08, 0.35, -0.1)
+points = PackedVector3Array(0.08, -0.25, 0.1, 0.16, -0.25, 0, 0.08, -0.25, -0.1, -0.08, -0.25, -0.1, -0.15, -0.25, 0, -0.08, -0.25, 0.1, 0.08, 0.35, 0.1, 0.16, 0.35, 0, 0.08, 0.35, -0.1, -0.15, 0.35, 0, -0.08, 0.35, 0.1, -0.08, 0.35, -0.1)
 
 [node name="EditedJar" type="CollisionShape3D" unique_id=1056584982]
 shape = SubResource("ConvexPolygonShape3D_vyfwh")

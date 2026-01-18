@@ -10,4 +10,3 @@ shape = SubResource("ConvexPolygonShape3D_gxdx1")
 
 [node name="can2" parent="." unique_id=2146056213 instance=ExtResource("1_gxdx1")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, -0.24577236, 0)
-visible = false
