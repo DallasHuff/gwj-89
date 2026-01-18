@@ -2,12 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://6jgg4u7ae6ed" path="res://Art_Assets/Interactables/oildrum.glb" id="1_q2tnf"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_q2tnf"]
-size = Vector3(0.5, 0.7, 0.5)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_a5xi8"]
+points = PackedVector3Array(0.08, -0.25, 0.19, 0.25, -0.25, 0, 0.08, -0.25, -0.19, -0.25, -0.25, 0, -0.08, -0.25, -0.19, -0.08, -0.25, 0.19, 0.08, 0.35, 0.19, 0.25, 0.35, 0, 0.08, 0.35, -0.19, -0.25, 0.35, 0, -0.08, 0.35, 0.19, -0.08, 0.35, -0.19)
 
 [node name="EditedOilDrum" type="CollisionShape3D" unique_id=149806146]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
-shape = SubResource("BoxShape3D_q2tnf")
+shape = SubResource("ConvexPolygonShape3D_a5xi8")
 
 [node name="oildrum" parent="." unique_id=1874788753 instance=ExtResource("1_q2tnf")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.38259676, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.041428637, -0.35270083, 0.0060627824)

@@ -3,17 +3,16 @@
 [ext_resource type="PackedScene" uid="uid://b1tpmk04utj16" path="res://Art_Assets/Interactables/jar.glb" id="1_0chf1"]
 [ext_resource type="Material" uid="uid://gk7v03okn87p" path="res://entities/trash/glass/jar_mat.tres" id="2_l787h"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l787h"]
-radius = 0.15
-height = 0.6
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_vyfwh"]
+points = PackedVector3Array(0.08, -0.25, 0.1, 0.16, -0.25, 0, 0.08, -0.25, -0.1, -0.08, -0.25, -0.1, -0.15, -0.25, 0, -0.08, -0.25, 0.1, 0.08, 0.35, 0.1, 0.16, 0.35, 0, 0.08, 0.35, -0.1, -0.15, 0.35, 0, -0.08, 0.35, 0.1, -0.08, 0.35, -0.1)
 
 [node name="EditedJar" type="CollisionShape3D" unique_id=1056584982]
-shape = SubResource("CapsuleShape3D_l787h")
+shape = SubResource("ConvexPolygonShape3D_vyfwh")
 
 [node name="jar2" parent="." unique_id=1590272217 instance=ExtResource("1_0chf1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24851367, 0)
 
-[node name="jar" parent="jar2" index="0" unique_id=1018522619]
+[node name="jar" parent="jar2" index="0" unique_id=2023450290]
 transform = Transform3D(-0.1228341, 0.08609168, 1.0262929e-08, 0, 1.7881392e-08, -0.14999998, -0.086091675, -0.1228341, -1.4642967e-08, 0, -0.015072495, 0)
 surface_material_override/0 = ExtResource("2_l787h")
 

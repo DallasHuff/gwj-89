@@ -1,7 +1,7 @@
 extends MeshInstance3D
 
 var material: StandardMaterial3D
-@export var uv_scroll_speed := Vector3(1.0, 0.0, 0.0) # Example speed for upward scroll
+@export var uv_scroll_speed := Vector3(0.3, 0.0, 0.0) # Example speed for upward scroll
 
 func _ready() -> void:
 	# Get the material from the mesh instance (index 0)
