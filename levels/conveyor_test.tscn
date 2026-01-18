@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://ccgg38pouevs5" path="res://Art_Assets/Environment/Background/ceilingOpenCircle.glb" id="9_av0o5"]
 [ext_resource type="PackedScene" uid="uid://g64ungfygjuf" path="res://Art_Assets/Environment/Background/MostEnvStuff.glb" id="13_velju"]
 [ext_resource type="PackedScene" uid="uid://dooxbcbwdu1c3" path="res://Art_Assets/Environment/Background/Pits.glb" id="14_j6rvn"]
+[ext_resource type="PackedScene" uid="uid://d1262w4qil45c" path="res://levels/loading_screen.tscn" id="15_pisbn"]
 [ext_resource type="Texture2D" uid="uid://cx8emwqqwfuck" path="res://Art_Assets/Environment/Background/Pits_temp_pits1-TM_u0_v0.png" id="15_w8rp6"]
 
 [sub_resource type="Environment" id="Environment_h8bs1"]
@@ -488,39 +489,23 @@ paper_chance = 0.041
 [node name="MiscPlatform" parent="." unique_id=1178501671 instance=ExtResource("8_velju")]
 visible = false
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=996196366]
-unique_name_in_owner = true
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1372633443]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
-[node name="Label" type="Label" parent="CanvasLayer" unique_id=895947281]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Riling up the rats"
-
 [node name="EnvArt" type="Node3D" parent="." unique_id=1465061547]
 
 [node name="MostEnvStuff" parent="EnvArt" unique_id=1804349761 instance=ExtResource("13_velju")]
 
-[node name="ceiling_divider" parent="EnvArt/MostEnvStuff" index="0" unique_id=1911590489]
+[node name="ceiling_divider" parent="EnvArt/MostEnvStuff" index="0" unique_id=666712597]
 transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, -1.1498995, -1.3904743)
 
 [node name="Pits" parent="EnvArt" unique_id=716726612 instance=ExtResource("14_j6rvn")]
 transform = Transform3D(-5.2453668e-08, 0, 1.2, 0, 1.2, 0, -1.2, 0, -5.2453668e-08, 17.760736, 2.5400305, -2.104785)
 
-[node name="temp_pits1" parent="EnvArt/Pits" index="0" unique_id=674924332]
+[node name="temp_pits1" parent="EnvArt/Pits" index="0" unique_id=215721783]
 surface_material_override/0 = SubResource("StandardMaterial3D_j6rvn")
 
 [node name="Pits2" parent="EnvArt" unique_id=1859049910 instance=ExtResource("14_j6rvn")]
 transform = Transform3D(0.67314816, 0, 0.993414, 0, 1.1999999, 0, -0.993414, 0, 0.67314816, 4.7377186, 1.5434141, 6.8460665)
 
-[node name="temp_pits1" parent="EnvArt/Pits2" index="0" unique_id=674924332]
+[node name="temp_pits1" parent="EnvArt/Pits2" index="0" unique_id=215721783]
 surface_material_override/0 = SubResource("StandardMaterial3D_w8rp6")
 
 [node name="Lighting" type="Node3D" parent="EnvArt" unique_id=739360064]
@@ -650,13 +635,13 @@ transform = Transform3D(0.33, 0, 0, 0, 0.33, 0, 0, 0, 0.33, -5.27304, -1.1683216
 script = ExtResource("8_oenlk")
 rotation_speed = 0.5
 
-[node name="Cube_043" parent="EnvArt/Ceiling/ceilingFan" index="0" unique_id=707820171]
+[node name="Cube_043" parent="EnvArt/Ceiling/ceilingFan" index="0" unique_id=454830234]
 cast_shadow = 3
 
 [node name="ceilingOpenCircle" parent="EnvArt/Ceiling" unique_id=2060622937 instance=ExtResource("9_av0o5")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -5.321677, 14.989567, -4.692875)
 
-[node name="Cube_044" parent="EnvArt/Ceiling/ceilingOpenCircle" index="0" unique_id=982848548]
+[node name="Cube_044" parent="EnvArt/Ceiling/ceilingOpenCircle" index="0" unique_id=1754449161]
 transform = Transform3D(47.05589, 0, 0, 0, 1, 0, 0, 0, 47.05589, -0.11407471, 0.08654785, -0.20260811)
 cast_shadow = 3
 
@@ -741,6 +726,9 @@ transform = Transform3D(1.0000002, 0, 0, 0, 1, 0, 0, 0, 1.0000002, 4.8150864, -1
 use_collision = true
 collision_layer = 32769
 size = Vector3(11.762451, 5, 19.212692)
+
+[node name="LoadingScreen" parent="." unique_id=983847335 instance=ExtResource("15_pisbn")]
+unique_name_in_owner = true
 
 [editable path="EnvArt/MostEnvStuff"]
 [editable path="EnvArt/Pits"]
