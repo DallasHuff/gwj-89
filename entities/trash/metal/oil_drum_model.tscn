@@ -11,4 +11,3 @@ shape = SubResource("ConvexPolygonShape3D_a5xi8")
 
 [node name="oildrum" parent="." unique_id=1874788753 instance=ExtResource("1_q2tnf")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.041428637, -0.35270083, 0.0060627824)
-visible = false
