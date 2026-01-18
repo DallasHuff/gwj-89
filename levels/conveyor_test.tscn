@@ -291,7 +291,7 @@ metal_chance = 0.01
 glass_chance = 0.55
 plastic_chance = 0.1
 paper_chance = 0.1
-body_chance = 0.001
+body_chance = 0.005
 body_spawn_delay_sec = 45.0
 
 [node name="PortalConveyor2" parent="conveyors2" unique_id=88265979 instance=ExtResource("4_e875t")]
