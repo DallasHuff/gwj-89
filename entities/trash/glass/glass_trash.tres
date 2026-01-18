@@ -1,7 +1,6 @@
 [gd_resource type="Resource" script_class="TrashData" format=3 uid="uid://dmvj50jf5se41"]
 
 [ext_resource type="AudioStream" uid="uid://dux184v8hc8ws" path="res://sound/fx/glassdropsquished.wav" id="1_0ivs2"]
-[ext_resource type="PackedScene" uid="uid://ds2y6yj6xw3cj" path="res://entities/trash/glass/jar_model.tscn" id="2_x3lpu"]
 [ext_resource type="PackedScene" uid="uid://c1rnspc87xfkh" path="res://entities/trash/glass/wine_model.tscn" id="3_ksemk"]
 [ext_resource type="AudioStream" uid="uid://dq6btcqxn3ko5" path="res://sound/fx/glasspickupsquished.wav" id="3_xk80q"]
 [ext_resource type="Script" uid="uid://uha8a6otv7d3" path="res://entities/trash/trash_data.gd" id="4_ksemk"]
@@ -10,5 +9,5 @@
 script = ExtResource("4_ksemk")
 dropped_sfx = ExtResource("1_0ivs2")
 pickup_sfx = ExtResource("3_xk80q")
-model_list = Array[PackedScene]([ExtResource("2_x3lpu"), ExtResource("3_ksemk")])
+model_list = Array[PackedScene]([ExtResource("3_ksemk")])
 metadata/_custom_type_script = "uid://uha8a6otv7d3"
