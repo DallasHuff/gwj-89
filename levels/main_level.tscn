@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://bdi6l3w760x6n" path="res://entities/hopper/zone_hopper.tscn" id="16_y0dua"]
 [ext_resource type="AudioStream" uid="uid://cv3bk5ce2fpck" path="res://sound/fx/conveyorbeltloopsquished.wav" id="17_vy62f"]
 [ext_resource type="PackedScene" uid="uid://b6pgrrfecfoqx" path="res://entities/trash/trash.tscn" id="18_bdauj"]
-[ext_resource type="AudioStream" uid="uid://3optvx3oyrm2" path="res://sound/music/bgm-10gain.mp3" id="20_pc7vm"]
+[ext_resource type="AudioStream" uid="uid://dsdtu8ffow65c" path="res://sound/music/bgm.ogg" id="20_pc7vm"]
 [ext_resource type="PackedScene" uid="uid://b8pxa8scvpu40" path="res://entities/trash/paper/cardboard_model.tscn" id="24_drect"]
 [ext_resource type="Texture2D" uid="uid://mk41jvwbvfnr" path="res://Art_Assets/icons/can.png" id="24_n00sm"]
 [ext_resource type="Texture2D" uid="uid://dllv5qh2ddxw6" path="res://Art_Assets/icons/biohazard.png" id="26_dq1fi"]

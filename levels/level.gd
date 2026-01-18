@@ -11,6 +11,7 @@ var player_init_position: Vector3
 func _ready() -> void:
 	add_to_group("level")
 	add_to_group("reset")
+	canvas.hide()
 	music.stream = stream
 	get_tree().create_timer(45).timeout.connect(_force_spawn_body)
 	player_init_position = player.global_position
@@ -27,7 +28,6 @@ func _ready() -> void:
 
 	await get_tree().process_frame
 
-	_warmup_trash()
 
 	await get_tree().process_frame
 	await get_tree().process_frame
@@ -36,9 +36,6 @@ func _ready() -> void:
 
 	await get_tree().create_timer(4).timeout
 	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), false)
-
-	for t in get_tree().get_nodes_in_group("trash"):
-		t.global_position = Vector3(1000, 0, 0)
 
 	music.play()
 	_start_spawners()
