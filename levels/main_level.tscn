@@ -87,6 +87,7 @@ glass_chance = 0.05
 plastic_chance = 0.1
 paper_chance = 0.1
 body_chance = 0.016
+body_spawn_delay_sec = 25.0
 
 [node name="funnel" type="CSGBox3D" parent="conveyors1" unique_id=561248060]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0.60661936, -21.862423)
