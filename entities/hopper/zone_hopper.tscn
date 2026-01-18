@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://bdi6l3w760x6n"]
+
+[ext_resource type="Script" uid="uid://b0er4n0xvvjao" path="res://entities/hopper/zone_hopper.gd" id="1_kaq7v"]
+[ext_resource type="AudioStream" uid="uid://8d2v7c523jt4" path="res://sound/fx/wilhelm.wav" id="2_1qgji"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yn3vg"]
+size = Vector3(10.677185, 2.745758, 13.4874115)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yn3vg"]
+albedo_color = Color(0.54, 0.35982, 0.04859999, 1)
+
+[node name="ZoneHopper" type="Node3D" unique_id=388761586]
+script = ExtResource("1_kaq7v")
+
+[node name="Zone" type="Area3D" parent="." unique_id=1914070735]
+unique_name_in_owner = true
+collision_layer = 32769
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Zone" unique_id=141696884]
+shape = SubResource("BoxShape3D_yn3vg")
+
+[node name="DisplayPanel" type="Marker3D" parent="." unique_id=1777669022]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="DisplayPanel" unique_id=370104649]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4902213, 0.10949963, 0.5655549)
+size = Vector3(0.97358155, 0.6524473, 0.063)
+material = SubResource("StandardMaterial3D_yn3vg")
+
+[node name="Display" type="Label3D" parent="DisplayPanel" unique_id=1703188100]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.93260133, 0.15250564, 0.601083)
+pixel_size = 0.016
+text = "000"
+horizontal_alignment = 0
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1272918429]
+unique_name_in_owner = true
+stream = ExtResource("2_1qgji")
+max_db = -1.0
+bus = &"SFX"
+
+[connection signal="body_entered" from="Zone" to="." method="_on_zone_body_entered"]
+[connection signal="body_exited" from="Zone" to="." method="_on_zone_body_exited"]

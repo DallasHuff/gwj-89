@@ -2,7 +2,8 @@
 class_name StraightConveyor
 extends Node3D
 
-@export var conveyor_speed := 1.5
+# temporarily removing export so editor doesn't save the changes when updating here
+var conveyor_linear_speed := 0.8
 
 @export var enable_left_bumper := true
 @export var enable_right_bumper := true
@@ -17,7 +18,7 @@ func _ready() -> void:
 	update_bumper()
 
 func update_bumper() -> void:
-	var new_vel := global_transform.basis.z * conveyor_speed
+	var new_vel := global_transform.basis.z * conveyor_linear_speed
 	belt_mover.set_constant_linear_velocity(new_vel)
 	
 	if not enable_left_bumper:

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://ed25sxfgtkjd"]
+
+[ext_resource type="PackedScene" uid="uid://dghomsvg0mdk8" path="res://Art_Assets/Interactables/soap.glb" id="1_6f5x6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ejhu2"]
+size = Vector3(0.34602052, 0.8183594, 0.49501953)
+
+[node name="JugModel1" type="CollisionShape3D" unique_id=2083901972]
+shape = SubResource("BoxShape3D_ejhu2")
+
+[node name="soap" parent="." unique_id=241945704 instance=ExtResource("1_6f5x6")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, -0.47710454, 0.08520079)

@@ -50,6 +50,18 @@ operation = 2
 size = Vector3(1.05, 1.306833, 1.6942158)
 material = SubResource("ORMMaterial3D_7kvxu")
 
+[node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=468491861]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.30775, 1)
+use_collision = true
+size = Vector3(1.2, 1.9813843, 2)
+material = SubResource("ORMMaterial3D_7kvxu")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="." unique_id=89408545]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.30775, 5)
+use_collision = true
+size = Vector3(1.2, 1.9813843, 2)
+material = SubResource("ORMMaterial3D_7kvxu")
+
 [node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=101412452]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.4370185, 5)
 use_collision = true

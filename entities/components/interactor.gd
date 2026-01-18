@@ -21,8 +21,11 @@ var time_elapsed := 0.0
 var grab_offset := Vector3(0.0, 0.0, 0.0)
 @onready var ray_display := %RayDisplay
 var display_timer : Timer
+@onready var head_bonker := $HeadCollider
+@onready var start_head_bonker_height: float = head_bonker.position.y
 
 func _ready() -> void:
+	add_to_group("reset")
 	display_timer = Timer.new()
 	add_child(display_timer)
 	display_timer.wait_time = ray_display_fade_timer
@@ -80,7 +83,7 @@ func pickup() -> void:
 	if trash.size() >= inventory_size:
 		AchievementTracker.achieve("Loaded Up")
 
-
+	update_head_height()
 
 func putdown() -> void:
 
@@ -101,12 +104,14 @@ func putdown() -> void:
 	AchievementTracker.achieve("Right Click to Drop")
 	var t: Trash = trash.pop_front()
 	t.reparent(get_tree().root)
-	t.global_position = drop_spot.global_position
+	t.global_position = drop_spot.global_position + Vector3(0, 0.5, 0)
 	t.freeze = false
 	t.top_level = false
 
 	for i in range(trash.size()):
 		trash[i].global_position = hold_spot.global_position + (TRASH_GAP * i)
+	
+	update_head_height()
 
 func _sway_trash() -> void:
 	# These variables are inverted. Higher numbers means lower speed / size
@@ -118,3 +123,33 @@ func _sway_trash() -> void:
 			trash[i].global_position = lerp(trash[i].global_position, trash[i-1].global_position + TRASH_GAP + random_sway, 0.8)
 		else:
 			trash[i].global_position = lerp(trash[i].global_position, hold_spot.global_position, 0.8)
+
+
+func _on_head_collider_body_entered(body: Node3D) -> void:
+	var parent := body.get_parent()
+	if not parent:
+		return
+	if not parent is StraightConveyor:
+		return
+	
+	# drop all items
+	for i in range(trash.size()):
+		var t: Trash = trash.pop_back()
+		var curr_pos := t.global_position
+		t.reparent(get_tree().root)
+		t.global_position = curr_pos
+		t.freeze = false
+		t.top_level = false
+
+	AchievementTracker.achieve("Head Banger")
+
+	update_head_height()
+
+func update_head_height() -> void:
+	var offset_height := trash.size() * TRASH_GAP.y
+	head_bonker.position.y = offset_height + start_head_bonker_height
+
+func reset() -> void:
+	for i in range(trash.size()):
+		var t: Trash = trash.pop_back()
+		t.queue_free()
