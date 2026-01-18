@@ -65,5 +65,6 @@ func reset() -> void:
 	_update_labels()
 
 func _update_labels() -> void:
+	var count_to_goal := clampi(target_count - processed_count, 0, 100)
 	damage_display.text = str(health) + "%"
-	display.text = "%03d" % (target_count - processed_count)
+	display.text = "%03d" % count_to_goal
