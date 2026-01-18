@@ -4,8 +4,12 @@ extends Node3D
 @export var transport_time := 0.7
 
 var spawn_bounds_width := 0.3
+var resetting := false
 
 @onready var exit_marker := %ExitMarker
+
+func _ready() -> void:
+	add_to_group("reset")
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body is not Trash: 
@@ -18,9 +22,15 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 	get_tree().create_timer(transport_time).timeout.connect(move_trash.bind(body))
 
 func move_trash(t: Trash) -> void:
+	if resetting:
+		return
 	var random_pos_offset := Vector3.ZERO
 
 	random_pos_offset.x += randf_range(-spawn_bounds_width, spawn_bounds_width)
 	random_pos_offset.z += randf_range(-spawn_bounds_width, spawn_bounds_width)
 	t.global_position = exit_marker.global_position + random_pos_offset
 	t.show()
+
+func reset() -> void:
+	resetting = true
+	get_tree().create_timer(4).timeout.connect(func()->void:resetting=false)

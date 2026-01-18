@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://b8pxa8scvpu40"]
+
+[ext_resource type="PackedScene" uid="uid://dixgx7pskrm7d" path="res://Art_Assets/Interactables/box.glb" id="1_gpj3d"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4ky70"]
+size = Vector3(0.8, 0.9, 0.9)
+
+[node name="CardboardModel" type="CollisionShape3D" unique_id=872440651]
+shape = SubResource("BoxShape3D_4ky70")
+
+[node name="box2" parent="." unique_id=230548632 instance=ExtResource("1_gpj3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.40407336, 0)

@@ -25,6 +25,7 @@ var display_timer : Timer
 @onready var start_head_bonker_height: float = head_bonker.position.y
 
 func _ready() -> void:
+	add_to_group("reset")
 	display_timer = Timer.new()
 	add_child(display_timer)
 	display_timer.wait_time = ray_display_fade_timer
@@ -145,3 +146,8 @@ func _on_head_collider_body_entered(body: Node3D) -> void:
 func update_head_height() -> void:
 	var offset_height := trash.size() * TRASH_GAP.y
 	head_bonker.position.y = offset_height + start_head_bonker_height
+
+func reset() -> void:
+	for i in range(trash.size()):
+		var t: Trash = trash.pop_back()
+		t.queue_free()

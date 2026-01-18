@@ -19,6 +19,9 @@ var goal_met := false
 @onready var sparks: CPUParticles3D = %SparkParticles
 @onready var blue_sparks: CPUParticles3D = %BlueSparkParticles
 
+func _ready() -> void:
+	add_to_group("reset")
+
 func _on_zone_body_entered(body: Node3D) -> void:
 	if not body is Trash:
 		return
@@ -51,3 +54,12 @@ func _on_zone_body_entered(body: Node3D) -> void:
 	if not goal_met and processed_count >= target_count:
 		goal_met = true
 		EventsBus.goal_met.emit(health)
+
+func reset() -> void:
+	smoke.emitting = false
+	sparks.emitting = false
+	blue_sparks.emitting = false
+	health = 100
+	destroyed = false
+	processed_count = 0
+	goal_met = false

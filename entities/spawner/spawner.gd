@@ -32,6 +32,9 @@ var warning_pushed := false
 
 @onready var trash_scene := preload("uid://b6pgrrfecfoqx")
 
+func _ready() -> void:
+	add_to_group("reset")
+
 func start() -> void:
 	# Timer between trash
 	spawn_timer = Timer.new()
@@ -109,3 +112,7 @@ func spawn_trash() -> void:
 	get_tree().root.add_child(t)
 	t.trash_type = trash_type
 	t.global_position = global_position + random_pos_offset
+
+func reset() -> void:
+	spawn_timer.wait_time = spawn_timer_start_delay
+	spawn_timer.start()
