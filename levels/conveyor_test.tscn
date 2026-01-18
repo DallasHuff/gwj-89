@@ -50,7 +50,7 @@ light_energy = 0.2
 
 [node name="Player" parent="." unique_id=461061772 instance=ExtResource("1_mesa8")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.349749, 1.6277466, 5.8020144)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.349749, 1.6277466, 8.802014)
 top_level = true
 
 [node name="conveyors1" type="Node3D" parent="." unique_id=2085045680]
