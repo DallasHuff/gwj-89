@@ -141,6 +141,8 @@ func _on_head_collider_body_entered(body: Node3D) -> void:
 		t.freeze = false
 		t.top_level = false
 
+	AchievementTracker.achieve("Head Banger")
+
 	update_head_height()
 
 func update_head_height() -> void:
