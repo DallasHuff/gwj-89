@@ -509,7 +509,7 @@ text = "Riling up the rats"
 [node name="MostEnvStuff" parent="EnvArt" unique_id=1804349761 instance=ExtResource("13_velju")]
 
 [node name="ceiling_divider" parent="EnvArt/MostEnvStuff" index="0" unique_id=1911590489]
-transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, -0.6521921, 0)
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, -1.1498995, -1.3904743)
 
 [node name="Pits" parent="EnvArt" unique_id=716726612 instance=ExtResource("14_j6rvn")]
 transform = Transform3D(-5.2453668e-08, 0, 1.2, 0, 1.2, 0, -1.2, 0, -5.2453668e-08, 17.760736, 2.5400305, -2.104785)
