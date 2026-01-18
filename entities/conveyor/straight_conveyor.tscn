@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://0y1s4ra8pfw"]
 
 [ext_resource type="Script" uid="uid://d3o2cfsr551di" path="res://entities/conveyor/straight_conveyor.gd" id="1_7eqht"]
+[ext_resource type="Material" uid="uid://bus2f2s1exkwo" path="res://Art_Assets/generic_metal.tres" id="2_kefyg"]
 [ext_resource type="PackedScene" uid="uid://sml3hqkaxf8c" path="res://Art_Assets/Environment/conveyor/Conveyor.glb" id="2_q1i14"]
 [ext_resource type="Script" uid="uid://dwc5naqriy8sd" path="res://Art_Assets/Environment/conveyor/uv_anim.gd" id="3_kefyg"]
 
@@ -26,7 +27,7 @@ material = SubResource("StandardMaterial3D_n54wd")
 [node name="BeltMover" type="StaticBody3D" parent="." unique_id=2116407018]
 unique_name_in_owner = true
 collision_layer = 32769
-constant_linear_velocity = Vector3(0, 0, 1.5)
+constant_linear_velocity = Vector3(0, 0, 0.8)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BeltMover" unique_id=354356967]
 transform = Transform3D(1, 0, 0, 0, 0.9993908, 0.03489949, 0, -0.03489949, 0.9993908, 0, 0.01, 0)
@@ -36,6 +37,7 @@ shape = SubResource("BoxShape3D_n54wd")
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.55, 0, 0)
 size = Vector3(0.1, 0.2, 1)
+material = ExtResource("2_kefyg")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="BumperLeft" unique_id=347671735]
 collision_layer = 32769
@@ -47,6 +49,7 @@ shape = SubResource("BoxShape3D_7eqht")
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55, 0, 0)
 size = Vector3(0.1, 0.2, 1)
+material = ExtResource("2_kefyg")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="BumperRight" unique_id=323769172]
 collision_layer = 32769
@@ -57,7 +60,7 @@ shape = SubResource("BoxShape3D_n1slu")
 [node name="Conveyor" parent="." unique_id=2021470475 instance=ExtResource("2_q1i14")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -0.051348552, 0)
 
-[node name="Cube" parent="Conveyor" index="0" unique_id=184548590]
+[node name="Cube" parent="Conveyor" index="0" unique_id=1625698610]
 script = ExtResource("3_kefyg")
 
 [editable path="Conveyor"]
