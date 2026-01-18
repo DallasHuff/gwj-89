@@ -10,10 +10,10 @@ func _ready() -> void:
 	add_to_group("reset")
 	player_init_position = player.global_position
 	# If running from editor, skip preloading particles
-	# if OS.has_feature("editor"):
-	# 	canvas.hide()
-	# 	_start_spawners()
-	# 	return
+	if OS.has_feature("editor"):
+		canvas.hide()
+		_start_spawners()
+		return
 
 	_hopper_particle_toggle(true)
 

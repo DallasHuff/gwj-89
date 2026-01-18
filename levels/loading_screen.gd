@@ -21,5 +21,4 @@ func _on_timer_timeout() -> void:
 	if current_label >= labels.size():
 		current_label = 0
 	labels[current_label].show()
-	print(current_label)
 	

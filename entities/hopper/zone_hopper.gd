@@ -13,6 +13,10 @@ extends Node3D
 var can_scream := true
 var scream_delay := 5.
 
+func _ready() -> void:
+    add_to_group("reset")
+    display.text = "%03d" % (target_count - processed_count)
+
 func _on_zone_body_entered(body: Node3D) -> void:
     if not body is Trash:
         return
@@ -25,13 +29,15 @@ func _on_zone_body_entered(body: Node3D) -> void:
 
     processed_count += 1
 
-    display.text = "%03d" % processed_count
+    display.text = "%03d" % (target_count - processed_count)
+    if target_count - processed_count <= 0:
+        EventsBus.goal_met.emit(100, wanted_trash_type)
 
     if got_trash_type == Trash.TrashType.BODY and can_scream:
         body_sound_player.play()
         can_scream = false
-        await get_tree().create_timer(scream_delay).timeout
-        can_scream = true
+        get_tree().create_timer(scream_delay).timeout.connect(func()->void: can_scream = true)
+        AchievementTracker.achieve("OSHA Violation")
 
 func _on_zone_body_exited(body: Node3D) -> void:
     if not body is Trash:
@@ -45,4 +51,9 @@ func _on_zone_body_exited(body: Node3D) -> void:
         
     processed_count -= 1
     
-    display.text = "%03d" % processed_count
+    display.text = "%03d" % (target_count - processed_count)
+
+func reset() -> void:
+    processed_count = 0
+    display.text = "%03d" % (target_count - processed_count)
+    
