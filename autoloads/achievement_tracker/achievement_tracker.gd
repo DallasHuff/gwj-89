@@ -84,6 +84,8 @@ func _play_next_animation() -> void:
 
 func _animation_finished() -> void:
 	currently_achieving = false
+	if already_achieved.size() == achievement_list.size():
+		WinGameMenu.win()
 
 
 func _on_trash_grinded(_type: Trash.TrashType, correct_type: bool) -> void:
