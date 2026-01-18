@@ -11,7 +11,6 @@ var player_init_position: Vector3
 func _ready() -> void:
 	add_to_group("level")
 	add_to_group("reset")
-	canvas.hide()
 	music.stream = stream
 	get_tree().create_timer(45).timeout.connect(_force_spawn_body)
 	player_init_position = player.global_position
