@@ -2,7 +2,11 @@
 
 [ext_resource type="Script" uid="uid://1phjkj6y0ur3" path="res://autoloads/achievement_tracker/achievement_tracker.gd" id="1_600lq"]
 [ext_resource type="Script" uid="uid://ensdc4nbfc1e" path="res://achievements/achievement.gd" id="2_52sdh"]
+[ext_resource type="Texture2D" uid="uid://tymjsr8uefq5" path="res://Art_Assets/icons/loaded_up.png" id="3_ogs1t"]
 [ext_resource type="Shader" uid="uid://bbrreauqpd2by" path="res://shaders/subtle_noise.gdshader" id="4_eiejm"]
+[ext_resource type="Texture2D" uid="uid://b4ajyys07ysnq" path="res://Art_Assets/icons/perfect_grind.png" id="4_gkebk"]
+[ext_resource type="Texture2D" uid="uid://bhwhm7jri6swb" path="res://Art_Assets/icons/grinder_goal.png" id="5_s5fcu"]
+[ext_resource type="Texture2D" uid="uid://d24oty1ue4xyt" path="res://Art_Assets/icons/destroy_grinder.png" id="6_676jm"]
 
 [sub_resource type="Resource" id="Resource_s5fcu"]
 script = ExtResource("2_52sdh")
@@ -36,6 +40,7 @@ metadata/_custom_type_script = "uid://ensdc4nbfc1e"
 script = ExtResource("2_52sdh")
 display_name = "Loaded Up"
 description = "Carry as much as you can at one time"
+icon = ExtResource("3_ogs1t")
 metadata/_custom_type_script = "uid://ensdc4nbfc1e"
 
 [sub_resource type="Resource" id="Resource_nghes"]
@@ -54,18 +59,21 @@ metadata/_custom_type_script = "uid://ensdc4nbfc1e"
 script = ExtResource("2_52sdh")
 display_name = "Perfect Grind"
 description = "Meet a grinder's goal while it's still at 100% durability"
+icon = ExtResource("4_gkebk")
 metadata/_custom_type_script = "uid://ensdc4nbfc1e"
 
 [sub_resource type="Resource" id="Resource_ogs1t"]
 script = ExtResource("2_52sdh")
 display_name = "Grinder Goal"
 description = "Meet a grinder's goal"
+icon = ExtResource("5_s5fcu")
 metadata/_custom_type_script = "uid://ensdc4nbfc1e"
 
 [sub_resource type="Resource" id="Resource_gkebk"]
 script = ExtResource("2_52sdh")
 display_name = "Grinder Down"
 description = "Destroy a grinder"
+icon = ExtResource("6_676jm")
 metadata/_custom_type_script = "uid://ensdc4nbfc1e"
 
 [sub_resource type="Resource" id="Resource_676jm"]

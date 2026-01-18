@@ -11,4 +11,3 @@ shape = SubResource("CapsuleShape3D_o7ct4")
 
 [node name="winebottle2" parent="." unique_id=999091689 instance=ExtResource("1_xowmb")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, -0.45273256, 0)
-visible = false
