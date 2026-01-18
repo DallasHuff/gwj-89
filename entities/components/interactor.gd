@@ -9,6 +9,7 @@ const TRASH_GAP := Vector3(0, 0.4, 0)
 @export var max_grab_dist := 2.7
 @export var ray_display_fade_timer := 0.1
 @export var interact_delay_timer := 0.05
+@export var max_global_grab_height := 2.4
 
 var trash: Array[Trash] = []
 var time_elapsed := 0.0
@@ -55,6 +56,7 @@ func pickup() -> void:
 	var targ_pos := player_camera.mouse_position + grab_offset
 	if targ_pos.distance_to(character.position) > max_grab_dist:
 		targ_pos = character.position.move_toward(targ_pos, max_grab_dist)
+	targ_pos.y = clamp(targ_pos.y, -INF, max_global_grab_height)
 	grab_marker.global_position = targ_pos 
 
 	await get_tree().create_timer(interact_delay_timer).timeout
@@ -93,6 +95,8 @@ func putdown() -> void:
 	var targ_pos := player_camera.mouse_position + grab_offset
 	if targ_pos.distance_to(character.position) > max_grab_dist:
 		targ_pos = character.position.move_toward(targ_pos, max_grab_dist)
+	
+	targ_pos.y = clamp(targ_pos.y, -INF, max_global_grab_height)
 	drop_spot.global_position = targ_pos
 	# only doing this to update the ray display location
 	grab_marker.global_position = targ_pos
