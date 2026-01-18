@@ -1,7 +1,6 @@
 class_name Level
 extends Node3D
 
-@onready var stream: AudioStream = preload("uid://3optvx3oyrm2")
 @onready var player: Player = %Player
 @onready var canvas: CanvasLayer = %LoadingScreen
 @onready var warmup_spawner: Spawner = $WarmupSpawner
@@ -11,7 +10,6 @@ var player_init_position: Vector3
 func _ready() -> void:
 	add_to_group("level")
 	add_to_group("reset")
-	music.stream = stream
 	get_tree().create_timer(45).timeout.connect(_force_spawn_body)
 	player_init_position = player.global_position
 	# If running from editor, skip preloading particles

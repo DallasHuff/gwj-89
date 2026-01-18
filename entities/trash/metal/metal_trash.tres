@@ -1,7 +1,6 @@
 [gd_resource type="Resource" script_class="TrashData" format=3 uid="uid://bag3m85i43cgj"]
 
 [ext_resource type="AudioStream" uid="uid://b17od5lj2k8v1" path="res://sound/fx/candropsquished.wav" id="1_ie3ao"]
-[ext_resource type="PackedScene" uid="uid://by0pxv2ajsuqj" path="res://entities/trash/metal/oil_drum_model.tscn" id="2_001bq"]
 [ext_resource type="AudioStream" uid="uid://bo7l7i17jbh5p" path="res://sound/fx/canpickupsquished.wav" id="3_qp67c"]
 [ext_resource type="PackedScene" uid="uid://b7k7g2613girl" path="res://entities/trash/metal/can_model.tscn" id="3_vqmmu"]
 [ext_resource type="Script" uid="uid://uha8a6otv7d3" path="res://entities/trash/trash_data.gd" id="4_vqmmu"]
@@ -10,5 +9,5 @@
 script = ExtResource("4_vqmmu")
 dropped_sfx = ExtResource("1_ie3ao")
 pickup_sfx = ExtResource("3_qp67c")
-model_list = Array[PackedScene]([ExtResource("2_001bq"), ExtResource("3_vqmmu")])
+model_list = Array[PackedScene]([ExtResource("3_vqmmu")])
 metadata/_custom_type_script = "uid://uha8a6otv7d3"
