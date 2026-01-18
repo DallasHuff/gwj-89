@@ -2,11 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://b3spnhtsoq41y" path="res://Art_Assets/Interactables/can.glb" id="1_gxdx1"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_gxdx1"]
-size = Vector3(0.3, 0.5, 0.3)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_gxdx1"]
+points = PackedVector3Array(0.08, -0.25, 0.12, 0.16, -0.25, 0, 0.08, -0.25, -0.12, -0.08, -0.25, -0.12, -0.15, -0.25, 0, -0.08, -0.25, 0.12, 0.08, 0.22, 0.12, 0.16, 0.22, 0, 0.08, 0.22, -0.12, -0.15, 0.22, 0, -0.08, 0.22, 0.12, -0.08, 0.22, -0.12, 0, 0.295, 0)
 
 [node name="CanModel" type="CollisionShape3D" unique_id=569465398]
-shape = SubResource("BoxShape3D_gxdx1")
+shape = SubResource("ConvexPolygonShape3D_gxdx1")
 
 [node name="can2" parent="." unique_id=2146056213 instance=ExtResource("1_gxdx1")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, -0.24577236, 0)
+visible = false
