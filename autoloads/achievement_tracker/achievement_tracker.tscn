@@ -4,9 +4,10 @@
 [ext_resource type="Script" uid="uid://ensdc4nbfc1e" path="res://achievements/achievement.gd" id="2_52sdh"]
 [ext_resource type="Texture2D" uid="uid://tymjsr8uefq5" path="res://Art_Assets/icons/loaded_up.png" id="3_ogs1t"]
 [ext_resource type="Shader" uid="uid://bbrreauqpd2by" path="res://shaders/subtle_noise.gdshader" id="4_eiejm"]
-[ext_resource type="Texture2D" uid="uid://b4ajyys07ysnq" path="res://Art_Assets/icons/perfect_grind.png" id="4_gkebk"]
-[ext_resource type="Texture2D" uid="uid://bhwhm7jri6swb" path="res://Art_Assets/icons/grinder_goal.png" id="5_s5fcu"]
-[ext_resource type="Texture2D" uid="uid://d24oty1ue4xyt" path="res://Art_Assets/icons/destroy_grinder.png" id="6_676jm"]
+[ext_resource type="Texture2D" uid="uid://dgubfkbbum8es" path="res://Art_Assets/icons/wine.png" id="4_linxn"]
+[ext_resource type="Texture2D" uid="uid://bwi1ax7dto4bl" path="res://Art_Assets/icons/jug.png" id="5_5j4n1"]
+[ext_resource type="Texture2D" uid="uid://mk41jvwbvfnr" path="res://Art_Assets/icons/can.png" id="6_ogs1t"]
+[ext_resource type="Texture2D" uid="uid://djkkd60wdkp2o" path="res://Art_Assets/icons/newspaper.png" id="7_gkebk"]
 
 [sub_resource type="Resource" id="Resource_s5fcu"]
 script = ExtResource("2_52sdh")
@@ -43,43 +44,50 @@ description = "Carry as much as you can at one time"
 icon = ExtResource("3_ogs1t")
 metadata/_custom_type_script = "uid://ensdc4nbfc1e"
 
+[sub_resource type="Resource" id="Resource_676jm"]
+script = ExtResource("2_52sdh")
+display_name = "Head Banger"
+description = "Hit your stack of items on something"
+metadata/_custom_type_script = "uid://ensdc4nbfc1e"
+
+[sub_resource type="Resource" id="Resource_5j4n1"]
+script = ExtResource("2_52sdh")
+display_name = "Wine Time"
+description = "Meet the goal for recycling glass"
+icon = ExtResource("4_linxn")
+metadata/_custom_type_script = "uid://ensdc4nbfc1e"
+
+[sub_resource type="Resource" id="Resource_ogs1t"]
+script = ExtResource("2_52sdh")
+display_name = "Saved the Turtles"
+description = "Meet the goal for recycling plastic"
+icon = ExtResource("5_5j4n1")
+metadata/_custom_type_script = "uid://ensdc4nbfc1e"
+
+[sub_resource type="Resource" id="Resource_gkebk"]
+script = ExtResource("2_52sdh")
+display_name = "Fed the Machine"
+description = "Meet the goal for recycling metal"
+icon = ExtResource("6_ogs1t")
+metadata/_custom_type_script = "uid://ensdc4nbfc1e"
+
+[sub_resource type="Resource" id="Resource_swko2"]
+script = ExtResource("2_52sdh")
+display_name = "Well-Read"
+description = "Meet the goal for recycling paper"
+icon = ExtResource("7_gkebk")
+metadata/_custom_type_script = "uid://ensdc4nbfc1e"
+
 [sub_resource type="Resource" id="Resource_nghes"]
 script = ExtResource("2_52sdh")
-display_name = "Gross"
-description = "Grind up an ex-coworker"
+display_name = "OSHA Violation"
+description = "Grind up an ex-coworker in the composter"
 metadata/_custom_type_script = "uid://ensdc4nbfc1e"
 
 [sub_resource type="Resource" id="Resource_linxn"]
 script = ExtResource("2_52sdh")
 display_name = "Item Streak"
 description = "Get 100 items in the correct grinder in a row"
-metadata/_custom_type_script = "uid://ensdc4nbfc1e"
-
-[sub_resource type="Resource" id="Resource_5j4n1"]
-script = ExtResource("2_52sdh")
-display_name = "Perfect Grind"
-description = "Meet a grinder's goal while it's still at 100% durability"
-icon = ExtResource("4_gkebk")
-metadata/_custom_type_script = "uid://ensdc4nbfc1e"
-
-[sub_resource type="Resource" id="Resource_ogs1t"]
-script = ExtResource("2_52sdh")
-display_name = "Grinder Goal"
-description = "Meet a grinder's goal"
-icon = ExtResource("5_s5fcu")
-metadata/_custom_type_script = "uid://ensdc4nbfc1e"
-
-[sub_resource type="Resource" id="Resource_gkebk"]
-script = ExtResource("2_52sdh")
-display_name = "Grinder Down"
-description = "Destroy a grinder"
-icon = ExtResource("6_676jm")
-metadata/_custom_type_script = "uid://ensdc4nbfc1e"
-
-[sub_resource type="Resource" id="Resource_676jm"]
-script = ExtResource("2_52sdh")
-display_name = "Head Banger"
-description = "Hit your stack of items on something"
 metadata/_custom_type_script = "uid://ensdc4nbfc1e"
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_3rcqm"]
@@ -104,7 +112,7 @@ shader_parameter/noise_strength = 0.20000000298023
 
 [node name="AchievementTracker" type="CanvasLayer" unique_id=1725902245]
 script = ExtResource("1_600lq")
-achievement_list = Array[ExtResource("2_52sdh")]([SubResource("Resource_s5fcu"), SubResource("Resource_8u842"), SubResource("Resource_ufhoc"), SubResource("Resource_56a88"), SubResource("Resource_g5vmu"), SubResource("Resource_nghes"), SubResource("Resource_linxn"), SubResource("Resource_5j4n1"), SubResource("Resource_ogs1t"), SubResource("Resource_gkebk"), SubResource("Resource_676jm")])
+achievement_list = Array[ExtResource("2_52sdh")]([SubResource("Resource_s5fcu"), SubResource("Resource_8u842"), SubResource("Resource_ufhoc"), SubResource("Resource_56a88"), SubResource("Resource_g5vmu"), SubResource("Resource_676jm"), SubResource("Resource_5j4n1"), SubResource("Resource_ogs1t"), SubResource("Resource_gkebk"), SubResource("Resource_swko2"), SubResource("Resource_nghes"), SubResource("Resource_linxn")])
 
 [node name="AchievedSFX" type="AudioStreamPlayer" parent="." unique_id=480742394]
 unique_name_in_owner = true

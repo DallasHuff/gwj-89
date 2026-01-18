@@ -86,7 +86,7 @@ func _animation_finished() -> void:
 	currently_achieving = false
 
 
-func _on_trash_grinded(type: Trash.TrashType, correct_type: bool) -> void:
+func _on_trash_grinded(_type: Trash.TrashType, correct_type: bool) -> void:
 	if correct_type:
 		trash_streak += 1
 	else:
@@ -94,19 +94,22 @@ func _on_trash_grinded(type: Trash.TrashType, correct_type: bool) -> void:
 
 	if trash_streak >= 100:
 		achieve("item streak")
-	
-	if type == Trash.TrashType.BODY:
-		achieve("gross")
 
 
 func _on_hopper_destroyed() -> void:
 	achieve("grinder down")
 
 
-func _on_goal_met(durability: int) -> void:
-	achieve("grinder goal")
-	if durability == 100:
-		achieve("perfect grind")
+func _on_goal_met(_durability: int, type: Trash.TrashType) -> void:
+	match type:
+		Trash.TrashType.PLASTIC:
+			achieve("saved the turtles")
+		Trash.TrashType.GLASS:
+			achieve("Wine Time")
+		Trash.TrashType.METAL:
+			achieve("Fed the Machine")
+		Trash.TrashType.PAPER:
+			achieve("Well-Read")
 
 
 func _on_item_mouse_entered(list_item: AchievementListItem, a: Achievement) -> void:

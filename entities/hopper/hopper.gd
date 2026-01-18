@@ -21,6 +21,7 @@ var goal_met := false
 
 func _ready() -> void:
 	add_to_group("reset")
+	_update_labels()
 
 func _on_zone_body_entered(body: Node3D) -> void:
 	if not body is Trash:
@@ -35,7 +36,6 @@ func _on_zone_body_entered(body: Node3D) -> void:
 
 	if got_trash_type != wanted_trash_type:
 		health -= damage_amount
-		damage_display.text = str(health) + "%"
 		sparks.emitting = true
 	else:
 		processed_count += 1
@@ -48,12 +48,11 @@ func _on_zone_body_entered(body: Node3D) -> void:
 		smoke.emitting = true
 		EventsBus.hopper_destroyed.emit()
 
-	# display.text = str(processed_count)
-	display.text = "%03d" % processed_count
-
 	if not goal_met and processed_count >= target_count:
 		goal_met = true
-		EventsBus.goal_met.emit(health)
+		EventsBus.goal_met.emit(health, wanted_trash_type)
+	
+	_update_labels()
 
 func reset() -> void:
 	smoke.emitting = false
@@ -63,5 +62,8 @@ func reset() -> void:
 	destroyed = false
 	processed_count = 0
 	goal_met = false
+	_update_labels()
+
+func _update_labels() -> void:
 	damage_display.text = str(health) + "%"
-	display.text = "%03d" % processed_count
+	display.text = "%03d" % (target_count - processed_count)

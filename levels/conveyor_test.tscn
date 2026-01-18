@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c5v4jsdjsxx0v" path="res://entities/conveyor/portal_conveyor.tscn" id="4_e875t"]
 [ext_resource type="PackedScene" uid="uid://cr6hleb1ryg5e" path="res://entities/hopper/hopper.tscn" id="6_e875t"]
 [ext_resource type="PackedScene" uid="uid://bdi6l3w760x6n" path="res://entities/hopper/zone_hopper.tscn" id="7_s061b"]
+[ext_resource type="PackedScene" uid="uid://d1262w4qil45c" path="res://levels/loading_screen.tscn" id="8_mi62i"]
 
 [sub_resource type="Environment" id="Environment_h8bs1"]
 
@@ -1164,22 +1165,6 @@ use_collision = true
 collision_layer = 32769
 size = Vector3(18.132387, 1.269043, 0.21875)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=996196366]
-unique_name_in_owner = true
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1372633443]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
-[node name="Label" type="Label" parent="CanvasLayer" unique_id=895947281]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Riling up the rats"
-
 [node name="ZoneHopper" parent="." unique_id=388761586 instance=ExtResource("7_s061b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.114132, 0.54813635, -12.554685)
 wanted_trash_type = 4
@@ -1226,6 +1211,9 @@ transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70
 transform = Transform3D(0.9999945, -2.5778802e-06, 0.0033161186, 2.5759748e-06, 1, 5.8036954e-07, -0.0033161186, -5.71847e-07, 0.9999945, 3.592462, 0.9854586, -5.972662)
 pixel_size = 0.03
 text = "plastic 15"
+
+[node name="LoadingScreen" parent="." unique_id=983847335 instance=ExtResource("8_mi62i")]
+unique_name_in_owner = true
 
 [editable path="ZoneHopper"]
 [editable path="ZoneHopper2"]
