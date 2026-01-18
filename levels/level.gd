@@ -26,12 +26,6 @@ func _ready() -> void:
 	_start_spawners()
 
 	canvas.hide()
-	for hopper in get_tree().get_nodes_in_group("hopper"):
-		if hopper is not Hopper:
-			continue
-		hopper = hopper as Hopper
-		hopper.target_count = 1
-		hopper._update_labels()
 
 func look_at_smooth(target: Vector3, delta: float, speed := 12.0) -> void:
 	var dir := target - player.global_position
