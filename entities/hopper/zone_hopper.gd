@@ -29,7 +29,7 @@ func _on_zone_body_entered(body: Node3D) -> void:
 
     processed_count += 1
 
-    display.text = "%03d" % (target_count - processed_count)
+    _update_text()
     if target_count - processed_count <= 0:
         EventsBus.goal_met.emit(100, wanted_trash_type)
 
@@ -51,9 +51,12 @@ func _on_zone_body_exited(body: Node3D) -> void:
         
     processed_count -= 1
     
-    display.text = "%03d" % (target_count - processed_count)
+    _update_text()
 
 func reset() -> void:
     processed_count = 0
-    display.text = "%03d" % (target_count - processed_count)
+    _update_text()
     
+func _update_text() -> void:
+    var t := clampi(target_count - processed_count, 0, 1000)
+    display.text = "%03d" % (t)
