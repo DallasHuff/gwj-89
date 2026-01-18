@@ -2,13 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://c8c3sejdt7xbe" path="res://Art_Assets/Interactables/winebottle.glb" id="1_xowmb"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o7ct4"]
-radius = 0.15
-height = 0.7
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_xowmb"]
+points = PackedVector3Array(0.15, -0.3, 0.15, 0.22, -0.3, 0, 0.15, -0.3, -0.15, -0.15, -0.3, -0.15, -0.22, -0.3, 0, -0.15, -0.3, 0.15, 0.15, 0.45, 0.15, 0.22, 0.45, 0, 0.15, 0.45, -0.15, -0.22, 0.45, 0, -0.15, 0.45, 0.15, -0.15, 0.45, -0.15, 0, 0.6, 0)
 
 [node name="WineModel" type="CollisionShape3D" unique_id=1797901794]
-shape = SubResource("CapsuleShape3D_o7ct4")
+shape = SubResource("ConvexPolygonShape3D_xowmb")
 
 [node name="winebottle2" parent="." unique_id=999091689 instance=ExtResource("1_xowmb")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, -0.45273256, 0)
-visible = false
