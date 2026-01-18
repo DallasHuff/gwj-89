@@ -2,66 +2,115 @@
 
 [ext_resource type="PackedScene" uid="uid://dksqsb7ouxc4c" path="res://entities/player/player.tscn" id="1_mesa8"]
 [ext_resource type="Script" uid="uid://b2b65lfxuh6ri" path="res://levels/level.gd" id="1_sauko"]
-[ext_resource type="PackedScene" uid="uid://bvwj8wx6npq5n" path="res://levels/ground.tscn" id="2_h56r7"]
 [ext_resource type="PackedScene" uid="uid://0y1s4ra8pfw" path="res://entities/conveyor/straight_conveyor.tscn" id="2_qxn8h"]
 [ext_resource type="PackedScene" uid="uid://gdv62oa7bqy0" path="res://entities/spawner/spawner.tscn" id="3_5kb2l"]
 [ext_resource type="PackedScene" uid="uid://c5v4jsdjsxx0v" path="res://entities/conveyor/portal_conveyor.tscn" id="4_e875t"]
 [ext_resource type="PackedScene" uid="uid://cr6hleb1ryg5e" path="res://entities/hopper/hopper.tscn" id="6_e875t"]
-[ext_resource type="PackedScene" uid="uid://d2d253m5isk4u" path="res://Art_Assets/Environment/Background/ceilingFan.glb" id="7_5tbfk"]
-[ext_resource type="Script" uid="uid://dixi2u2fh1n8n" path="res://Art_Assets/Environment/basic_rotate.gd" id="8_oenlk"]
-[ext_resource type="PackedScene" uid="uid://b4i6ss3oo5332" path="res://levels/misc_platform.tscn" id="8_velju"]
-[ext_resource type="PackedScene" uid="uid://ccgg38pouevs5" path="res://Art_Assets/Environment/Background/ceilingOpenCircle.glb" id="9_av0o5"]
-[ext_resource type="PackedScene" uid="uid://g64ungfygjuf" path="res://Art_Assets/Environment/Background/MostEnvStuff.glb" id="13_velju"]
-[ext_resource type="PackedScene" uid="uid://dooxbcbwdu1c3" path="res://Art_Assets/Environment/Background/Pits.glb" id="14_j6rvn"]
-[ext_resource type="PackedScene" uid="uid://d1262w4qil45c" path="res://levels/loading_screen.tscn" id="15_pisbn"]
-[ext_resource type="Texture2D" uid="uid://cx8emwqqwfuck" path="res://Art_Assets/Environment/Background/Pits_temp_pits1-TM_u0_v0.png" id="15_w8rp6"]
-[ext_resource type="PackedScene" uid="uid://bdi6l3w760x6n" path="res://entities/hopper/zone_hopper.tscn" id="16_pisbn"]
+[ext_resource type="PackedScene" uid="uid://bdi6l3w760x6n" path="res://entities/hopper/zone_hopper.tscn" id="7_s061b"]
+[ext_resource type="PackedScene" uid="uid://d1262w4qil45c" path="res://levels/loading_screen.tscn" id="8_mi62i"]
 
 [sub_resource type="Environment" id="Environment_h8bs1"]
-tonemap_mode = 2
-tonemap_exposure = 3.0
-fog_enabled = true
-fog_light_color = Color(0.04630156, 0.12348349, 0.17581218, 1)
-fog_light_energy = 0.16
-fog_density = 0.03
-fog_height = 2.0
-fog_height_density = 1.0
-volumetric_fog_density = 0.01
 
-[sub_resource type="Compositor" id="Compositor_velju"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qxn8h"]
+albedo_color = Color(0.35, 0.15207501, 0.0455, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j6rvn"]
-albedo_color = Color(0.2941048, 0.51689833, 0.6183772, 1)
-albedo_texture = ExtResource("15_w8rp6")
+[sub_resource type="BoxShape3D" id="BoxShape3D_mesa8"]
+size = Vector3(100, 1, 56)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w8rp6"]
-albedo_color = Color(0.2941048, 0.51689833, 0.6183772, 1)
-albedo_texture = ExtResource("15_w8rp6")
+[sub_resource type="BoxShape3D" id="BoxShape3D_e875t"]
+size = Vector3(6.801758, 1, 3.9556274)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_dusbw"]
-size = Vector3(7.1541443, 2.745758, 4.538845)
+[sub_resource type="BoxShape3D" id="BoxShape3D_mi62i"]
+size = Vector3(9.491634, 2.745758, 4.6128197)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_pisbn"]
-size = Vector3(7.1541443, 2.745758, 4.538845)
+[sub_resource type="BoxShape3D" id="BoxShape3D_s061b"]
+size = Vector3(5.410576, 2.745758, 4.1839867)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_bflpa"]
-size = Vector3(10.100273, 3.9002228, 14.62664)
+[sub_resource type="BoxShape3D" id="BoxShape3D_5tbfk"]
+size = Vector3(10.677185, 2.745758, 13.4874115)
 
 [node name="ConveyorTest" type="Node3D" unique_id=795892070]
 script = ExtResource("1_sauko")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=832076800]
 environment = SubResource("Environment_h8bs1")
-compositor = SubResource("Compositor_velju")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1630608022]
 transform = Transform3D(0.9075284, 0.31033212, -0.28299496, 0, 0.67381245, 0.7389024, 0.4199907, -0.6705749, 0.61150396, 0, 3.6488056, 0)
-visible = false
-light_energy = 0.2
+
+[node name="ground" type="StaticBody3D" parent="." unique_id=1775703354]
+collision_layer = 32769
+
+[node name="CSGBox3D" type="CSGBox3D" parent="ground" unique_id=34692764]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.009, 0.06, 21.985)
+use_collision = true
+collision_layer = 32769
+size = Vector3(100, 1.05, 56)
+material = SubResource("StandardMaterial3D_qxn8h")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground" unique_id=1633012620]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 22)
+shape = SubResource("BoxShape3D_mesa8")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="ground" unique_id=1162829102]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.491, 0.06, -16.515)
+use_collision = true
+collision_layer = 32769
+size = Vector3(11, 1.05, 21)
+material = SubResource("StandardMaterial3D_qxn8h")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="ground" unique_id=319958337]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0085754, -1.9369845, -18.515488)
+use_collision = true
+collision_layer = 32769
+size = Vector3(12, 1.05, 17)
+material = SubResource("StandardMaterial3D_qxn8h")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="ground" unique_id=334185431]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -0.68487304, -8.015)
+use_collision = true
+collision_layer = 32769
+size = Vector3(12, 2.510254, 4)
+material = SubResource("StandardMaterial3D_qxn8h")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="ground" unique_id=1834693349]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.26774234, -10.212754)
+use_collision = true
+collision_layer = 32769
+size = Vector3(5, 2.510254, 0.3955078)
+material = SubResource("StandardMaterial3D_qxn8h")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="ground" unique_id=845852382]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 9, -0.68487304, -18.515)
+use_collision = true
+collision_layer = 32769
+size = Vector3(17, 2.510254, 4)
+material = SubResource("StandardMaterial3D_qxn8h")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="ground" unique_id=2099017076]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 1.7457275, -0.68487304, -25.515)
+use_collision = true
+collision_layer = 32769
+size = Vector3(10.491455, 2.510254, 4)
+material = SubResource("StandardMaterial3D_qxn8h")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="ground" unique_id=949355703]
+transform = Transform3D(-4.371139e-08, 0, -1, 0.25881904, 0.9659258, -1.131334e-08, 0.9659258, -0.25881904, -4.222196e-08, 4.2690325, -2.006509, -14.757171)
+use_collision = true
+collision_layer = 32769
+size = Vector3(10.491455, 2.510254, 4)
+material = SubResource("StandardMaterial3D_qxn8h")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="ground" unique_id=1156703435]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4914246, -1.4619845, -16.515488)
+use_collision = true
+collision_layer = 32769
+size = Vector3(1, 2, 21)
+material = SubResource("StandardMaterial3D_qxn8h")
 
 [node name="Player" parent="." unique_id=461061772 instance=ExtResource("1_mesa8")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.349749, 1.6277466, 8.802014)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.676123, 1.6277466, 4.876561)
 top_level = true
 
 [node name="conveyors1" type="Node3D" parent="." unique_id=2085045680]
@@ -77,12 +126,12 @@ plastic_chance = 0.1
 paper_chance = 0.1
 
 [node name="funnel" type="CSGBox3D" parent="conveyors1" unique_id=561248060]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0.60661936, -21.862423)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0.5294709, -21.862423)
 use_collision = true
-size = Vector3(3, 2, 2)
+size = Vector3(3, 2.1542969, 2)
 
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="conveyors1/funnel" unique_id=424858995]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1.1324959)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.06360221, 1.1324959)
 operation = 2
 polygon = PackedVector2Array(0.47348452, -0.03948313, -0.43611574, 1.0945103, 2.4037561, 1.0692099, 1.5429001, -0.045178056)
 depth = 1.8
@@ -235,7 +284,7 @@ transform = Transform3D(1, 0, -1.6292068e-07, 0, 1, 0, 1.6292068e-07, 0, 1, 2, 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8055723, 0)
 
 [node name="Spawner2" parent="conveyors2" unique_id=1927183234 instance=ExtResource("3_5kb2l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9481583, 6.1944275, -21.854704)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9481583, 5.1944275, -21.854704)
 spawn_timer_range_min = 1.0
 spawn_timer_range_max = 5.0
 spawn_timer_start_delay = 5.0
@@ -250,7 +299,7 @@ body_spawn_delay_sec = 45.0
 transform = Transform3D(-3.1786513e-08, 0, -1, 0, 1, 0, 1, 0, -3.1786513e-08, -14, 0.6832216, -4)
 
 [node name="funnel2" type="CSGBox3D" parent="conveyors2" unique_id=717284396]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 3.574715, -21.862423)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 2.5747151, -21.862423)
 use_collision = true
 size = Vector3(3, 2, 2)
 
@@ -260,148 +309,162 @@ operation = 2
 polygon = PackedVector2Array(0.47348452, -0.03948313, -0.43611574, 1.0945103, 2.4037561, 1.0692099, 1.5429001, -0.045178056)
 depth = 1.8
 
+[node name="funnel3" type="CSGBox3D" parent="conveyors2" unique_id=1312038676]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.33960772, -21.862423)
+use_collision = true
+size = Vector3(3, 2.4702148, 2)
+
 [node name="StraightConveyor18" parent="conveyors2" unique_id=603503256 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 3.7944276, -22)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 2.7944276, -22)
 enable_rear_bumper = true
 
 [node name="StraightConveyor19" parent="conveyors2" unique_id=310360948 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 3.7944276, -21)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 2.7944276, -21)
 
 [node name="StraightConveyor20" parent="conveyors2" unique_id=1749136239 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 3.7944276, -20)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 2.7944276, -20)
 
 [node name="StraightConveyor21" parent="conveyors2" unique_id=1500320916 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 3.7944276, -19)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 2.7944276, -19)
 
 [node name="StraightConveyor22" parent="conveyors2" unique_id=1883853942 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 3.7944276, -18)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 2.7944276, -18)
 enable_rear_bumper = true
 
 [node name="StraightConveyor23" parent="conveyors2" unique_id=1880138578 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 3.7944276, -17)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 2.7944276, -17)
 
 [node name="StraightConveyor24" parent="conveyors2" unique_id=795369087 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 3.7944276, -16)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 2.7944276, -16)
 
 [node name="StraightConveyor25" parent="conveyors2" unique_id=946974156 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 3.7944276, -15)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 2.7944276, -15)
 
 [node name="StraightConveyor26" parent="conveyors2" unique_id=1796257886 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 3.7944276, -14)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 2.7944276, -14)
 enable_rear_bumper = true
 
 [node name="StraightConveyor27" parent="conveyors2" unique_id=913111241 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 3.7944276, -13)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 2.7944276, -13)
 
 [node name="StraightConveyor28" parent="conveyors2" unique_id=220064271 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 3.7944276, -12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 2.7944276, -12)
 
 [node name="StraightConveyor29" parent="conveyors2" unique_id=914560009 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 3.7944276, -11)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 2.7944276, -11)
 
 [node name="StraightConveyor30" parent="conveyors2" unique_id=340323592 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 3.7944276, -10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 2.7944276, -10)
 enable_rear_bumper = true
 
 [node name="StraightConveyor31" parent="conveyors2" unique_id=1215057668 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 3.7944276, -9)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 2.7944276, -9)
 
 [node name="StraightConveyor32" parent="conveyors2" unique_id=1533792089 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 3.7944276, -8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 2.7944276, -8)
 
 [node name="StraightConveyor33" parent="conveyors2" unique_id=720629191 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 3.7944276, -7)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 2.7944276, -7)
 
 [node name="StraightConveyor34" parent="conveyors2" unique_id=1886749735 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 3.7944276, -6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 2.7944276, -6)
 
 [node name="StraightConveyor49" parent="conveyors2" unique_id=1019322739 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-1, 0, -8.742278e-08, 3.9365197e-08, 0.8928847, -0.45028543, 7.805845e-08, -0.45028543, -0.8928847, -7.0006413, 5.113615, -1.8294442)
+transform = Transform3D(-1, 0, -8.742278e-08, 3.9365197e-08, 0.8928847, -0.45028543, 7.805845e-08, -0.45028543, -0.8928847, -7.0006413, 4.113615, -1.8294442)
 
 [node name="StraightConveyor57" parent="conveyors2" unique_id=743219055 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-1, 0, -8.742278e-08, 3.9365197e-08, 0.8928847, -0.45028543, 7.805845e-08, -0.45028543, -0.8928847, -7.000641, 4.6505814, -2.7158096)
+transform = Transform3D(-1, 0, -8.742278e-08, 3.9365197e-08, 0.8928847, -0.45028543, 7.805845e-08, -0.45028543, -0.8928847, -7.000641, 3.6505816, -2.7158096)
 
 [node name="StraightConveyor50" parent="conveyors2" unique_id=1820420649 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-1, 0, -8.742278e-08, 3.9365197e-08, 0.8928847, -0.45028543, 7.805845e-08, -0.45028543, -0.8928847, -7.0006413, 5.5639, -0.93655944)
+transform = Transform3D(-1, 0, -8.742278e-08, 3.9365197e-08, 0.8928847, -0.45028543, 7.805845e-08, -0.45028543, -0.8928847, -7.0006413, 4.5639, -0.93655944)
 
 [node name="StraightConveyor51" parent="conveyors2" unique_id=498987843 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -7, 5.794428, 0)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -7, 4.794428, 0)
 
 [node name="StraightConveyor52" parent="conveyors2" unique_id=750312201 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -7, 5.794428, 1)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -7, 4.794428, 1)
 
 [node name="StraightConveyor53" parent="conveyors2" unique_id=1182441078 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -7, 5.794428, 2)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -7, 4.794428, 2)
 
 [node name="StraightConveyor54" parent="conveyors2" unique_id=538416415 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -7, 5.794428, 3)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -7, 4.794428, 3)
 
 [node name="StraightConveyor55" parent="conveyors2" unique_id=91997257 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -7, 5.794428, 4)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -7, 4.794428, 4)
 
 [node name="StraightConveyor56" parent="conveyors2" unique_id=936362479 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -7, 5.794428, 5)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -7, 4.794428, 5)
 
 [node name="StraightConveyor58" parent="conveyors2" unique_id=1823762249 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -7, 5.794428, 6)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -7, 4.794428, 6)
 enable_left_bumper = false
 
 [node name="StraightConveyor59" parent="conveyors2" unique_id=1223835629 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -6, 5.794428, 6)
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -6, 4.794428, 6)
 
 [node name="StraightConveyor60" parent="conveyors2" unique_id=1955811543 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -5, 5.794428, 6)
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -5, 4.794428, 6)
 
 [node name="StraightConveyor61" parent="conveyors2" unique_id=1871763552 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -4, 5.794428, 6)
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -4, 4.794428, 6)
 
 [node name="StraightConveyor62" parent="conveyors2" unique_id=577715895 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -3, 5.794428, 6)
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -3, 4.794428, 6)
 
 [node name="StraightConveyor63" parent="conveyors2" unique_id=2098496774 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -2, 5.794428, 6)
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -2, 4.794428, 6)
 
 [node name="StraightConveyor64" parent="conveyors2" unique_id=835499531 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -1, 5.794428, 6)
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -1, 4.794428, 6)
 
 [node name="StraightConveyor65" parent="conveyors2" unique_id=933280951 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 0, 5.794428, 6)
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 0, 4.794428, 6)
 
 [node name="StraightConveyor66" parent="conveyors2" unique_id=1324685960 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 1, 5.794428, 6)
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 1, 4.794428, 6)
 
 [node name="StraightConveyor67" parent="conveyors2" unique_id=1890037603 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 2, 5.794428, 6)
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 2, 4.794428, 6)
 
 [node name="StraightConveyor68" parent="conveyors2" unique_id=256016131 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 3, 5.794428, 6)
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 3, 4.794428, 6)
 
 [node name="StraightConveyor69" parent="conveyors2" unique_id=51175746 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 4, 5.794428, 6)
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 4, 4.794428, 6)
 
 [node name="StraightConveyor70" parent="conveyors2" unique_id=1796242055 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 5, 5.794428, 6)
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 5, 4.794428, 6)
 
 [node name="StraightConveyor71" parent="conveyors2" unique_id=91033861 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 6, 5.794428, 6)
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 6, 4.794428, 6)
 
 [node name="StraightConveyor72" parent="conveyors2" unique_id=503648880 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 7, 5.794428, 6)
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 7, 4.794428, 6)
 
 [node name="StraightConveyor73" parent="conveyors2" unique_id=1092340679 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 8, 5.794428, 6)
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 8, 4.794428, 6)
 
 [node name="StraightConveyor74" parent="conveyors2" unique_id=401833130 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 9, 5.794428, 6)
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 9, 4.794428, 6)
 
 [node name="StraightConveyor75" parent="conveyors2" unique_id=59206763 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 10, 5.794428, 6)
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 10, 4.794428, 6)
+
+[node name="StraightConveyor76" parent="conveyors2" unique_id=2006774737 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 11, 4.794428, 6)
+
+[node name="StraightConveyor77" parent="conveyors2" unique_id=578120917 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 12, 4.794428, 6)
+
+[node name="StraightConveyor78" parent="conveyors2" unique_id=1109220736 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 13, 4.794428, 6)
 
 [node name="StraightConveyor36" parent="conveyors2" unique_id=2084488417 instance=ExtResource("2_qxn8h")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7, 0.79442775, -4)
 enable_left_bumper = false
 
-[node name="StraightConveyor76" parent="conveyors2" unique_id=165343954 instance=ExtResource("2_qxn8h")]
+[node name="StraightConveyor79" parent="conveyors2" unique_id=207087401 instance=ExtResource("2_qxn8h")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6, 0.79442775, -4)
 enable_left_bumper = false
 
@@ -442,12 +505,475 @@ transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -21,
 [node name="StraightConveyor42" parent="conveyors2" unique_id=1673714037 instance=ExtResource("2_qxn8h")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -13, 0.79442775, -4)
 
+[node name="platform_conveyors" type="Node3D" parent="." unique_id=2039231572]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 1.6, -11)
+
+[node name="StraightConveyor43" parent="platform_conveyors" unique_id=438310686 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.0022468567, -1.166556, 0)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor44" parent="platform_conveyors" unique_id=452219324 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, -1.166556, -1)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor45" parent="platform_conveyors" unique_id=609883922 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, -1.166556, -2)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor46" parent="platform_conveyors" unique_id=884758681 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, -1.166556, -3)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor47" parent="platform_conveyors" unique_id=1523336784 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.99775314, -1.166556, 0)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor48" parent="platform_conveyors" unique_id=411536607 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.99775314, -1.166556, -1)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor49" parent="platform_conveyors" unique_id=473617550 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1, -1.166556, -2)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor50" parent="platform_conveyors" unique_id=1101366041 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1, -1.166556, -3)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor51" parent="platform_conveyors" unique_id=900216238 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.0022469, -1.166556, 0)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor52" parent="platform_conveyors" unique_id=513221419 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.0022469, -1.166556, -1)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor53" parent="platform_conveyors" unique_id=1715412847 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.0022469, -1.166556, -2)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor54" parent="platform_conveyors" unique_id=404530511 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.0022469, -1.166556, -3)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor55" parent="platform_conveyors" unique_id=1304121251 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.0022469, -1.166556, 0)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor56" parent="platform_conveyors" unique_id=503680010 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.0022469, -1.166556, -1)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor57" parent="platform_conveyors" unique_id=1085732259 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.0022469, -1.166556, -2)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor58" parent="platform_conveyors" unique_id=1170506091 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.0022469, -1.166556, -3)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor59" parent="platform_conveyors" unique_id=1959715817 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.002247, -1.166556, 0)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor60" parent="platform_conveyors" unique_id=415024381 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4, -1.166556, -1)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor61" parent="platform_conveyors" unique_id=986818370 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4, -1.166556, -2)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor62" parent="platform_conveyors" unique_id=844886993 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4, -1.166556, -3)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor63" parent="platform_conveyors" unique_id=1207018171 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.0022469, -1.166556, 0)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor64" parent="platform_conveyors" unique_id=1210830917 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.0022469, -1.166556, -1)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor65" parent="platform_conveyors" unique_id=357445009 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3, -1.166556, -2)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor66" parent="platform_conveyors" unique_id=1310721796 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3, -1.166556, -3)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor67" parent="platform_conveyors" unique_id=2061334210 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6.002247, -1.166556, 0)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor68" parent="platform_conveyors" unique_id=953010655 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6.002247, -1.166556, -1)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor69" parent="platform_conveyors" unique_id=22343547 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6.002247, -1.166556, -2)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor70" parent="platform_conveyors" unique_id=233726142 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6.002247, -1.166556, -3)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor71" parent="platform_conveyors" unique_id=1121465321 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.002247, -1.166556, 0)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor72" parent="platform_conveyors" unique_id=873737708 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.002247, -1.166556, -1)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor73" parent="platform_conveyors" unique_id=1007266774 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.002247, -1.166556, -2)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor74" parent="platform_conveyors" unique_id=1010834328 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.002247, -1.166556, -3)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor75" parent="platform_conveyors" unique_id=1360912552 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7.002247, -1.166556, 0)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor76" parent="platform_conveyors" unique_id=665421022 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7, -1.166556, -1)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor77" parent="platform_conveyors" unique_id=2108558137 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7, -1.166556, -2)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor78" parent="platform_conveyors" unique_id=1590491216 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7, -1.166556, -3)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor79" parent="platform_conveyors" unique_id=835220585 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6.002247, -1.166556, 0)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor80" parent="platform_conveyors" unique_id=1602781807 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6.002247, -1.166556, -1)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor81" parent="platform_conveyors" unique_id=932971026 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6, -1.166556, -2)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor82" parent="platform_conveyors" unique_id=1533616631 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6, -1.166556, -3)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor83" parent="platform_conveyors" unique_id=840672291 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -9.002247, -1.166556, 0)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor84" parent="platform_conveyors" unique_id=1780349194 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -9.002247, -1.166556, -1)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor85" parent="platform_conveyors" unique_id=1778544056 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -9.002247, -1.166556, -2)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor86" parent="platform_conveyors" unique_id=1513570083 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -9.002247, -1.166556, -3)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor87" parent="platform_conveyors" unique_id=1779464768 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -8.002247, -1.166556, 0)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor88" parent="platform_conveyors" unique_id=1466189080 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -8.002247, -1.166556, -1)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor89" parent="platform_conveyors" unique_id=1854343289 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -8.002247, -1.166556, -2)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor90" parent="platform_conveyors" unique_id=47561612 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -8.002247, -1.166556, -3)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor91" parent="platform_conveyors" unique_id=1455415740 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.0022468567, -1.166556, -9)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor92" parent="platform_conveyors" unique_id=1936599913 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, -1.166556, -10)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor93" parent="platform_conveyors" unique_id=401048021 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, -1.166556, -11)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor94" parent="platform_conveyors" unique_id=1115387172 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, -1.166556, -12)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor95" parent="platform_conveyors" unique_id=1406275926 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.99775314, -1.166556, -9)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor96" parent="platform_conveyors" unique_id=385832567 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.99775314, -1.166556, -10)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor97" parent="platform_conveyors" unique_id=1644457670 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1, -1.166556, -11)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor98" parent="platform_conveyors" unique_id=2116806412 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1, -1.166556, -12)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor99" parent="platform_conveyors" unique_id=1599442117 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.0022469, -1.166556, -9)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor100" parent="platform_conveyors" unique_id=2099777570 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.0022469, -1.166556, -10)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor101" parent="platform_conveyors" unique_id=1506721759 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.0022469, -1.166556, -11)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor102" parent="platform_conveyors" unique_id=1544614324 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.0022469, -1.166556, -12)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor103" parent="platform_conveyors" unique_id=1453668876 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.0022469, -1.166556, -9)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor104" parent="platform_conveyors" unique_id=1937051235 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.0022469, -1.166556, -10)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor105" parent="platform_conveyors" unique_id=1035576118 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.0022469, -1.166556, -11)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor106" parent="platform_conveyors" unique_id=1476412520 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.0022469, -1.166556, -12)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor107" parent="platform_conveyors" unique_id=226734102 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.002247, -1.166556, -9)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor108" parent="platform_conveyors" unique_id=2084424865 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4, -1.166556, -10)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor109" parent="platform_conveyors" unique_id=24526209 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4, -1.166556, -11)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor110" parent="platform_conveyors" unique_id=779274364 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4, -1.166556, -12)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor111" parent="platform_conveyors" unique_id=143944377 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.0022469, -1.166556, -9)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor112" parent="platform_conveyors" unique_id=1686322241 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.0022469, -1.166556, -10)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor113" parent="platform_conveyors" unique_id=1705689151 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3, -1.166556, -11)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor114" parent="platform_conveyors" unique_id=471472729 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3, -1.166556, -12)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor115" parent="platform_conveyors" unique_id=2106808126 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.002247, -1.166556, -9)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor116" parent="platform_conveyors" unique_id=761647549 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.002247, -1.166556, -10)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor117" parent="platform_conveyors" unique_id=680713017 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.002247, -1.166556, -11)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor118" parent="platform_conveyors" unique_id=1935612733 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.002247, -1.166556, -12)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor119" parent="platform_conveyors" unique_id=1471673710 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7.002247, -1.166556, -9)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor120" parent="platform_conveyors" unique_id=756313319 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7, -1.166556, -10)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor121" parent="platform_conveyors" unique_id=1671828489 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7, -1.166556, -11)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor122" parent="platform_conveyors" unique_id=929605846 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7, -1.166556, -12)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor123" parent="platform_conveyors" unique_id=1610027612 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6.002247, -1.166556, -9)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor124" parent="platform_conveyors" unique_id=575312874 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6.002247, -1.166556, -10)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor125" parent="platform_conveyors" unique_id=1697771264 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6, -1.166556, -11)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor126" parent="platform_conveyors" unique_id=138240226 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6, -1.166556, -12)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor127" parent="platform_conveyors" unique_id=81231388 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -9.002247, -1.166556, -9)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor128" parent="platform_conveyors" unique_id=943941035 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -9.002247, -1.166556, -10)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor129" parent="platform_conveyors" unique_id=1688987721 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -9.002247, -1.166556, -11)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor130" parent="platform_conveyors" unique_id=861766587 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -9.002247, -1.166556, -12)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor131" parent="platform_conveyors" unique_id=1301612995 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -8.002247, -1.166556, -9)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor132" parent="platform_conveyors" unique_id=2056577855 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -8.002247, -1.166556, -10)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor133" parent="platform_conveyors" unique_id=1584378865 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -8.002247, -1.166556, -11)
+enable_left_bumper = false
+enable_right_bumper = false
+
+[node name="StraightConveyor134" parent="platform_conveyors" unique_id=898202707 instance=ExtResource("2_qxn8h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -8.002247, -1.166556, -12)
+enable_left_bumper = false
+enable_right_bumper = false
+
 [node name="Hopper" parent="." unique_id=1611280198 instance=ExtResource("6_e875t")]
 transform = Transform3D(0.9999945, -2.5778802e-06, 0.0033161186, 2.5759748e-06, 1, 5.8036954e-07, -0.0033161186, -5.71847e-07, 0.9999945, -21, 1.1002333, 2)
 wanted_trash_type = 1
 
 [node name="Label3D" type="Label3D" parent="Hopper" unique_id=411126337]
-transform = Transform3D(1, 1.5987212e-14, 0, -5.995204e-14, 1, 0, 0, 0, 1, -1.9900246, 0.78827727, -0.006598711)
+transform = Transform3D(1, 1.5987212e-14, 0, -5.995204e-14, 1, 0, 0, 0, 1, 2.8981113, 0.7882649, -0.38878202)
 pixel_size = 0.03
 text = "glass"
 
@@ -462,18 +988,18 @@ text = "metal
 "
 
 [node name="funnel2" type="CSGBox3D" parent="." unique_id=719957564]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6.868632, 1.5134432, -4.0042686)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7.1615844, 1.5134432, -4.0042686)
 use_collision = true
-size = Vector3(3.2836914, 2, 3.6419678)
+size = Vector3(3.2836914, 2, 3.8498535)
 
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="funnel2" unique_id=1682259669]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 4.444489)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 2.2963285)
 operation = 2
 polygon = PackedVector2Array(0.5424628, 0.13604355, -0.59514475, 1.096101, 2.5624623, 1.071984, 1.3989823, 0.11099434)
-depth = 5.89
+depth = 4.04
 
 [node name="funnel3" type="CSGBox3D" parent="." unique_id=609857804]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 9.776264, 6.4147587, 5.9957314)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 12.838661, 5.4147587, 5.9957314)
 use_collision = true
 size = Vector3(3.2836914, 2, 2)
 
@@ -483,905 +1009,212 @@ operation = 2
 polygon = PackedVector2Array(0.5424628, 0.13604355, -0.59514475, 1.096101, 2.5624623, 1.071984, 1.3989823, 0.11099434)
 depth = 1.8
 
+[node name="LevelWalls" type="Node3D" parent="." unique_id=1311678710]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="LevelWalls" unique_id=798833694]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1356812, 4, 0)
+use_collision = true
+collision_layer = 32769
+size = Vector3(3.2713623, 18, 100)
+
+[node name="sub" type="CSGBox3D" parent="LevelWalls/CSGBox3D" unique_id=1657035078]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12036133, 2.1001835, 5.984131)
+operation = 2
+size = Vector3(4.0424805, 1.3793945, 1.4741211)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="LevelWalls" unique_id=1022930952]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.574707, 4, 0)
+use_collision = true
+collision_layer = 32769
+size = Vector3(4.149414, 18, 100)
+
+[node name="sub" type="CSGBox3D" parent="LevelWalls/CSGBox3D2" unique_id=1814438495]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1, -0.24625206, -2.5069351, -12.373749)
+operation = 2
+use_collision = true
+size = Vector3(13.193176, 2.3233032, 4.784851)
+
+[node name="sub3" type="CSGBox3D" parent="LevelWalls/CSGBox3D2" unique_id=1635992079]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 1.2803593, -2.538536, -21.582329)
+operation = 2
+use_collision = true
+size = Vector3(13.289368, 2.2601013, 3.955246)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="LevelWalls" unique_id=562166810]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -13, 4, -26)
+use_collision = true
+collision_layer = 32769
+size = Vector3(1, 18, 100)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="LevelWalls" unique_id=864218557]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 26.822926, -7.193241, 11.513163)
+use_collision = true
+collision_layer = 32769
+size = Vector3(1, 18, 100)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="LevelWalls" unique_id=621965722]
+transform = Transform3D(-0.5658452, 0, -0.8245115, 0, 1, 0, 0.8245115, 0, -0.5658452, -64.09696, -7.188661, -16.712633)
+use_collision = true
+collision_layer = 32769
+size = Vector3(1, 18, 100)
+
 [node name="Spawner2" parent="." unique_id=1849545920 instance=ExtResource("3_5kb2l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.859382, 8.983574, 6.0658407)
-spawn_timer_range_min = 9.0
-spawn_timer_range_max = 15.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.634807, 6.410562, 6.0658407)
+spawn_timer_range_min = 6.0
+spawn_timer_range_max = 13.0
 spawn_timer_start_delay = 30.0
 metal_chance = 0.03
 glass_chance = 0.88
 plastic_chance = 0.03
 paper_chance = 0.03
 
-[node name="MiscPlatform" parent="." unique_id=1178501671 instance=ExtResource("8_velju")]
-visible = false
+[node name="MiscPlatform" type="Node3D" parent="." unique_id=2032758175]
 
-[node name="EnvArt" type="Node3D" parent="." unique_id=1465061547]
+[node name="StaticBody3D2" type="StaticBody3D" parent="MiscPlatform" unique_id=1993627000]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.24, 1.59, -21.5)
+collision_layer = 32768
 
-[node name="MostEnvStuff" parent="EnvArt" unique_id=1804349761 instance=ExtResource("13_velju")]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MiscPlatform/StaticBody3D2" unique_id=1735088667]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 2.900879, 0.66554296, -0.071437836)
+shape = SubResource("BoxShape3D_e875t")
 
-[node name="ceiling_divider" parent="EnvArt/MostEnvStuff" index="0" unique_id=666712597]
-transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, -1.1498995, -1.3904743)
-
-[node name="Pits" parent="EnvArt" unique_id=716726612 instance=ExtResource("14_j6rvn")]
-transform = Transform3D(-5.2453668e-08, 0, 1.2, 0, 1.2, 0, -1.2, 0, -5.2453668e-08, 17.760736, 2.5400305, -2.104785)
-
-[node name="temp_pits1" parent="EnvArt/Pits" index="0" unique_id=215721783]
-surface_material_override/0 = SubResource("StandardMaterial3D_j6rvn")
-
-[node name="Pits2" parent="EnvArt" unique_id=1859049910 instance=ExtResource("14_j6rvn")]
-transform = Transform3D(0.67314816, 0, 0.993414, 0, 1.1999999, 0, -0.993414, 0, 0.67314816, 4.7377186, 1.5434141, 6.8460665)
-
-[node name="temp_pits1" parent="EnvArt/Pits2" index="0" unique_id=215721783]
-surface_material_override/0 = SubResource("StandardMaterial3D_w8rp6")
-
-[node name="Lighting" type="Node3D" parent="EnvArt" unique_id=739360064]
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="EnvArt/Lighting" unique_id=1584576576]
-transform = Transform3D(0.6728963, 0.67106616, 0.31125665, 0, 0.42076674, -0.90716887, -0.7397368, 0.6104306, 0.2831324, -18.462824, 5.9125023, 18.58073)
-light_color = Color(4.813075e-07, 0.491062, 0.4930694, 1)
-light_energy = 0.1
-sky_mode = 1
-
-[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="EnvArt/Lighting" unique_id=804458188]
-transform = Transform3D(0.9518783, -0.16242121, 0.2598983, -7.1054274e-15, 0.84802026, 0.5299638, -0.30647615, -0.5044611, 0.8072122, -10.192253, 5.9125023, 19.957296)
-light_color = Color(4.813075e-07, 0.491062, 0.4930694, 1)
-light_energy = 0.2
-shadow_enabled = true
-sky_mode = 1
-
-[node name="SpotLight3D_wall" type="SpotLight3D" parent="EnvArt/Lighting" unique_id=1061075720]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -21.176449, 13.733848, -0.4174757)
-light_color = Color(1, 0.76862746, 0.4862745, 1)
-spot_range = 20.0
-spot_attenuation = 0.08
-spot_angle = 30.0
-
-[node name="SpotLight3D_wall2" type="SpotLight3D" parent="EnvArt/Lighting" unique_id=88235065]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -21.176449, 13.733848, -12.168685)
-light_color = Color(1, 0.76862746, 0.4862745, 1)
-spot_range = 20.0
-spot_attenuation = 0.08
-spot_angle = 30.0
-
-[node name="SpotLight3D_wall3" type="SpotLight3D" parent="EnvArt/Lighting" unique_id=676852629]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -21.176449, 13.733848, -21.932713)
-light_color = Color(1, 0.76862746, 0.4862745, 1)
-spot_range = 20.0
-spot_attenuation = 0.08
-spot_angle = 30.0
-
-[node name="SpotLight3D_wall4" type="SpotLight3D" parent="EnvArt/Lighting" unique_id=293274851]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2.4464216, 13.733848, -6.939431)
-light_color = Color(1, 0.76862746, 0.4862745, 1)
-spot_range = 20.0
-spot_attenuation = 0.08
-spot_angle = 30.0
-
-[node name="SpotLight3D_wall5" type="SpotLight3D" parent="EnvArt/Lighting" unique_id=337639001]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 1.5178475, 13.733848, -4.1847734)
-light_color = Color(1, 0.76862746, 0.4862745, 1)
-spot_range = 20.0
-spot_attenuation = 0.08
-spot_angle = 30.0
-
-[node name="SpotLight3D_wall6" type="SpotLight3D" parent="EnvArt/Lighting" unique_id=1034404775]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 6.647326, 13.733848, 5.37239)
-light_color = Color(1, 0.76862746, 0.4862745, 1)
-light_energy = 0.5
-spot_range = 20.0
-spot_attenuation = 0.08
-spot_angle = 20.0
-
-[node name="SpotLight3D_wall7" type="SpotLight3D" parent="EnvArt/Lighting" unique_id=111623598]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -8.948534, 13.733847, -22.628803)
-light_color = Color(1, 0.76862746, 0.4862745, 1)
-spot_range = 20.0
-spot_attenuation = 0.08
-spot_angle = 30.0
-
-[node name="OmniLight3D" type="OmniLight3D" parent="EnvArt/Lighting" unique_id=1714187950]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6252055, 3.2020721, -17.1374)
-light_color = Color(0.3872613, 0.5852162, 0.6219172, 1)
-omni_range = 15.0
-omni_attenuation = 1.073
-
-[node name="OmniLight3D2" type="OmniLight3D" parent="EnvArt/Lighting" unique_id=208914759]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6252055, 3.2020721, -2.9195185)
-light_color = Color(0.3872613, 0.5852162, 0.6219172, 1)
-omni_range = 15.0
-omni_attenuation = 1.073
-
-[node name="OmniLight3D3" type="OmniLight3D" parent="EnvArt/Lighting" unique_id=407271633]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.948054, 3.2020721, 8.184056)
-light_color = Color(0.3872613, 0.5852162, 0.6219172, 1)
-omni_range = 15.0
-omni_attenuation = 1.073
-
-[node name="OmniLight3D8" type="OmniLight3D" parent="EnvArt/Lighting" unique_id=343346940]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.965224, 3.9587526, -17.059048)
-light_color = Color(0.3872613, 0.5852162, 0.6219172, 1)
-omni_range = 15.0
-omni_attenuation = 1.073
-
-[node name="OmniLight3D9" type="OmniLight3D" parent="EnvArt/Lighting" unique_id=1312900757]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.204136, 4.9769125, -14.995594)
-light_color = Color(0.3872613, 0.5852162, 0.6219172, 1)
-omni_range = 15.0
-omni_attenuation = 1.073
-
-[node name="OmniLight3D6" type="OmniLight3D" parent="EnvArt/Lighting" unique_id=266847755]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9868331, 4.4517803, 8.207648)
-light_color = Color(0.3872613, 0.5852162, 0.6219172, 1)
-omni_range = 15.0
-omni_attenuation = 1.073
-
-[node name="OmniLight3D7" type="OmniLight3D" parent="EnvArt/Lighting" unique_id=1944249146]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.199736, 3.2020721, 5.574605)
-light_color = Color(0.3872613, 0.5852162, 0.6219172, 1)
-omni_range = 15.0
-omni_attenuation = 1.073
-
-[node name="OmniLight3D4" type="OmniLight3D" parent="EnvArt/Lighting" unique_id=1566014686]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.17807, 3.2020721, 1.7782755)
-light_color = Color(0.3872613, 0.5852162, 0.6219172, 1)
-omni_range = 15.0
-omni_attenuation = 1.073
-
-[node name="OmniLight3D5" type="OmniLight3D" parent="EnvArt/Lighting" unique_id=1351456236]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.502729, 3.2020721, -20.912518)
-light_color = Color(0.3872613, 0.5852162, 0.6219172, 1)
-omni_range = 15.0
-omni_attenuation = 1.073
-
-[node name="Ceiling" type="Node3D" parent="EnvArt" unique_id=1557806015]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3676105, 0, 3.949008)
-
-[node name="ceilingFan" parent="EnvArt/Ceiling" unique_id=230782090 instance=ExtResource("7_5tbfk")]
-transform = Transform3D(0.33, 0, 0, 0, 0.33, 0, 0, 0, 0.33, -5.27304, -1.1683216, -4.7519712)
-script = ExtResource("8_oenlk")
-rotation_speed = 0.5
-
-[node name="Cube_043" parent="EnvArt/Ceiling/ceilingFan" index="0" unique_id=454830234]
-cast_shadow = 3
-
-[node name="ceilingOpenCircle" parent="EnvArt/Ceiling" unique_id=2060622937 instance=ExtResource("9_av0o5")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -5.321677, 14.989567, -4.692875)
-
-[node name="Cube_044" parent="EnvArt/Ceiling/ceilingOpenCircle" index="0" unique_id=1754449161]
-transform = Transform3D(47.05589, 0, 0, 0, 1, 0, 0, 0, 47.05589, -0.11407471, 0.08654785, -0.20260811)
-cast_shadow = 3
-
-[node name="SpotLight3D" type="SpotLight3D" parent="EnvArt/Ceiling" unique_id=376534844]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -5.362074, 45.427876, -4.918556)
-light_color = Color(7.70092e-07, 0.814837, 0.82377577, 1)
-light_energy = 5.0
-shadow_enabled = true
-spot_range = 80.0
-spot_attenuation = 0.25
-spot_angle = 15.0
-
-[node name="Colliders" type="Node3D" parent="." unique_id=390315997]
-visible = false
-
-[node name="ground" parent="Colliders" unique_id=689164816 instance=ExtResource("2_h56r7")]
-
-[node name="LevelWalls" type="Node3D" parent="Colliders" unique_id=1311678710]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0)
-
-[node name="CSGBox3D" type="CSGBox3D" parent="Colliders/LevelWalls" unique_id=798833694]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6342907, 4, 0)
+[node name="CSGBox3D" type="CSGBox3D" parent="MiscPlatform" unique_id=1080830516]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, -3.178955, -16)
 use_collision = true
 collision_layer = 32769
-size = Vector3(3.2713623, 18, 100)
+size = Vector3(20, 9.35791, 20)
 
-[node name="sub" type="CSGBox3D" parent="Colliders/LevelWalls/CSGBox3D" unique_id=1657035078]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12036133, 0.10018349, 5.984131)
-operation = 2
-size = Vector3(4.0424805, 1.3793945, 1.4741211)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="Colliders/LevelWalls" unique_id=1022930952]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.83366, 4, 0)
-use_collision = true
-collision_layer = 32769
-size = Vector3(4.149414, 18, 100)
-
-[node name="sub" type="CSGBox3D" parent="Colliders/LevelWalls/CSGBox3D2" unique_id=1814438495]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1, -0.24625206, -2.7135696, -12.373749)
+[node name="sub" type="CSGBox3D" parent="MiscPlatform/CSGBox3D" unique_id=532986375]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1, -1.2943478, 4.4653854, 3.5594063)
 operation = 2
 use_collision = true
-size = Vector3(13.193176, 1.9100342, 4.784851)
+size = Vector3(13.289368, 1.9100342, 4.112236)
 
-[node name="sub3" type="CSGBox3D" parent="Colliders/LevelWalls/CSGBox3D2" unique_id=1635992079]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 1.2803593, -2.7135696, -21.373749)
+[node name="sub2" type="CSGBox3D" parent="MiscPlatform/CSGBox3D" unique_id=1229983772]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1, -1.2943478, 4.4653854, -5.483696)
 operation = 2
 use_collision = true
-size = Vector3(13.289368, 1.9100342, 4.784851)
+size = Vector3(13.289368, 1.9100342, 4.0607147)
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="Colliders/LevelWalls" unique_id=562166810]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -13, 4, -26)
+[node name="CSGBox3D9" type="CSGBox3D" parent="MiscPlatform" unique_id=843412034]
+transform = Transform3D(1.0417707, 0, 0, 0, 0.72576636, 0, 0, 0, 1.0581642, -25.239704, 1.2864306, -12.455474)
 use_collision = true
 collision_layer = 32769
-size = Vector3(1, 18, 100)
+size = Vector3(12.985168, 1.9100342, 4.2335663)
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="Colliders/LevelWalls" unique_id=864218557]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 26.822926, -4.9317217, 14.132826)
+[node name="sub" type="CSGBox3D" parent="MiscPlatform/CSGBox3D9" unique_id=1913013556]
+transform = Transform3D(0.95990413, 0, 0, 0, 1.3778541, 0, 0, 0, 0.9450329, -0.05219078, 0, -0.009660721)
+operation = 2
+use_collision = true
+size = Vector3(13.206146, 1.9100342, 4.043887)
+
+[node name="MouseCollider" type="StaticBody3D" parent="MiscPlatform/CSGBox3D9" unique_id=349522603]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 0, 0.42639744, 0)
+collision_layer = 32768
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MiscPlatform/CSGBox3D9/MouseCollider" unique_id=1150140971]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 2.900879, 0.66554296, -0.071437836)
+shape = SubResource("BoxShape3D_e875t")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="MiscPlatform" unique_id=1900447282]
+transform = Transform3D(1.0417707, 0, 0, 0, 0.72576636, 0, 0, 0, 1.0581642, -25.239704, 1.2864306, -21.578592)
 use_collision = true
 collision_layer = 32769
-size = Vector3(1, 18, 100)
+size = Vector3(12.985168, 1.9100342, 4.3801117)
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="Colliders/LevelWalls" unique_id=621965722]
-transform = Transform3D(-0.5658452, 0, -0.8245115, 0, 1, 0, 0.8245115, 0, -0.5658452, -61.74891, -5.7353687, -12.793383)
+[node name="sub" type="CSGBox3D" parent="MiscPlatform/CSGBox3D10" unique_id=1231138080]
+transform = Transform3D(0.95990413, 0, 0, 0, 1.3778541, 0, 0, 0, 0.9450329, -0.05219078, 0, 0.031526566)
+operation = 2
+use_collision = true
+size = Vector3(13.206146, 1.9100342, 4.0065155)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="MiscPlatform" unique_id=1761613705]
+transform = Transform3D(1, 0, 0, 0, 0.9659258, -0.25881904, 0, 0.25881904, 0.9659258, -17.078766, 0.5415752, -4.363054)
 use_collision = true
 collision_layer = 32769
-size = Vector3(1, 18, 100)
+size = Vector3(1.7183228, 1, 3.6582031)
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="Colliders/LevelWalls/CSGBox3D5" unique_id=509003201]
-transform = Transform3D(0.5568323, 0, -0.8306253, 0, 1, 0, 0.8306253, 0, 0.5568323, -32.11239, 4.937394, -37.98864)
+[node name="CSGBox3D3" type="CSGBox3D" parent="MiscPlatform" unique_id=406387573]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.250381, 1.1345215, -6.0203137)
 use_collision = true
 collision_layer = 32769
-size = Vector3(0.66308594, 5, 16.44867)
+size = Vector3(6.626007, 1.269043, 0.21875)
 
-[node name="CSGBox3D6" type="CSGBox3D" parent="Colliders/LevelWalls" unique_id=1035913205]
-transform = Transform3D(1.0000002, 0, 0, 0, 1, 0, 0, 0, 1.0000002, -2.0317488, -0.736218, -16.920506)
+[node name="CSGBox3D5" type="CSGBox3D" parent="MiscPlatform" unique_id=522722224]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.150625, 1.1345215, -6.0203137)
 use_collision = true
 collision_layer = 32769
-size = Vector3(1.3325195, 5, 19.212692)
+size = Vector3(2.1180763, 1.269043, 0.21875)
 
-[node name="CSGBox3D7" type="CSGBox3D" parent="Colliders/LevelWalls" unique_id=1936650747]
-transform = Transform3D(1.0000002, 0, 0, 0, 1, 0, 0, 0, 1.0000002, 4.8150864, -1.9460635, -15.770919)
+[node name="CSGBox3D6" type="CSGBox3D" parent="MiscPlatform" unique_id=1429210555]
+transform = Transform3D(-4.371139e-08, 0, -1, -0.26749068, 0.96356046, 1.16923875e-08, 0.96356046, 0.26749068, -4.211856e-08, -16.087038, 0.8651172, -5.0747786)
 use_collision = true
 collision_layer = 32769
-size = Vector3(11.762451, 5, 19.212692)
-
-[node name="LoadingScreen" parent="." unique_id=983847335 instance=ExtResource("15_pisbn")]
-unique_name_in_owner = true
-
-[node name="coneyors_pit" type="Node3D" parent="." unique_id=823475271]
-
-[node name="StraightConveyor43" parent="coneyors_pit" unique_id=1133108404 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -19.178713, 0.43851984, -19.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor44" parent="coneyors_pit" unique_id=1163852076 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -19.178713, 0.43851984, -20.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor45" parent="coneyors_pit" unique_id=309838648 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -19.178713, 0.43851984, -21.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor46" parent="coneyors_pit" unique_id=1485632756 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -19.178713, 0.43851984, -22.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor47" parent="coneyors_pit" unique_id=1817888365 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -19.178713, 0.43851984, -23.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor48" parent="coneyors_pit" unique_id=714184453 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -20.178713, 0.43851984, -19.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor49" parent="coneyors_pit" unique_id=1666153321 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -20.178713, 0.43851984, -20.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor50" parent="coneyors_pit" unique_id=1899550529 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -20.178713, 0.43851984, -21.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor51" parent="coneyors_pit" unique_id=1473955896 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -20.178713, 0.43851984, -22.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor52" parent="coneyors_pit" unique_id=1661502811 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -20.178713, 0.43851984, -23.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor53" parent="coneyors_pit" unique_id=1054385884 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -21.178713, 0.43851984, -19.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor54" parent="coneyors_pit" unique_id=1904620546 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -21.178713, 0.43851984, -20.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor55" parent="coneyors_pit" unique_id=2001318289 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -21.178713, 0.43851984, -21.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor56" parent="coneyors_pit" unique_id=1430130787 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -21.178713, 0.43851984, -22.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor57" parent="coneyors_pit" unique_id=525200657 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -21.178713, 0.43851984, -23.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor58" parent="coneyors_pit" unique_id=606703618 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -22.178713, 0.43851984, -19.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor59" parent="coneyors_pit" unique_id=1771994703 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -22.178713, 0.43851984, -20.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor60" parent="coneyors_pit" unique_id=283253725 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -22.178713, 0.43851984, -21.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor61" parent="coneyors_pit" unique_id=1190771268 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -22.178713, 0.43851984, -22.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor62" parent="coneyors_pit" unique_id=251602002 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -22.178713, 0.43851984, -23.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor63" parent="coneyors_pit" unique_id=1939551573 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -23.178713, 0.43851984, -19.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor64" parent="coneyors_pit" unique_id=340051169 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -23.178713, 0.43851984, -20.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor65" parent="coneyors_pit" unique_id=548069492 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -23.178713, 0.43851984, -21.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor66" parent="coneyors_pit" unique_id=594837050 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -23.178713, 0.43851984, -22.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor67" parent="coneyors_pit" unique_id=812552895 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -23.178713, 0.43851984, -23.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor68" parent="coneyors_pit" unique_id=1006931407 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -24.178713, 0.43851984, -19.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor69" parent="coneyors_pit" unique_id=1939995760 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -24.178713, 0.43851984, -20.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor70" parent="coneyors_pit" unique_id=914783904 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -24.178713, 0.43851984, -21.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor71" parent="coneyors_pit" unique_id=1978677293 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -24.178713, 0.43851984, -22.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor72" parent="coneyors_pit" unique_id=1804056799 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -24.178713, 0.43851984, -23.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor73" parent="coneyors_pit" unique_id=1175057339 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -25.178713, 0.43851984, -19.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor74" parent="coneyors_pit" unique_id=2002038559 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -25.178713, 0.43851984, -20.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor75" parent="coneyors_pit" unique_id=1226270479 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -25.178713, 0.43851984, -21.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor76" parent="coneyors_pit" unique_id=1912485232 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -25.178713, 0.43851984, -22.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor77" parent="coneyors_pit" unique_id=1321186773 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -25.178713, 0.43851984, -23.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor78" parent="coneyors_pit" unique_id=1898724957 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -26.178713, 0.43851984, -19.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor79" parent="coneyors_pit" unique_id=1821461993 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -26.178713, 0.43851984, -20.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor80" parent="coneyors_pit" unique_id=818519035 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -26.178713, 0.43851984, -21.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor81" parent="coneyors_pit" unique_id=1947692765 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -26.178713, 0.43851984, -22.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor82" parent="coneyors_pit" unique_id=524976755 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -26.178713, 0.43851984, -23.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor83" parent="coneyors_pit" unique_id=1405568309 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -27.178713, 0.43851984, -19.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor84" parent="coneyors_pit" unique_id=255193881 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -27.178713, 0.43851984, -20.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor85" parent="coneyors_pit" unique_id=650007841 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -27.178713, 0.43851984, -21.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor86" parent="coneyors_pit" unique_id=1052500456 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -27.178713, 0.43851984, -22.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor87" parent="coneyors_pit" unique_id=1531467469 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -27.178713, 0.43851984, -23.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor88" parent="coneyors_pit" unique_id=1981126160 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -28.178713, 0.43851984, -19.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor89" parent="coneyors_pit" unique_id=1457424568 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -28.178713, 0.43851984, -20.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor90" parent="coneyors_pit" unique_id=530424042 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -28.178713, 0.43851984, -21.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor91" parent="coneyors_pit" unique_id=1815974784 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -28.178713, 0.43851984, -22.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor92" parent="coneyors_pit" unique_id=691951931 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -28.178713, 0.43851984, -23.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor93" parent="coneyors_pit" unique_id=1447536363 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -29.178713, 0.43851984, -19.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor94" parent="coneyors_pit" unique_id=1172148584 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -29.178713, 0.43851984, -20.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor95" parent="coneyors_pit" unique_id=2070517699 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -29.178713, 0.43851984, -21.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor96" parent="coneyors_pit" unique_id=2090879382 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -29.178713, 0.43851984, -22.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor97" parent="coneyors_pit" unique_id=256709395 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -29.178713, 0.43851984, -23.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor98" parent="coneyors_pit" unique_id=506276650 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -30.178713, 0.43851984, -19.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor99" parent="coneyors_pit" unique_id=2122160827 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -30.178713, 0.43851984, -20.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor100" parent="coneyors_pit" unique_id=1938787063 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -30.178713, 0.43851984, -21.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor101" parent="coneyors_pit" unique_id=2023740663 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -30.178713, 0.43851984, -22.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor102" parent="coneyors_pit" unique_id=1233898773 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -30.178713, 0.43851984, -23.307678)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor103" parent="coneyors_pit" unique_id=1639975149 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -19.178713, 0.43851984, -10.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor104" parent="coneyors_pit" unique_id=1005096156 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -19.178713, 0.43851984, -11.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor105" parent="coneyors_pit" unique_id=342787639 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -19.178713, 0.43851984, -12.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor106" parent="coneyors_pit" unique_id=361653568 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -19.178713, 0.43851984, -13.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor107" parent="coneyors_pit" unique_id=66660006 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -19.178713, 0.43851984, -14.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor108" parent="coneyors_pit" unique_id=774766877 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -20.178713, 0.43851984, -10.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor109" parent="coneyors_pit" unique_id=751590533 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -20.178713, 0.43851984, -11.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor110" parent="coneyors_pit" unique_id=2075461797 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -20.178713, 0.43851984, -12.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor111" parent="coneyors_pit" unique_id=152095386 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -20.178713, 0.43851984, -13.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor112" parent="coneyors_pit" unique_id=52556959 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -20.178713, 0.43851984, -14.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor113" parent="coneyors_pit" unique_id=712536706 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -21.178713, 0.43851984, -10.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor114" parent="coneyors_pit" unique_id=1363804939 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -21.178713, 0.43851984, -11.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor115" parent="coneyors_pit" unique_id=585141769 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -21.178713, 0.43851984, -12.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor116" parent="coneyors_pit" unique_id=1831298286 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -21.178713, 0.43851984, -13.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor117" parent="coneyors_pit" unique_id=896838701 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -21.178713, 0.43851984, -14.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor118" parent="coneyors_pit" unique_id=1276803784 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -22.178713, 0.43851984, -10.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor119" parent="coneyors_pit" unique_id=366203235 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -22.178713, 0.43851984, -11.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor120" parent="coneyors_pit" unique_id=852435676 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -22.178713, 0.43851984, -12.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor121" parent="coneyors_pit" unique_id=1048215662 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -22.178713, 0.43851984, -13.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor122" parent="coneyors_pit" unique_id=483232383 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -22.178713, 0.43851984, -14.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor123" parent="coneyors_pit" unique_id=406240544 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -23.178713, 0.43851984, -10.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor124" parent="coneyors_pit" unique_id=1073315045 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -23.178713, 0.43851984, -11.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor125" parent="coneyors_pit" unique_id=293278862 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -23.178713, 0.43851984, -12.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor126" parent="coneyors_pit" unique_id=718032054 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -23.178713, 0.43851984, -13.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor127" parent="coneyors_pit" unique_id=943573569 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -23.178713, 0.43851984, -14.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor128" parent="coneyors_pit" unique_id=2044646948 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -24.178713, 0.43851984, -10.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor129" parent="coneyors_pit" unique_id=1798723165 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -24.178713, 0.43851984, -11.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor130" parent="coneyors_pit" unique_id=925324398 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -24.178713, 0.43851984, -12.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor131" parent="coneyors_pit" unique_id=2105186000 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -24.178713, 0.43851984, -13.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor132" parent="coneyors_pit" unique_id=274559749 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -24.178713, 0.43851984, -14.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor133" parent="coneyors_pit" unique_id=2007609937 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -25.178713, 0.43851984, -10.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor134" parent="coneyors_pit" unique_id=1573229687 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -25.178713, 0.43851984, -11.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor135" parent="coneyors_pit" unique_id=402570928 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -25.178713, 0.43851984, -12.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor136" parent="coneyors_pit" unique_id=1542334398 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -25.178713, 0.43851984, -13.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor137" parent="coneyors_pit" unique_id=714145560 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -25.178713, 0.43851984, -14.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor138" parent="coneyors_pit" unique_id=769389623 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -26.178713, 0.43851984, -10.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor139" parent="coneyors_pit" unique_id=819337246 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -26.178713, 0.43851984, -11.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor140" parent="coneyors_pit" unique_id=1995647472 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -26.178713, 0.43851984, -12.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor141" parent="coneyors_pit" unique_id=1591431464 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -26.178713, 0.43851984, -13.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor142" parent="coneyors_pit" unique_id=676679539 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -26.178713, 0.43851984, -14.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor143" parent="coneyors_pit" unique_id=1044603838 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -27.178713, 0.43851984, -10.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor144" parent="coneyors_pit" unique_id=21163891 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -27.178713, 0.43851984, -11.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor145" parent="coneyors_pit" unique_id=2002230450 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -27.178713, 0.43851984, -12.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor146" parent="coneyors_pit" unique_id=670237259 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -27.178713, 0.43851984, -13.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor147" parent="coneyors_pit" unique_id=1677035491 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -27.178713, 0.43851984, -14.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor148" parent="coneyors_pit" unique_id=1354230996 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -28.178713, 0.43851984, -10.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor149" parent="coneyors_pit" unique_id=1819713432 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -28.178713, 0.43851984, -11.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor150" parent="coneyors_pit" unique_id=1459226242 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -28.178713, 0.43851984, -12.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor151" parent="coneyors_pit" unique_id=363141161 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -28.178713, 0.43851984, -13.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor152" parent="coneyors_pit" unique_id=1274951430 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -28.178713, 0.43851984, -14.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor153" parent="coneyors_pit" unique_id=1562623435 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -29.178713, 0.43851984, -10.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor154" parent="coneyors_pit" unique_id=45402152 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -29.178713, 0.43851984, -11.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor155" parent="coneyors_pit" unique_id=79360260 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -29.178713, 0.43851984, -12.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor156" parent="coneyors_pit" unique_id=2100037957 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -29.178713, 0.43851984, -13.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor157" parent="coneyors_pit" unique_id=1340750439 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -29.178713, 0.43851984, -14.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor158" parent="coneyors_pit" unique_id=1253961207 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -30.178713, 0.43851984, -10.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor159" parent="coneyors_pit" unique_id=395530562 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -30.178713, 0.43851984, -11.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor160" parent="coneyors_pit" unique_id=1074195903 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -30.178713, 0.43851984, -12.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor161" parent="coneyors_pit" unique_id=1041004404 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -30.178713, 0.43851984, -13.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="StraightConveyor162" parent="coneyors_pit" unique_id=1576889371 instance=ExtResource("2_qxn8h")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -30.178713, 0.43851984, -14.376339)
-enable_left_bumper = false
-enable_right_bumper = false
-
-[node name="BioZoneHopper" parent="." unique_id=388761586 instance=ExtResource("16_pisbn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.056898, 0.49429703, -12.326057)
+size = Vector3(2.1180763, 1.269043, 0.21875)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="MiscPlatform" unique_id=1102137518]
+transform = Transform3D(-4.371139e-08, 0, -1, -0.26749068, 0.96356046, 1.16923875e-08, 0.96356046, 0.26749068, -4.211856e-08, -18.061863, 0.8651172, -5.0747786)
+use_collision = true
+collision_layer = 32769
+size = Vector3(2.1180763, 1.269043, 0.21875)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="MiscPlatform" unique_id=361645022]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -13.980946, 1.1345215, -14.977637)
+use_collision = true
+collision_layer = 32769
+size = Vector3(18.132387, 1.269043, 0.21875)
+
+[node name="ZoneHopper" parent="." unique_id=388761586 instance=ExtResource("7_s061b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.114132, 0.54813635, -12.554685)
 wanted_trash_type = 4
 
-[node name="Zone" parent="BioZoneHopper" index="0" unique_id=1914070735]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.98135376, 0, 0)
-
-[node name="CollisionShape3D" parent="BioZoneHopper/Zone" index="0" unique_id=141696884]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.661436, 0, -0.10047722)
-shape = SubResource("BoxShape3D_dusbw")
-
-[node name="DisplayPanel" parent="BioZoneHopper" index="1" unique_id=1777669022]
-transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0.07472992, 0.76545846, 2.3981438)
-
-[node name="PaperZoneHopper" parent="." unique_id=875708492 instance=ExtResource("16_pisbn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.056898, 0.49429703, -21.326057)
-
-[node name="Zone" parent="PaperZoneHopper" index="0" unique_id=1914070735]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.98135376, 0, 0)
-
-[node name="CollisionShape3D" parent="PaperZoneHopper/Zone" index="0" unique_id=141696884]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.661436, 0, -0.10047722)
-shape = SubResource("BoxShape3D_pisbn")
-
-[node name="DisplayPanel" parent="PaperZoneHopper" index="1" unique_id=1777669022]
-transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0.07472992, 0.76545846, 2.3981438)
-
-[node name="ZoneHopper" parent="." unique_id=553585003 instance=ExtResource("16_pisbn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4757226, -1.4119844, -17.792698)
-wanted_trash_type = 2
-
-[node name="CollisionShape3D" parent="ZoneHopper/Zone" parent_id_path=PackedInt32Array(553585003, 1914070735) index="0" unique_id=141696884]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5318947, 1.0926385, 0.5696144)
-shape = SubResource("BoxShape3D_bflpa")
+[node name="CollisionShape3D" parent="ZoneHopper/Zone" parent_id_path=PackedInt32Array(388761586, 1914070735) index="0" unique_id=141696884]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17090034, 0.6156616, 0.011152267)
+shape = SubResource("BoxShape3D_mi62i")
 
 [node name="DisplayPanel" parent="ZoneHopper" index="1" unique_id=1777669022]
-transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, -2.5093162, 2.4114723, -5.921358)
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 7.999962, 0.70748603, 2.3360214)
 
-[editable path="EnvArt/MostEnvStuff"]
-[editable path="EnvArt/Pits"]
-[editable path="EnvArt/Pits2"]
-[editable path="EnvArt/Ceiling/ceilingFan"]
-[editable path="EnvArt/Ceiling/ceilingOpenCircle"]
-[editable path="BioZoneHopper"]
-[editable path="PaperZoneHopper"]
+[node name="Label3D2" type="Label3D" parent="ZoneHopper" unique_id=2019843273]
+transform = Transform3D(0.9999945, -2.5778802e-06, 0.0033161186, 2.5759748e-06, 1, 5.8036954e-07, -0.0033161186, -5.71847e-07, 0.9999945, 10.673155, 1.6104852, -6.528352)
+pixel_size = 0.03
+text = "paper"
+
+[node name="ZoneHopper2" parent="." unique_id=1380867773 instance=ExtResource("7_s061b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.701797, 1.3306551, -21.413773)
+
+[node name="CollisionShape3D" parent="ZoneHopper2/Zone" parent_id_path=PackedInt32Array(1380867773, 1914070735) index="0" unique_id=141696884]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49825668, 0, -0.02851677)
+shape = SubResource("BoxShape3D_s061b")
+
+[node name="DisplayPanel" parent="ZoneHopper2" index="1" unique_id=1777669022]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 7.9218235, -2.3841858e-07, 2.1480007)
+
+[node name="Label3D3" type="Label3D" parent="ZoneHopper2" unique_id=1713551305]
+transform = Transform3D(0.9999945, -2.5778802e-06, 0.0033161186, 2.5759748e-06, 1, 5.8036954e-07, -0.0033161186, -5.71847e-07, 0.9999945, 10.589834, 0.82796645, 11.330736)
+pixel_size = 0.03
+text = "bio compost"
+
+[node name="ZoneHopper3" parent="." unique_id=2030136316 instance=ExtResource("7_s061b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4976145, -1.4119844, -17.519203)
+wanted_trash_type = 2
+
+[node name="CollisionShape3D" parent="ZoneHopper3/Zone" parent_id_path=PackedInt32Array(2030136316, 1914070735) index="0" unique_id=141696884]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3497618, 0.5072174, 0.6406784)
+shape = SubResource("BoxShape3D_5tbfk")
+
+[node name="DisplayPanel" parent="ZoneHopper3" index="1" unique_id=1777669022]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, -1.3720022, 1.2346575, -6)
+
+[node name="Label3D4" type="Label3D" parent="ZoneHopper3" unique_id=187057083]
+transform = Transform3D(0.9999945, -2.5778802e-06, 0.0033161186, 2.5759748e-06, 1, 5.8036954e-07, -0.0033161186, -5.71847e-07, 0.9999945, 3.592462, 0.9854586, -5.972662)
+pixel_size = 0.03
+text = "plastic"
+
+[node name="LoadingScreen" parent="." unique_id=983847335 instance=ExtResource("8_mi62i")]
+unique_name_in_owner = true
+
 [editable path="ZoneHopper"]
+[editable path="ZoneHopper2"]
+[editable path="ZoneHopper3"]
