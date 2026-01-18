@@ -63,3 +63,5 @@ func reset() -> void:
 	destroyed = false
 	processed_count = 0
 	goal_met = false
+	damage_display.text = str(health) + "%"
+	display.text = "%03d" % processed_count

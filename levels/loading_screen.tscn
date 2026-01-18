@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://d1262w4qil45c"]
+
+[ext_resource type="Script" uid="uid://df04hx0g5adjp" path="res://levels/loading_screen.gd" id="1_13khc"]
+
+[node name="LoadingScreen" type="CanvasLayer" unique_id=983847335]
+script = ExtResource("1_13khc")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=390167896]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1112567387]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 40.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+text = "Maximizing rat labor output"
+
+[node name="Label2" type="Label" parent="." unique_id=1394897942]
+visible = false
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 40.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+text = "Promoting incompetent rodents"
+
+[node name="Label3" type="Label" parent="." unique_id=813926718]
+visible = false
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 40.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+text = "Suppressing the squirrel union"
+
+[node name="Label4" type="Label" parent="." unique_id=1489058452]
+visible = false
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 40.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+text = "Making morale improve by any means"
+
+[node name="Timer" type="Timer" parent="." unique_id=1683435269]
+wait_time = 1.5
+autostart = true

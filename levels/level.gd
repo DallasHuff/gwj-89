@@ -2,7 +2,7 @@ class_name Level
 extends Node3D
 
 @onready var player: Player = %Player
-@onready var canvas: CanvasLayer = %CanvasLayer
+@onready var canvas: CanvasLayer = %LoadingScreen
 var player_init_position: Vector3
 
 func _ready() -> void:
@@ -10,10 +10,10 @@ func _ready() -> void:
 	add_to_group("reset")
 	player_init_position = player.global_position
 	# If running from editor, skip preloading particles
-	if OS.has_feature("editor"):
-		canvas.hide()
-		_start_spawners()
-		return
+	# if OS.has_feature("editor"):
+	# 	canvas.hide()
+	# 	_start_spawners()
+	# 	return
 
 	_hopper_particle_toggle(true)
 
