@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://djkkd60wdkp2o" path="res://Art_Assets/icons/newspaper.png" id="7_gkebk"]
 [ext_resource type="Texture2D" uid="uid://cdqx02kf51ria" path="res://Art_Assets/icons/stunned_rat.png" id="7_ufhoc"]
 [ext_resource type="Texture2D" uid="uid://dllv5qh2ddxw6" path="res://Art_Assets/icons/biohazard.png" id="11_8u842"]
+[ext_resource type="AudioStream" uid="uid://b4v0eanvnvifn" path="res://sound/fx/achievementwow.wav" id="13_swko2"]
 
 [sub_resource type="Resource" id="Resource_s5fcu"]
 script = ExtResource("2_52sdh")
@@ -110,6 +111,7 @@ achievement_list = Array[ExtResource("2_52sdh")]([SubResource("Resource_s5fcu"),
 
 [node name="AchievedSFX" type="AudioStreamPlayer" parent="." unique_id=480742394]
 unique_name_in_owner = true
+stream = ExtResource("13_swko2")
 bus = &"SFX"
 
 [node name="AchievementPanel" type="PanelContainer" parent="." unique_id=64493941]
