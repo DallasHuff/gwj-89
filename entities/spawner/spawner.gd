@@ -123,6 +123,7 @@ func spawn_specific(type: Trash.TrashType) -> void:
 	random_pos_offset.z += randf_range(-spawn_bounds_width, spawn_bounds_width)
 	var t: Trash = trash_scene.instantiate()
 	get_tree().root.add_child(t)
+	t.show()
 	t.trash_type = type
 	t.global_position = global_position + random_pos_offset
 	print("spawning specifically ", type)

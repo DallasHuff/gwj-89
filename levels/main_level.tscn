@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b2b65lfxuh6ri" path="res://levels/level.gd" id="1_bv0m5"]
 [ext_resource type="PackedScene" uid="uid://dksqsb7ouxc4c" path="res://entities/player/player.tscn" id="2_vy62f"]
 [ext_resource type="PackedScene" uid="uid://gdv62oa7bqy0" path="res://entities/spawner/spawner.tscn" id="3_bdauj"]
-[ext_resource type="Material" uid="uid://bus2f2s1exkwo" path="res://Art_Assets/generic_metal.tres" id="4_ss25c"]
+[ext_resource type="Material" uid="uid://cyf431k1jhkl5" path="res://Art_Assets/generic_metal.tres" id="4_ss25c"]
 [ext_resource type="PackedScene" uid="uid://0y1s4ra8pfw" path="res://entities/conveyor/straight_conveyor.tscn" id="4_vx07q"]
 [ext_resource type="PackedScene" uid="uid://c5v4jsdjsxx0v" path="res://entities/conveyor/portal_conveyor.tscn" id="5_e7con"]
 [ext_resource type="PackedScene" uid="uid://cr6hleb1ryg5e" path="res://entities/hopper/hopper.tscn" id="6_1g47i"]
@@ -20,9 +20,10 @@
 [ext_resource type="PackedScene" uid="uid://bdi6l3w760x6n" path="res://entities/hopper/zone_hopper.tscn" id="16_y0dua"]
 [ext_resource type="AudioStream" uid="uid://cv3bk5ce2fpck" path="res://sound/fx/conveyorbeltloopsquished.wav" id="17_vy62f"]
 [ext_resource type="PackedScene" uid="uid://b6pgrrfecfoqx" path="res://entities/trash/trash.tscn" id="18_bdauj"]
-[ext_resource type="AudioStream" uid="uid://bwsc7gn5tyjvj" path="res://sound/music/bgmLQ.mp3" id="19_87u3r"]
+[ext_resource type="AudioStream" uid="uid://dsdtu8ffow65c" path="res://sound/music/bgm.ogg" id="20_pc7vm"]
 [ext_resource type="PackedScene" uid="uid://b8pxa8scvpu40" path="res://entities/trash/paper/cardboard_model.tscn" id="24_drect"]
 [ext_resource type="Texture2D" uid="uid://mk41jvwbvfnr" path="res://Art_Assets/icons/can.png" id="24_n00sm"]
+[ext_resource type="Texture2D" uid="uid://dllv5qh2ddxw6" path="res://Art_Assets/icons/biohazard.png" id="26_dq1fi"]
 [ext_resource type="Texture2D" uid="uid://bwi1ax7dto4bl" path="res://Art_Assets/icons/jug.png" id="26_pc7vm"]
 [ext_resource type="Texture2D" uid="uid://djkkd60wdkp2o" path="res://Art_Assets/icons/newspaper.png" id="27_dq1fi"]
 
@@ -79,13 +80,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 [node name="Spawner" parent="conveyors1" unique_id=359273142 instance=ExtResource("3_bdauj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.948158, 5.5506554, -21.854704)
 spawn_timer_range_min = 4.0
-spawn_timer_start_delay = 20.0
+spawn_timer_start_delay = 15.0
 metal_chance = 0.55
 glass_chance = 0.05
 plastic_chance = 0.1
 paper_chance = 0.1
-body_chance = 0.008
-body_spawn_delay_sec = 1.0
+body_chance = 0.012
+body_spawn_delay_sec = 45.0
 
 [node name="funnel" type="CSGBox3D" parent="conveyors1" unique_id=561248060]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0.60661936, -21.862423)
@@ -580,19 +581,19 @@ visible = false
 
 [node name="MostEnvStuff" parent="EnvArt" unique_id=1804349761 instance=ExtResource("8_gdgmy")]
 
-[node name="ceiling_divider" parent="EnvArt/MostEnvStuff" index="0" unique_id=666712597]
+[node name="ceiling_divider" parent="EnvArt/MostEnvStuff" index="0" unique_id=1688083319]
 transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, -1.1498995, -1.3904743)
 
 [node name="Pits" parent="EnvArt" unique_id=716726612 instance=ExtResource("9_n00sm")]
 transform = Transform3D(-5.2453668e-08, 0, 1.2, 0, 1.2, 0, -1.2, 0, -5.2453668e-08, 17.760736, 2.5400305, -2.104785)
 
-[node name="temp_pits1" parent="EnvArt/Pits" index="0" unique_id=215721783]
+[node name="temp_pits1" parent="EnvArt/Pits" index="0" unique_id=947707714]
 surface_material_override/0 = SubResource("StandardMaterial3D_j6rvn")
 
 [node name="Pits2" parent="EnvArt" unique_id=1859049910 instance=ExtResource("9_n00sm")]
 transform = Transform3D(0.67314816, 0, 0.993414, 0, 1.1999999, 0, -0.993414, 0, 0.67314816, 4.7377186, 1.5434141, 6.8460665)
 
-[node name="temp_pits1" parent="EnvArt/Pits2" index="0" unique_id=215721783]
+[node name="temp_pits1" parent="EnvArt/Pits2" index="0" unique_id=947707714]
 surface_material_override/0 = SubResource("StandardMaterial3D_w8rp6")
 
 [node name="Lighting" type="Node3D" parent="EnvArt" unique_id=739360064]
@@ -730,13 +731,13 @@ transform = Transform3D(0.33, 0, 0, 0, 0.33, 0, 0, 0, 0.33, -5.27304, -1.1683216
 script = ExtResource("12_dq1fi")
 rotation_speed = 0.5
 
-[node name="Cube_043" parent="EnvArt/Ceiling/ceilingFan" index="0" unique_id=454830234]
+[node name="Cube_043" parent="EnvArt/Ceiling/ceilingFan" index="0" unique_id=1414639170]
 cast_shadow = 3
 
 [node name="ceilingOpenCircle" parent="EnvArt/Ceiling" unique_id=2060622937 instance=ExtResource("13_87u3r")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -5.321677, 14.989567, -4.692875)
 
-[node name="Cube_044" parent="EnvArt/Ceiling/ceilingOpenCircle" index="0" unique_id=1754449161]
+[node name="Cube_044" parent="EnvArt/Ceiling/ceilingOpenCircle" index="0" unique_id=220975031]
 transform = Transform3D(47.05589, 0, 0, 0, 1, 0, 0, 0, 47.05589, -0.11407471, 0.08654785, -0.20260811)
 cast_shadow = 3
 
@@ -1429,6 +1430,7 @@ enable_right_bumper = false
 
 [node name="BioZoneHopper" parent="." unique_id=388761586 instance=ExtResource("16_y0dua")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.056898, 0.49429703, -12.326057)
+target_count = 1
 wanted_trash_type = 4
 
 [node name="Zone" parent="BioZoneHopper" index="0" unique_id=1914070735]
@@ -1471,8 +1473,8 @@ volume_db = -10.0
 autoplay = true
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=2084850030]
-stream = ExtResource("19_87u3r")
-volume_db = -5.0
+stream = ExtResource("20_pc7vm")
+volume_db = -2.0
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=867338675]
 transform = Transform3D(0.9878544, 0, -0.15538284, 0.03427672, 0.9753654, 0.21791601, 0.15155505, -0.22059533, 0.96351904, 0.25354004, 3.8368726, -0.00015747547)
@@ -1487,32 +1489,29 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.344769, 4.6347227, -22.53
 texture = ExtResource("27_dq1fi")
 
 [node name="WarmupSpawner" parent="." unique_id=667641368 instance=ExtResource("3_bdauj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.863037, 4.698202, 9.753489)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.819224, 5.7194386, 6.292961)
+visible = false
 spawn_timer_start_delay = 10000.0
 metal_chance = 1.0
 glass_chance = 1.0
 plastic_chance = 1.0
 paper_chance = 1.0
 body_chance = 1.0
-body_spawn_delay_sec = 1.0
 
 [node name="Trash" parent="." unique_id=1578541971 instance=ExtResource("18_bdauj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5668592, 2.953517, 12.200748)
 
 [node name="CardboardModel" parent="Trash" unique_id=872440651 instance=ExtResource("24_drect")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12296152, 0.10290003, 0.29076672)
 
 [node name="Trash2" parent="." unique_id=888400118 instance=ExtResource("18_bdauj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.005761, 2.953517, 13.424323)
 
 [node name="CardboardModel" parent="Trash2" unique_id=19159022 instance=ExtResource("24_drect")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0654788, 0.10290003, 0)
 
 [node name="Trash3" parent="." unique_id=1640707946 instance=ExtResource("18_bdauj")]
 transform = Transform3D(0.95158905, 0, -0.30737323, 0, 1, 0, 0.30737323, 0, 0.95158905, 6.748461, 4.0513163, 13.708484)
 
 [node name="CardboardModel" parent="Trash3" unique_id=555716795 instance=ExtResource("24_drect")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.853611, 0.10290003, -2.8453865)
 
 [node name="Trash4" parent="." unique_id=1723283787 instance=ExtResource("18_bdauj")]
 transform = Transform3D(0.27716374, 0, -0.9608227, 0, 1, 0, 0.9608227, 0, 0.27716374, 7.5668592, 3.9859257, 12.200748)
@@ -1530,25 +1529,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0654788, 0.10290003, 0)
 transform = Transform3D(0.56322694, 0.675011, -0.47658747, -0.51528925, 0.7378077, 0.4360239, 0.6459508, 0, 0.76337904, 4.2851014, 2.953517, 12.200748)
 
 [node name="CardboardModel" parent="Trash6" unique_id=1898047511 instance=ExtResource("24_drect")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0654788, 0.10290003, 0)
 
 [node name="Trash7" parent="." unique_id=225074246 instance=ExtResource("18_bdauj")]
 transform = Transform3D(0.82726693, 0.56180906, 1.753251e-08, -0.4368297, 0.64323413, -0.6288319, -0.35328346, 0.5202119, 0.77754116, 6.1822424, 2.953517, 12.691801)
 
 [node name="CardboardModel" parent="Trash7" unique_id=1275113508 instance=ExtResource("24_drect")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0654788, 0.10290003, 0)
 
 [node name="Trash8" parent="." unique_id=1960636432 instance=ExtResource("18_bdauj")]
 transform = Transform3D(0.82726693, 0.56180906, 1.753251e-08, -0.4368297, 0.64323413, -0.6288319, -0.35328346, 0.5202119, 0.77754116, -14.57475, 2.953517, 10.735006)
 
 [node name="CardboardModel" parent="Trash8" unique_id=76574545 instance=ExtResource("24_drect")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0654788, 0.10290003, 0)
 
 [node name="Trash9" parent="." unique_id=672117710 instance=ExtResource("18_bdauj")]
 transform = Transform3D(0.6874214, -0.21218252, -0.69457203, -0.43682966, 0.6432341, -0.62883186, 0.5801997, 0.73568225, 0.34948525, -21.274094, 2.953517, -7.2292686)
 
 [node name="CardboardModel" parent="Trash9" unique_id=776970962 instance=ExtResource("24_drect")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0654788, 0.10290003, 0)
 
 [node name="Trash10" parent="." unique_id=984946131 instance=ExtResource("18_bdauj")]
 transform = Transform3D(0.86488265, 0.10814302, -0.49018687, -0.4368297, 0.64323413, -0.6288319, 0.24730122, 0.75799406, 0.60356206, -16.554146, 3.3972654, -24.057001)
@@ -1559,19 +1554,28 @@ transform = Transform3D(0.86488265, 0.10814302, -0.49018687, -0.4368297, 0.64323
 transform = Transform3D(0.82711107, 0.012381911, -0.5619023, -0.43682978, 0.6432343, -0.6288321, 0.35364872, 0.76556945, 0.5374348, -10.683985, 2.953517, -23.740515)
 
 [node name="CardboardModel" parent="Trash11" unique_id=1226032880 instance=ExtResource("24_drect")]
-transform = Transform3D(0.83268255, -0.44101328, -0.3348838, 0.3248128, 0.87877905, -0.34963512, 0.4484823, 0.18236032, 0.8749908, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1.0000002, 0, 0, 0, 1.0000004, 0, 0, 0)
 
 [node name="Trash12" parent="." unique_id=1840248187 instance=ExtResource("18_bdauj")]
 transform = Transform3D(0.82711107, 0.012381911, -0.5619023, -0.43682978, 0.6432343, -0.6288321, 0.35364872, 0.76556945, 0.5374348, -2.2383194, 2.953517, -6.1973705)
 
 [node name="CardboardModel" parent="Trash12" unique_id=841146777 instance=ExtResource("24_drect")]
-transform = Transform3D(0.83268255, -0.44101328, -0.3348838, 0.3248128, 0.87877905, -0.34963512, 0.4484823, 0.18236032, 0.8749908, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1.0000002, 0, 0, 0, 1.0000004, 0, 0, 0)
 
 [node name="Trash13" parent="." unique_id=361048882 instance=ExtResource("18_bdauj")]
 transform = Transform3D(0.45681915, 0.7897152, 0.40947086, -0.6700851, 0.6082339, -0.4254854, -0.58506626, -0.080010444, 0.807029, 6.960062, 2.953517, -8.031475)
 
 [node name="CardboardModel" parent="Trash13" unique_id=59521773 instance=ExtResource("24_drect")]
-transform = Transform3D(0.83268255, -0.44101328, -0.3348838, 0.3248128, 0.87877905, -0.34963512, 0.4484823, 0.18236032, 0.8749908, 0, 0, 0)
+
+[node name="Sprite3D4" type="Sprite3D" parent="." unique_id=1275914916]
+transform = Transform3D(0.9702239, 0, 0.24220978, 0, 1, 0, -0.24220978, 0, 0.9702239, -22.606045, 4.729263, -11.652526)
+texture = ExtResource("26_dq1fi")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1153077465]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6111288, 0.5473112, -9.615746)
+visible = false
+use_collision = true
+size = Vector3(5.29257, 2, 0.5)
 
 [editable path="EnvArt/MostEnvStuff"]
 [editable path="EnvArt/Pits"]

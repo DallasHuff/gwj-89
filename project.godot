@@ -24,6 +24,7 @@ general/default_playback_type.web=0
 AchievementTracker="*uid://cfbr318tkpgjm"
 PauseMenu="*uid://bahfys0ax0vya"
 EventsBus="*uid://cu2qu8kfas66v"
+WinGameMenu="*uid://djr6kpw84fn52"
 
 [debug]
 

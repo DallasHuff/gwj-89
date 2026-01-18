@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bv0m7ljrmdo66"]
+
+[ext_resource type="Script" uid="uid://bn6c6gm6dlmfl" path="res://entities/trash/body/body_model_1.gd" id="1_d7vmj"]
+[ext_resource type="PackedScene" uid="uid://8y5sd5dgj0w1" path="res://Art_Assets/Characters/Racoon/Racoon.glb" id="2_d7vmj"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_fvs38"]
+points = PackedVector3Array(0.3, -0.3, 0.3, 0.55, -0.3, 0, 0.3, -0.3, -0.3, -0.3, -0.3, -0.3, -0.55, -0.3, 0, -0.3, -0.3, 0.3, 0.3, 0.45, 0.3, 0.55, 0.45, 0, 0.3, 0.45, -0.3, -0.55, 0.45, 0, -0.3, 0.45, 0.3, -0.3, 0.45, -0.3, 0, 0.6, 0, 0, -0.45, 0)
+
+[node name="BodyModel1" type="CollisionShape3D" unique_id=292822]
+shape = SubResource("ConvexPolygonShape3D_fvs38")
+script = ExtResource("1_d7vmj")
+
+[node name="Racoon" parent="." unique_id=988698248 instance=ExtResource("2_d7vmj")]
+transform = Transform3D(-0.4, 0, -3.4969112e-08, 0, 0.4, 0, 3.4969112e-08, 0, -0.4, 0, -1.0774641, 0)

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://0y1s4ra8pfw" path="res://entities/conveyor/straight_conveyor.tscn" id="1_7kvxu"]
 [ext_resource type="Script" uid="uid://li26rrvvpq1r" path="res://entities/conveyor/portal_conveyor.gd" id="1_rw07l"]
-[ext_resource type="Material" uid="uid://bus2f2s1exkwo" path="res://Art_Assets/generic_metal.tres" id="3_ualx7"]
+[ext_resource type="Material" uid="uid://cyf431k1jhkl5" path="res://Art_Assets/generic_metal.tres" id="3_ualx7"]
 
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_7kvxu"]
 albedo_color = Color(0.4, 0.23386669, 0.044000007, 1)
@@ -54,13 +54,13 @@ material = SubResource("ORMMaterial3D_7kvxu")
 [node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=468491861]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.30775, 1)
 use_collision = true
-size = Vector3(1.2, 1.9813843, 2)
+size = Vector3(1.15, 1.981, 1.95)
 material = ExtResource("3_ualx7")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="." unique_id=89408545]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.30775, 5)
 use_collision = true
-size = Vector3(1.2, 1.9813843, 2)
+size = Vector3(1.15, 1.981, 1.95)
 material = ExtResource("3_ualx7")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=101412452]

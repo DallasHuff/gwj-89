@@ -3,28 +3,36 @@
 [ext_resource type="Script" uid="uid://1phjkj6y0ur3" path="res://autoloads/achievement_tracker/achievement_tracker.gd" id="1_600lq"]
 [ext_resource type="Script" uid="uid://ensdc4nbfc1e" path="res://achievements/achievement.gd" id="2_52sdh"]
 [ext_resource type="Texture2D" uid="uid://tymjsr8uefq5" path="res://Art_Assets/icons/loaded_up.png" id="3_ogs1t"]
+[ext_resource type="Texture2D" uid="uid://e10rq4jbh1b" path="res://Art_Assets/icons/mouse_cursor.png" id="3_s5fcu"]
+[ext_resource type="Texture2D" uid="uid://cav187jg45fws" path="res://Art_Assets/icons/left_mouse.png" id="4_56a88"]
 [ext_resource type="Shader" uid="uid://bbrreauqpd2by" path="res://shaders/subtle_noise.gdshader" id="4_eiejm"]
 [ext_resource type="Texture2D" uid="uid://dgubfkbbum8es" path="res://Art_Assets/icons/wine.png" id="4_linxn"]
 [ext_resource type="Texture2D" uid="uid://bwi1ax7dto4bl" path="res://Art_Assets/icons/jug.png" id="5_5j4n1"]
+[ext_resource type="Texture2D" uid="uid://qnylaspgm4qf" path="res://Art_Assets/icons/right_mouse.png" id="5_8u842"]
 [ext_resource type="Texture2D" uid="uid://mk41jvwbvfnr" path="res://Art_Assets/icons/can.png" id="6_ogs1t"]
 [ext_resource type="Texture2D" uid="uid://djkkd60wdkp2o" path="res://Art_Assets/icons/newspaper.png" id="7_gkebk"]
+[ext_resource type="Texture2D" uid="uid://cdqx02kf51ria" path="res://Art_Assets/icons/stunned_rat.png" id="7_ufhoc"]
+[ext_resource type="Texture2D" uid="uid://dllv5qh2ddxw6" path="res://Art_Assets/icons/biohazard.png" id="11_8u842"]
 
 [sub_resource type="Resource" id="Resource_s5fcu"]
 script = ExtResource("2_52sdh")
 display_name = "Hover Over Me!"
 description = "Hover your mouse over a tooltip"
+icon = ExtResource("3_s5fcu")
 metadata/_custom_type_script = "uid://ensdc4nbfc1e"
 
 [sub_resource type="Resource" id="Resource_8u842"]
 script = ExtResource("2_52sdh")
 display_name = "Left Click to Grab"
 description = "Picked up an item"
+icon = ExtResource("4_56a88")
 metadata/_custom_type_script = "uid://ensdc4nbfc1e"
 
 [sub_resource type="Resource" id="Resource_ufhoc"]
 script = ExtResource("2_52sdh")
 display_name = "Right Click to Drop"
 description = "Dropped an item"
+icon = ExtResource("5_8u842")
 metadata/_custom_type_script = "uid://ensdc4nbfc1e"
 
 [sub_resource type="Resource" id="Resource_g5vmu"]
@@ -38,6 +46,7 @@ metadata/_custom_type_script = "uid://ensdc4nbfc1e"
 script = ExtResource("2_52sdh")
 display_name = "Head Banger"
 description = "Hit your stack of items on something"
+icon = ExtResource("7_ufhoc")
 metadata/_custom_type_script = "uid://ensdc4nbfc1e"
 
 [sub_resource type="Resource" id="Resource_5j4n1"]
@@ -72,6 +81,7 @@ metadata/_custom_type_script = "uid://ensdc4nbfc1e"
 script = ExtResource("2_52sdh")
 display_name = "OSHA Violation"
 description = "Dispose of biowaste"
+icon = ExtResource("11_8u842")
 metadata/_custom_type_script = "uid://ensdc4nbfc1e"
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_3rcqm"]
@@ -135,7 +145,7 @@ size_flags_stretch_ratio = 2.0
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/normal_font_size = 50
 text = "NYI Name"
 horizontal_alignment = 1
 
@@ -143,6 +153,7 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 25
 text = "NYI Description"
 fit_content = true
 scroll_active = false

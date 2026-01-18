@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="TrashData" format=3 uid="uid://b3ultdjl6ldo0"]
 
-[ext_resource type="AudioStream" uid="uid://bdd5m8yuqjc34" path="res://sound/fx/paperdropsquished.wav" id="1_4jqny"]
+[ext_resource type="AudioStream" uid="uid://dfy3qwa1grg7c" path="res://sound/fx/paperdrop.wav" id="1_4jqny"]
 [ext_resource type="PackedScene" uid="uid://cgjgab2g2p8ee" path="res://entities/trash/paper/newspaper_model.tscn" id="2_4jqny"]
 [ext_resource type="AudioStream" uid="uid://diuyfqfgd7ii2" path="res://sound/fx/paperpickupsquished.wav" id="3_bkoyh"]
 [ext_resource type="Script" uid="uid://uha8a6otv7d3" path="res://entities/trash/trash_data.gd" id="4_ik33v"]
