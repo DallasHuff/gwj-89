@@ -160,5 +160,12 @@ metadata/_custom_type_script = "uid://h5au57bu7aot"
 [node name="Racoon" parent="." unique_id=2019771440 instance=ExtResource("10_byn6u")]
 transform = Transform3D(-0.39901733, 0, 0.028020933, 0, 0.4, 0, -0.028020933, 0, -0.39901733, 0.013773978, -0.80081546, -0.28038448)
 
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=438131090]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 2.0857296, -0.31973988)
+light_color = Color(0.91856396, 0.84966993, 0.76191723, 1)
+light_energy = 2.0
+spot_range = 4.0
+spot_angle = 26.81
+
 [editable path="Rat1_rund"]
 [editable path="Racoon"]

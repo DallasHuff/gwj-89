@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://6jgg4u7ae6ed" path="res://Art_Assets/Interactables/oildrum.glb" id="9_87sjm"]
 [ext_resource type="PackedScene" uid="uid://dghomsvg0mdk8" path="res://Art_Assets/Interactables/soap.glb" id="10_4lpg5"]
 [ext_resource type="PackedScene" uid="uid://c8c3sejdt7xbe" path="res://Art_Assets/Interactables/winebottle.glb" id="11_s5ye2"]
+[ext_resource type="PackedScene" uid="uid://c1rstasgu45gf" path="res://Art_Assets/Environment/Foreground/crushers.glb" id="12_pfs6q"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2sxgn"]
 size = Vector3(100, 1, 100)
@@ -72,4 +73,15 @@ transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0.034350157, 1.28776
 [node name="winebottle2" parent="." unique_id=1419497994 instance=ExtResource("11_s5ye2")]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0.034350157, 1.2877648, -0.37500286)
 
+[node name="crushers" parent="." unique_id=759935260 instance=ExtResource("12_pfs6q")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4, -2.7206469, -3)
+
+[node name="Skeleton3D" parent="crushers/Armature" parent_id_path=PackedInt32Array(759935260, 1136314380) index="0" unique_id=179317344]
+bones/1/rotation = Quaternion(-0.45691344, 0.45357174, 0.53605145, 0.5460326)
+bones/3/rotation = Quaternion(0.17149092, -0.1761587, 0.6843463, 0.6864613)
+
+[node name="AnimationPlayer" parent="crushers" index="2" unique_id=1112463518]
+autoplay = &"grindBabyGrind"
+
 [editable path="Racoon"]
+[editable path="crushers"]
