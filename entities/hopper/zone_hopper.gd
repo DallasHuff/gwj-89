@@ -15,7 +15,7 @@ var scream_delay := 5.
 
 func _ready() -> void:
     add_to_group("reset")
-    display.text = "%03d" % (target_count - processed_count)
+    _update_text()
 
 func _on_zone_body_entered(body: Node3D) -> void:
     if not body is Trash:

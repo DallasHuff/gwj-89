@@ -78,6 +78,7 @@ top_level = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="Spawner" parent="conveyors1" unique_id=359273142 instance=ExtResource("3_bdauj")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.948158, 5.5506554, -21.854704)
 spawn_timer_range_min = 4.0
 spawn_timer_start_delay = 15.0
@@ -86,6 +87,7 @@ glass_chance = 0.05
 plastic_chance = 0.1
 paper_chance = 0.1
 body_chance = 0.016
+body_spawn_delay_sec = 25.0
 
 [node name="funnel" type="CSGBox3D" parent="conveyors1" unique_id=561248060]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0.60661936, -21.862423)
@@ -1475,10 +1477,12 @@ transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70
 stream = ExtResource("17_vy62f")
 volume_db = -10.0
 autoplay = true
+bus = &"SFX"
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=2084850030]
 stream = ExtResource("20_pc7vm")
 volume_db = -2.0
+bus = &"Music"
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=867338675]
 transform = Transform3D(0.9878544, 0, -0.15538284, 0.03427672, 0.9753654, 0.21791601, 0.15155505, -0.22059533, 0.96351904, 0.25354004, 3.8368726, -0.00015747547)

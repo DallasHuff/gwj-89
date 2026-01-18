@@ -5,12 +5,13 @@ extends Node3D
 @onready var canvas: CanvasLayer = %LoadingScreen
 @onready var warmup_spawner: Spawner = $WarmupSpawner
 @onready var music: AudioStreamPlayer = $Music
+@onready var body_spawner: Spawner = %Spawner
 var player_init_position: Vector3
 
 func _ready() -> void:
 	add_to_group("level")
 	add_to_group("reset")
-	get_tree().create_timer(45).timeout.connect(_force_spawn_body)
+	get_tree().create_timer(30).timeout.connect(_force_spawn_body)
 	player_init_position = player.global_position
 	# If running from editor, skip preloading particles
 	if OS.has_feature("editor"):
@@ -73,8 +74,8 @@ func reset() -> void:
 	player.position = player_init_position
 
 func _force_spawn_body() -> void:
-	var spawner: Spawner = get_tree().get_nodes_in_group("spawner").pick_random()
-	spawner.spawn_specific(Trash.TrashType.BODY)
+	body_spawner.spawn_specific(Trash.TrashType.BODY)
+	get_tree().create_timer(30).timeout.connect(_force_spawn_body)
 
 func _warmup_trash() -> void:
 	var types: Array[Trash.TrashType] = [Trash.TrashType.BODY, Trash.TrashType.PAPER, Trash.TrashType.PLASTIC, Trash.TrashType.METAL, Trash.TrashType.GLASS]
